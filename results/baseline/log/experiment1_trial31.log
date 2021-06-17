@@ -1,580 +1,499 @@
 0.0,0.0,[debug],logger,init,time
 ROBOTS_CONFIG=[{"avg_speed": 0.15, "battery_charge": 0.22, "battery_discharge_rate": 0.00011, "id": 0, "local_plan": [["navigation", ["IC Room 4", [[-19.0, 18.0, -1.57], [-19.0, 16.0], [-37.0, 16.0], [-37.0, 33.95], [-39.44, 33.95, 0.0]]]], ["approach_person", ["nurse"]], ["authenticate_person", ["nurse"]], ["operate_drawer", ["open"]], ["send_message", ["nurse"]], ["wait_message", ["r1"]], ["operate_drawer", ["close"]], ["navigation", ["Laboratory", [[-39.44, 33.95, 0.0], [-37.0, 33.95], [-37.0, 16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]]], ["approach_robot", ["lab_arm"]], ["operate_drawer", ["open"]], ["send_message", ["lab_arm"]], ["wait_message", ["r1"]], ["operate_drawer", ["close"]]], "location": "PC Room 6", "position": [-19.0, 18.0, -1.57], "skills": ["approach_person", "approach_robot", "authenticate_person", "deposit", "navigation", "operate_drawer", "pick_up"]}, {"avg_speed": 0.15, "battery_charge": 0.56, "battery_discharge_rate": 0.0001, "id": 1, "local_plan": null, "location": "IC Room 5", "position": [-32.88, 33.98, 3.14], "skills": ["approach_person", "approach_robot", "authenticate_person", "deposit", "navigation", "operate_drawer", "pick_up"]}, {"avg_speed": 0.15, "battery_charge": 0.55, "battery_discharge_rate": 0.00015000000000000001, "id": 2, "local_plan": null, "location": "PC Room 8", "position": [-11.5, 18.0, -1.57], "skills": ["approach_person", "approach_robot", "authenticate_person", "deposit", "navigation", "operate_drawer", "pick_up"]}, {"avg_speed": 0.15, "battery_charge": 0.44, "battery_discharge_rate": 0.00019, "id": 3, "local_plan": null, "location": "PC Room 5", "position": [-21.0, 18.0, -1.57], "skills": ["approach_person", "approach_robot", "authenticate_person", "deposit", "navigation", "pick_up"]}, {"avg_speed": 0.15, "battery_charge": 0.15, "battery_discharge_rate": 0.00014000000000000001, "id": 4, "local_plan": null, "location": "IC Room 3", "position": [-40.23, 25.37, 0.0], "skills": ["approach_person", "approach_robot", "authenticate_person", "deposit", "navigation", "operate_drawer", "pick_up"]}]
-NURSES_CONFIG=[{"location": "IC Room 4", "position": [-38.44, 34.95, 0.0]}]
-logger,1623136194551007032,Simulation open
+NURSES_CONFIG=[{"location": "IC Room 4", "position": [-41.44, 31.950000000000003, 0.0]}]
+logger,1623277691687148809,Simulation open
 0.0,[debug],logger,init,subcribing to in the topic /log
-1.54999995232,[debug],turtlebot1,move-base-info,Move_base is up and ok....,
-1.70000004768,[debug],turtlebot4,move-base-info,Move_base is up and ok....,
-1.81666660309,[debug],turtlebot5,move-base-info,Move_base is up and ok....,
-1.86666679382,[debug],turtlebot2,move-base-info,Move_base is up and ok....,
-2.15000009537,[debug],turtlebot3,move-base-info,Move_base is up and ok....,
-3.46666669846,[info],turtlebot2,skill-life-cycle,init_robobt,(status=RUNNING, parameters=[])
-3.6333334446,[info],turtlebot1,skill-life-cycle,init_robobt,(status=RUNNING, parameters=[])
-9.8833334446,[info],turtlebot1,skill-life-cycle,navigation,(status=STARTED, parameters=[[-19.0, 16.0, 3.141592653589793, True], [-37.0, 16.0, 1.5707963267948966, True], [-37.0, 33.95, 3.141592653589793, True], [-39.44, 33.95, 0.0, False]])
-23.2333333492,[debug],turtlebot1,simulation,robot-pose,x=-19.27;y=17.46;yaw=-1.98
-23.3833334446,[debug],turtlebot1,simulation,robot-pose,x=-19.27;y=17.46;yaw=-1.98
-25.3666667938,[debug],turtlebot2,simulation,robot-pose,x=-32.89;y=33.97;yaw=-3.10
-25.4000000954,[debug],turtlebot2,simulation,robot-pose,x=-32.89;y=33.97;yaw=-3.10
-25.7166666985,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-25.7166666985,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-26.0333333015,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
-26.0333333015,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
-26.4333333969,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.34
-26.4333333969,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.34
-38.2333333492,[debug],turtlebot1,simulation,robot-pose,x=-19.18;y=16.44;yaw=-2.07
-38.3833334446,[debug],turtlebot1,simulation,robot-pose,x=-19.18;y=16.44;yaw=-2.07
-40.3666667938,[debug],turtlebot2,simulation,robot-pose,x=-32.89;y=33.97;yaw=-3.10
-40.4000000954,[debug],turtlebot2,simulation,robot-pose,x=-32.89;y=33.97;yaw=-3.10
-40.7166666985,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-40.7166666985,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-41.0333333015,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
-41.0333333015,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
-41.4166667461,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-19;y=16)
-41.4166667461,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-19;y=16)
-41.4333333969,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-41.4333333969,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-41.4333333969,[debug],turtlebot1,task-update,navigation,way-point-reached,25.0%
-53.25,[debug],turtlebot1,simulation,robot-pose,x=-19.86;y=16.13;yaw=-2.71
-53.3833334446,[debug],turtlebot1,simulation,robot-pose,x=-19.86;y=16.13;yaw=-2.71
-55.3666667938,[debug],turtlebot2,simulation,robot-pose,x=-32.89;y=33.97;yaw=-3.10
-55.4000000954,[debug],turtlebot2,simulation,robot-pose,x=-32.89;y=33.97;yaw=-3.10
-55.7333333492,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-55.7333333492,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-56.0333333015,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
-56.0333333015,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
-56.4333333969,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-56.4333333969,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-61.8666667938,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-19.0, 16.0, 3.141592653589793, True], [-37.0, 16.0, 1.5707963267948966, True], [-37.0, 33.95, 3.141592653589793, True], [-39.44, 33.95, 0.0, False]])
-68.2333333492,[debug],turtlebot1,simulation,robot-pose,x=-22.17;y=15.97;yaw=-3.10
-68.3666667938,[debug],turtlebot1,simulation,robot-pose,x=-22.17;y=15.97;yaw=-3.10
-70.3666667938,[debug],turtlebot2,simulation,robot-pose,x=-32.89;y=33.97;yaw=-3.10
-70.3833334446,[debug],turtlebot2,simulation,robot-pose,x=-32.89;y=33.97;yaw=-3.10
-70.7166666985,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-70.7166666985,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-71.0333333015,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
-71.0333333015,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
-71.4333333969,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-71.4333333969,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-83.2333333492,[debug],turtlebot1,simulation,robot-pose,x=-24.57;y=15.87;yaw=-3.10
-83.4000000954,[debug],turtlebot1,simulation,robot-pose,x=-24.57;y=15.87;yaw=-3.10
-85.3666667938,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.10
-85.3833334446,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.10
-85.7166666985,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-85.7166666985,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-86.0333333015,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
-86.0333333015,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
-86.4333333969,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-86.4333333969,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-98.25,[debug],turtlebot1,simulation,robot-pose,x=-27.28;y=16.14;yaw=-3.13
-98.4333333969,[debug],turtlebot1,simulation,robot-pose,x=-27.28;y=16.14;yaw=-3.13
-100.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.10
-100.400000095,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.10
-100.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-100.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-101.033333302,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
-101.049999952,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
-101.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-101.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-113.233333349,[debug],turtlebot1,simulation,robot-pose,x=-29.82;y=16.19;yaw=3.11
-113.383333445,[debug],turtlebot1,simulation,robot-pose,x=-29.82;y=16.19;yaw=3.11
-115.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
-115.416666746,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
-115.733333349,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-115.733333349,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-116.033333302,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
-116.033333302,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
-116.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-116.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-118.566666603,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-19.0, 16.0, 3.141592653589793, True], [-37.0, 16.0, 1.5707963267948966, True], [-37.0, 33.95, 3.141592653589793, True], [-39.44, 33.95, 0.0, False]])
-128.233333349,[debug],turtlebot1,simulation,robot-pose,x=-32.32;y=16.20;yaw=-3.14
-128.433333397,[debug],turtlebot1,simulation,robot-pose,x=-32.32;y=16.20;yaw=-3.14
-130.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
-130.383333445,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
-130.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-130.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-131.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.00;y=18.00;yaw=-1.54
-131.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.00;y=18.00;yaw=-1.54
-131.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-131.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-143.233333349,[debug],turtlebot1,simulation,robot-pose,x=-34.82;y=16.20;yaw=-3.14
-143.383333445,[debug],turtlebot1,simulation,robot-pose,x=-34.82;y=16.20;yaw=-3.14
-145.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
-145.400000095,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
-145.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-145.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-146.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.00;y=18.00;yaw=-1.54
-146.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.00;y=18.00;yaw=-1.54
-146.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-146.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-158.233333349,[debug],turtlebot1,simulation,robot-pose,x=-36.24;y=16.12;yaw=2.58
-158.400000095,[debug],turtlebot1,simulation,robot-pose,x=-36.24;y=16.12;yaw=2.58
-160.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
-160.400000095,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
-160.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-160.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-161.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.00;y=18.00;yaw=-1.54
-161.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.00;y=18.00;yaw=-1.54
-161.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-161.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-164.900000095,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-37;y=16)
-164.900000095,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-37;y=16)
-165.099999905,[debug],turtlebot1,task-update,navigation,way-point-reached,50.0%
-173.233333349,[debug],turtlebot1,simulation,robot-pose,x=-36.70;y=18.60;yaw=1.60
-173.366666794,[debug],turtlebot1,simulation,robot-pose,x=-36.70;y=18.60;yaw=1.60
-175.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
-175.383333445,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
-175.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-175.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-176.049999952,[debug],turtlebot4,simulation,robot-pose,x=-21.00;y=18.00;yaw=-1.54
-176.049999952,[debug],turtlebot4,simulation,robot-pose,x=-21.00;y=18.00;yaw=-1.54
-176.25,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-19.0, 16.0, 3.141592653589793, True], [-37.0, 16.0, 1.5707963267948966, True], [-37.0, 33.95, 3.141592653589793, True], [-39.44, 33.95, 0.0, False]])
-176.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-176.466666698,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-188.233333349,[debug],turtlebot1,simulation,robot-pose,x=-36.92;y=32.69;yaw=1.62
-188.400000095,[debug],turtlebot1,simulation,robot-pose,x=-36.92;y=32.69;yaw=1.62
-190.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
-190.400000095,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
-190.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-190.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-191.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.00;y=18.00;yaw=-1.54
-191.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.00;y=18.00;yaw=-1.54
-191.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-191.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-195.616666794,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-37;y=33.95)
-195.633333445,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-37;y=33.95)
-195.75,[debug],turtlebot1,task-update,navigation,way-point-reached,75.0%
-203.233333349,[debug],turtlebot1,simulation,robot-pose,x=-37.11;y=33.60;yaw=2.35
-203.433333397,[debug],turtlebot1,simulation,robot-pose,x=-37.11;y=33.60;yaw=2.35
-205.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.91;y=33.97;yaw=-3.09
-205.400000095,[debug],turtlebot2,simulation,robot-pose,x=-32.91;y=33.97;yaw=-3.09
-205.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-205.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-206.049999952,[debug],turtlebot4,simulation,robot-pose,x=-21.01;y=18.00;yaw=-1.54
-206.049999952,[debug],turtlebot4,simulation,robot-pose,x=-21.01;y=18.00;yaw=-1.54
-206.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-206.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-218.233333349,[debug],turtlebot1,simulation,robot-pose,x=-37.41;y=34.03;yaw=2.26
-218.400000095,[debug],turtlebot1,simulation,robot-pose,x=-37.41;y=34.03;yaw=2.26
-220.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.91;y=33.97;yaw=-3.08
-220.400000095,[debug],turtlebot2,simulation,robot-pose,x=-32.91;y=33.97;yaw=-3.08
-220.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-220.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-221.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.01;y=18.00;yaw=-1.54
-221.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.01;y=18.00;yaw=-1.54
-221.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-221.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-233.233333349,[debug],turtlebot1,simulation,robot-pose,x=-37.42;y=34.04;yaw=2.26
-233.416666746,[debug],turtlebot1,simulation,robot-pose,x=-37.42;y=34.04;yaw=2.26
-234.033333302,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-19.0, 16.0, 3.141592653589793, True], [-37.0, 16.0, 1.5707963267948966, True], [-37.0, 33.95, 3.141592653589793, True], [-39.44, 33.95, 0.0, False]])
-235.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.91;y=33.97;yaw=-3.07
-235.416666746,[debug],turtlebot2,simulation,robot-pose,x=-32.91;y=33.97;yaw=-3.07
-235.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-235.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-236.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.01;y=18.00;yaw=-1.54
-236.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.01;y=18.00;yaw=-1.54
-236.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-236.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-248.25,[debug],turtlebot1,simulation,robot-pose,x=-37.42;y=34.03;yaw=2.22
-248.400000095,[debug],turtlebot1,simulation,robot-pose,x=-37.42;y=34.03;yaw=2.22
-250.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.91;y=33.97;yaw=-3.06
-250.383333445,[debug],turtlebot2,simulation,robot-pose,x=-32.91;y=33.97;yaw=-3.06
-250.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-250.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-251.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.02;y=18.00;yaw=-1.54
-251.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.02;y=18.00;yaw=-1.54
-251.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-251.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-263.233333349,[debug],turtlebot1,simulation,robot-pose,x=-37.42;y=34.03;yaw=2.33
-263.366666794,[debug],turtlebot1,simulation,robot-pose,x=-37.42;y=34.03;yaw=2.33
-265.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.91;y=33.97;yaw=-3.06
-265.416666746,[debug],turtlebot2,simulation,robot-pose,x=-32.91;y=33.97;yaw=-3.06
-265.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-265.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-266.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.02;y=18.00;yaw=-1.54
-266.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.02;y=18.00;yaw=-1.54
-266.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-266.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-278.233333349,[debug],turtlebot1,simulation,robot-pose,x=-37.42;y=34.04;yaw=2.29
-278.383333445,[debug],turtlebot1,simulation,robot-pose,x=-37.42;y=34.04;yaw=2.29
-280.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.92;y=33.98;yaw=-3.05
-280.400000095,[debug],turtlebot2,simulation,robot-pose,x=-32.92;y=33.98;yaw=-3.05
-280.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-280.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-281.049999952,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-281.049999952,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-281.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-281.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-291.033333302,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-19.0, 16.0, 3.141592653589793, True], [-37.0, 16.0, 1.5707963267948966, True], [-37.0, 33.95, 3.141592653589793, True], [-39.44, 33.95, 0.0, False]])
-293.233333349,[debug],turtlebot1,simulation,robot-pose,x=-37.42;y=34.05;yaw=2.44
-293.383333445,[debug],turtlebot1,simulation,robot-pose,x=-37.42;y=34.05;yaw=2.44
-295.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.92;y=33.98;yaw=-3.05
-295.400000095,[debug],turtlebot2,simulation,robot-pose,x=-32.92;y=33.98;yaw=-3.05
-295.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-295.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
-296.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-296.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-296.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-296.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-308.233333349,[debug],turtlebot1,simulation,robot-pose,x=-37.40;y=34.07;yaw=2.57
-308.383333445,[debug],turtlebot1,simulation,robot-pose,x=-37.40;y=34.07;yaw=2.57
-310.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.92;y=33.98;yaw=-3.06
-310.383333445,[debug],turtlebot2,simulation,robot-pose,x=-32.92;y=33.98;yaw=-3.06
-310.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-310.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-311.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-311.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-311.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-311.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-323.233333349,[debug],turtlebot1,simulation,robot-pose,x=-37.46;y=34.14;yaw=2.40
-323.383333445,[debug],turtlebot1,simulation,robot-pose,x=-37.46;y=34.14;yaw=2.40
-325.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.92;y=33.98;yaw=-3.06
-325.383333445,[debug],turtlebot2,simulation,robot-pose,x=-32.92;y=33.98;yaw=-3.06
-325.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-325.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-326.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-326.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-326.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-326.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-338.233333349,[debug],turtlebot1,simulation,robot-pose,x=-39.06;y=34.19;yaw=-0.75
-338.383333445,[debug],turtlebot1,simulation,robot-pose,x=-39.06;y=34.19;yaw=-0.75
-340.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-340.400000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-340.666666746,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-39.44;y=33.95)
-340.666666746,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-39.44;y=33.95)
-340.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-340.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-340.933333397,[debug],turtlebot1,task-update,navigation,way-point-reached,100.0%
-341.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-341.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-341.033333302,[info],turtlebot1,skill-life-cycle,approach_person,(status=STARTED, parameters=['nurse'])
-341.099999905,[debug],turtlebot1,task-update,approach_person,localize-person,(who=nurse)
-341.200000048,[debug],turtlebot1,task-update,approach_person,goto-person,(who=nurse)
-341.299999952,[info],turtlebot1,skill-life-cycle,authenticate_person,(status=STARTED, parameters=['nurse'])
-341.349999905,[debug],turtlebot1,task-update,authenticate_person,request-authentication,(to=nurse)
-341.349999905,[info],nurse,sync,received-request,(status=sending-request)
-341.416666746,[info],nurse,sync,received-request,(status=sending-request)
-341.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-341.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-341.849999905,[debug],turtlebot1,task-update,authenticate_person,received-authentication,(from=nurse)
-341.966666698,[info],turtlebot1,skill-life-cycle,operate_drawer,(status=STARTED, parameters=['open'])
-342.016666651,[debug],turtlebot1,task-update,operate_drawer,open
-343.166666746,[info],turtlebot1,skill-life-cycle,send_message,(status=STARTED, parameters=['nurse'])
-343.25,[info],turtlebot1,sync,send-message,(to=nurse)
-344.25,[info],nurse,sync,wait-message,(status=message-received)
-344.383333445,[info],nurse,sync,wait-message,(status=message-received)
-347.316666603,[info],turtlebot1,skill-life-cycle,wait_message,(status=STARTED, parameters=['r1'])
-348.383333445,[info],turtlebot1,sync,wait-message,(status=message-received)
-348.5,[info],turtlebot1,skill-life-cycle,operate_drawer,(status=STARTED, parameters=['close'])
-348.566666603,[debug],turtlebot1,task-update,operate_drawer,close
-349.666666746,[info],turtlebot1,skill-life-cycle,navigation,(status=STARTED, parameters=[[-37.0, 33.95, -1.5707963267948966, True], [-37.0, 16.0, 0.0, True], [-26.0, 16.0, -1.5707963267948966, True], [-26.0, 13.0, 1.57, False]])
-349.983333349,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-37.0, 33.95, -1.5707963267948966, True], [-37.0, 16.0, 0.0, True], [-26.0, 16.0, -1.5707963267948966, True], [-26.0, 13.0, 1.57, False]])
-353.233333349,[debug],turtlebot1,simulation,robot-pose,x=-39.06;y=34.16;yaw=-0.04
-353.400000095,[debug],turtlebot1,simulation,robot-pose,x=-39.06;y=34.16;yaw=-0.04
-354.25,[info],nurse,sync,wait-message,(status=message-received)
-354.383333445,[info],nurse,sync,wait-message,(status=message-received)
-355.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-355.383333445,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-355.733333349,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-355.733333349,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-356.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-356.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-356.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-356.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-361.349999905,[info],nurse,sync,request-sent,(status=waiting)
-361.400000095,[info],nurse,sync,request-sent,(status=waiting)
-364.25,[info],nurse,sync,wait-message,(status=message-received)
-364.400000095,[info],nurse,sync,wait-message,(status=message-received)
-368.216666698,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-37;y=33.95)
-368.216666698,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-37;y=33.95)
-368.233333349,[debug],turtlebot1,simulation,robot-pose,x=-37.36;y=34.26;yaw=-1.53
-368.283333302,[debug],turtlebot1,task-update,navigation,way-point-reached,25.0%
-368.383333445,[debug],turtlebot1,simulation,robot-pose,x=-37.36;y=34.26;yaw=-1.53
-370.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-370.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-370.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-370.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-371.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-371.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-371.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-371.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-374.25,[info],nurse,sync,wait-message,(status=message-received)
-374.366666794,[info],nurse,sync,wait-message,(status=message-received)
-383.233333349,[debug],turtlebot1,simulation,robot-pose,x=-36.84;y=33.64;yaw=-1.07
-383.383333445,[debug],turtlebot1,simulation,robot-pose,x=-36.84;y=33.64;yaw=-1.07
-385.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-385.400000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-385.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-385.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-386.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-386.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-386.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-386.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-398.233333349,[debug],turtlebot1,simulation,robot-pose,x=-36.59;y=32.41;yaw=-1.56
-398.400000095,[debug],turtlebot1,simulation,robot-pose,x=-36.59;y=32.41;yaw=-1.56
-400.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-400.400000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-400.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-400.733333349,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-401.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-401.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-401.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-401.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-407.183333397,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-37.0, 33.95, -1.5707963267948966, True], [-37.0, 16.0, 0.0, True], [-26.0, 16.0, -1.5707963267948966, True], [-26.0, 13.0, 1.57, False]])
-413.233333349,[debug],turtlebot1,simulation,robot-pose,x=-36.59;y=31.16;yaw=-1.57
-413.400000095,[debug],turtlebot1,simulation,robot-pose,x=-36.59;y=31.16;yaw=-1.57
-415.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-415.383333445,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-415.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-415.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-416.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-416.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-416.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-416.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-428.233333349,[debug],turtlebot1,simulation,robot-pose,x=-36.59;y=29.91;yaw=-1.57
-428.366666794,[debug],turtlebot1,simulation,robot-pose,x=-36.59;y=29.91;yaw=-1.57
-430.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-430.416666746,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-430.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-430.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-431.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-431.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-431.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-431.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-443.233333349,[debug],turtlebot1,simulation,robot-pose,x=-36.59;y=28.66;yaw=-1.61
-443.400000095,[debug],turtlebot1,simulation,robot-pose,x=-36.59;y=28.66;yaw=-1.61
-445.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-445.433333397,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-445.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-445.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-446.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-446.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-446.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-446.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-458.233333349,[debug],turtlebot1,simulation,robot-pose,x=-36.61;y=27.41;yaw=-1.52
-458.416666746,[debug],turtlebot1,simulation,robot-pose,x=-36.61;y=27.41;yaw=-1.52
-460.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-460.400000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-460.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-460.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-461.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-461.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-461.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-461.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-464.866666794,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-37.0, 33.95, -1.5707963267948966, True], [-37.0, 16.0, 0.0, True], [-26.0, 16.0, -1.5707963267948966, True], [-26.0, 13.0, 1.57, False]])
-473.233333349,[debug],turtlebot1,simulation,robot-pose,x=-36.59;y=26.16;yaw=-1.60
-473.400000095,[debug],turtlebot1,simulation,robot-pose,x=-36.59;y=26.16;yaw=-1.60
-475.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-475.400000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-475.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-475.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-476.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-476.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-476.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-476.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-488.233333349,[debug],turtlebot1,simulation,robot-pose,x=-36.61;y=24.91;yaw=-1.56
-488.383333445,[debug],turtlebot1,simulation,robot-pose,x=-36.61;y=24.91;yaw=-1.56
-490.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-490.433333397,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-490.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-490.733333349,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-491.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-491.049999952,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-491.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-491.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-503.233333349,[debug],turtlebot1,simulation,robot-pose,x=-36.61;y=23.65;yaw=-1.62
-503.366666794,[debug],turtlebot1,simulation,robot-pose,x=-36.61;y=23.65;yaw=-1.62
-505.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-505.416666746,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-505.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-505.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-506.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-506.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-506.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-506.450000048,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-518.233333349,[debug],turtlebot1,simulation,robot-pose,x=-36.71;y=22.41;yaw=-1.63
-518.400000095,[debug],turtlebot1,simulation,robot-pose,x=-36.71;y=22.41;yaw=-1.63
-520.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.05
-520.383333445,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.05
-520.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-520.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-521.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-521.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-521.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-521.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-522.333333254,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-37.0, 33.95, -1.5707963267948966, True], [-37.0, 16.0, 0.0, True], [-26.0, 16.0, -1.5707963267948966, True], [-26.0, 13.0, 1.57, False]])
-533.233333349,[debug],turtlebot1,simulation,robot-pose,x=-36.72;y=21.16;yaw=-1.50
-533.383333445,[debug],turtlebot1,simulation,robot-pose,x=-36.72;y=21.16;yaw=-1.50
-535.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.05
-535.400000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.05
-535.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-535.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-536.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-536.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-536.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-536.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-548.233333349,[debug],turtlebot1,simulation,robot-pose,x=-36.68;y=19.91;yaw=-1.57
-548.433333397,[debug],turtlebot1,simulation,robot-pose,x=-36.68;y=19.91;yaw=-1.57
-550.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-550.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-550.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-550.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
-551.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-551.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-551.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-551.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-563.233333349,[debug],turtlebot1,simulation,robot-pose,x=-36.68;y=18.66;yaw=-1.57
-563.416666746,[debug],turtlebot1,simulation,robot-pose,x=-36.68;y=18.66;yaw=-1.57
-565.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-565.400000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
-565.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-565.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-566.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-566.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-566.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-566.450000048,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-578.233333349,[debug],turtlebot1,simulation,robot-pose,x=-36.71;y=17.41;yaw=-1.64
-578.383333445,[debug],turtlebot1,simulation,robot-pose,x=-36.71;y=17.41;yaw=-1.64
-579.333333254,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-37.0, 33.95, -1.5707963267948966, True], [-37.0, 16.0, 0.0, True], [-26.0, 16.0, -1.5707963267948966, True], [-26.0, 13.0, 1.57, False]])
-580.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.06
-580.433333397,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.06
-580.733333349,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-580.733333349,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-581.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-581.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-581.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-581.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-593.233333349,[debug],turtlebot1,simulation,robot-pose,x=-36.92;y=16.45;yaw=-0.41
-593.416666746,[debug],turtlebot1,simulation,robot-pose,x=-36.92;y=16.45;yaw=-0.41
-594.799999952,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-37;y=16)
-594.799999952,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-37;y=16)
-594.933333397,[debug],turtlebot1,task-update,navigation,way-point-reached,50.0%
-595.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.06
-595.383333445,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.06
-595.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-595.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-596.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-596.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-596.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-596.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-608.233333349,[debug],turtlebot1,simulation,robot-pose,x=-36.29;y=15.96;yaw=-0.80
-608.400000095,[debug],turtlebot1,simulation,robot-pose,x=-36.29;y=15.96;yaw=-0.80
-610.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.06
-610.383333445,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.06
-610.733333349,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-610.733333349,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-611.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-611.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-611.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-611.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-623.233333349,[debug],turtlebot1,simulation,robot-pose,x=-34.17;y=15.67;yaw=-0.00
-623.383333445,[debug],turtlebot1,simulation,robot-pose,x=-34.17;y=15.67;yaw=-0.00
-625.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.05
-625.416666746,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.05
-625.733333349,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-625.733333349,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-626.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-626.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-626.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-626.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-636.700000048,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-37.0, 33.95, -1.5707963267948966, True], [-37.0, 16.0, 0.0, True], [-26.0, 16.0, -1.5707963267948966, True], [-26.0, 13.0, 1.57, False]])
-638.233333349,[debug],turtlebot1,simulation,robot-pose,x=-31.24;y=16.17;yaw=-0.16
-638.400000095,[debug],turtlebot1,simulation,robot-pose,x=-31.24;y=16.17;yaw=-0.16
-640.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.05
-640.400000095,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.05
-640.733333349,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-640.733333349,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-641.049999952,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-641.049999952,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-641.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-641.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-653.233333349,[debug],turtlebot1,simulation,robot-pose,x=-28.81;y=16.13;yaw=0.03
-653.400000095,[debug],turtlebot1,simulation,robot-pose,x=-28.81;y=16.13;yaw=0.03
-655.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.05
-655.383333445,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.05
-655.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-655.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-656.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-656.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-656.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-656.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-668.233333349,[debug],turtlebot1,simulation,robot-pose,x=-26.43;y=16.24;yaw=0.03
-668.400000095,[debug],turtlebot1,simulation,robot-pose,x=-26.43;y=16.24;yaw=0.03
-670.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.05
-670.416666746,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.05
-670.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-670.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-671.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-671.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-671.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-671.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-672.716666698,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-26;y=16)
-672.716666698,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-26;y=16)
-672.833333254,[debug],turtlebot1,task-update,navigation,way-point-reached,75.0%
-683.233333349,[debug],turtlebot1,simulation,robot-pose,x=-26.24;y=15.87;yaw=-1.09
-683.400000095,[debug],turtlebot1,simulation,robot-pose,x=-26.24;y=15.87;yaw=-1.09
-685.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.04
-685.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.04
-685.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-685.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-686.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-686.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-686.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-686.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-693.466666698,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-37.0, 33.95, -1.5707963267948966, True], [-37.0, 16.0, 0.0, True], [-26.0, 16.0, -1.5707963267948966, True], [-26.0, 13.0, 1.57, False]])
-698.233333349,[debug],turtlebot1,simulation,robot-pose,x=-25.85;y=14.66;yaw=-1.53
-698.366666794,[debug],turtlebot1,simulation,robot-pose,x=-25.85;y=14.66;yaw=-1.53
-700.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.04
-700.416666746,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.04
-700.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-700.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-701.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-701.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-701.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-701.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-713.233333349,[debug],turtlebot1,simulation,robot-pose,x=-25.81;y=13.45;yaw=-2.03
-713.383333445,[debug],turtlebot1,simulation,robot-pose,x=-25.81;y=13.45;yaw=-2.03
-715.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.05
-715.383333445,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.05
-715.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-715.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-716.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-716.049999952,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-716.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-716.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-720.133333445,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-26;y=13)
-720.133333445,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-26;y=13)
-720.349999905,[debug],turtlebot1,task-update,navigation,way-point-reached,100.0%
-720.433333397,[info],turtlebot1,skill-life-cycle,approach_robot,(status=STARTED, parameters=['lab_arm'])
-720.5,[debug],turtlebot1,task-update,approach_robot,localize-robot,(who=lab_arm)
-720.599999905,[debug],turtlebot1,task-update,approach_robot,goto-robot,(who=lab_arm)
-720.700000048,[info],turtlebot1,skill-life-cycle,operate_drawer,(status=STARTED, parameters=['open'])
-720.766666651,[debug],turtlebot1,task-update,operate_drawer,open
-721.883333445,[info],turtlebot1,skill-life-cycle,send_message,(status=STARTED, parameters=['lab_arm'])
-721.966666698,[info],turtlebot1,sync,send-message,(to=lab_arm)
-722.966666698,[info],lab_arm,sync,wait-message,(status=message-received)
-722.966666698,[info],lab_arm,sync,wait-message,(status=message-received)
-722.966666698,[info],Inventory,sync,wait-sample,(status=sample-received)
-722.966666698,ENDSIM
-722.966666698,[info],Inventory,sync,wait-sample,(status=sample-received)
-722.966666698,ENDSIM
-728.25,[debug],turtlebot1,simulation,robot-pose,x=-25.84;y=13.39;yaw=1.62
-728.366666794,[debug],turtlebot1,simulation,robot-pose,x=-25.84;y=13.39;yaw=1.62
-730.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.04
-730.366666794,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.04
-730.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-730.716666698,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
-731.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-731.033333302,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
-731.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-731.433333397,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
-732.966666698,[info],Inventory,sync,wait-sample,(status=sample-received)
-732.966666698,[info],Inventory,sync,wait-sample,(status=sample-received)
-732.966666698,ENDSIM
-732.966666698,ENDSIM
-732.966666698,[info],lab_arm,sync,wait-message,(status=message-received)
-732.966666698,[info],Inventory,sync,wait-sample,(status=sample-received)
-732.966666698,[info],lab_arm,sync,wait-message,(status=message-received)
-732.966666698,ENDSIM
-732.966666698,[info],Inventory,sync,wait-sample,(status=sample-received)
-732.966666698,ENDSIM
-0.0,[debug],simulation closed,reach-target,execution-wall-clock=797.1899185180664
+1.33333325386,[debug],turtlebot2,move-base-info,Move_base is up and ok....,
+1.3833334446,[debug],turtlebot4,move-base-info,Move_base is up and ok....,
+1.48333334923,[debug],turtlebot3,move-base-info,Move_base is up and ok....,
+1.56666660309,[debug],turtlebot1,move-base-info,Move_base is up and ok....,
+1.93333339691,[debug],turtlebot5,move-base-info,Move_base is up and ok....,
+3.28333330154,[info],turtlebot3,skill-life-cycle,init_robobt,(status=RUNNING, parameters=[])
+3.45000004768,[info],turtlebot2,skill-life-cycle,init_robobt,(status=RUNNING, parameters=[])
+3.53333330154,[info],turtlebot4,skill-life-cycle,init_robobt,(status=RUNNING, parameters=[])
+7.04999995232,[debug],turtlebot1,available-skills,['send_message', 'wait_message', 'approach_person', 'approach_robot', 'authenticate_person', 'deposit', 'navigation', 'operate_drawer', 'pick_up'],
+7.04999995232,[info],turtlebot1,skill-life-cycle,navigation,(status=STARTED, parameters=[[-19.0, 16.0, 3.141592653589793, True], [-37.0, 16.0, 1.5707963267948966, True], [-37.0, 33.95, 3.141592653589793, True], [-39.44, 33.95, 0.0, False]])
+20.6333334446,[debug],turtlebot1,simulation,robot-pose,x=-19.32;y=17.34;yaw=-1.85
+20.6333334446,[debug],turtlebot1,simulation,robot-pose,x=-19.32;y=17.34;yaw=-1.85
+22.9000000954,[debug],turtlebot2,simulation,robot-pose,x=-32.89;y=33.97;yaw=-3.10
+22.9000000954,[debug],turtlebot2,simulation,robot-pose,x=-32.89;y=33.97;yaw=-3.10
+23.2000000477,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+23.2999999523,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+23.4833333492,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
+23.4833333492,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
+23.6500000954,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.34
+23.6500000954,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.34
+35.6333334446,[debug],turtlebot1,simulation,robot-pose,x=-19.16;y=16.43;yaw=-2.48
+35.6333334446,[debug],turtlebot1,simulation,robot-pose,x=-19.16;y=16.43;yaw=-2.48
+37.7666666508,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-19;y=16)
+37.7666666508,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-19;y=16)
+37.7833333015,[debug],turtlebot1,task-update,navigation,way-point-reached,25.0%
+37.9000000954,[debug],turtlebot2,simulation,robot-pose,x=-32.89;y=33.97;yaw=-3.10
+37.9000000954,[debug],turtlebot2,simulation,robot-pose,x=-32.89;y=33.97;yaw=-3.10
+38.2000000477,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+38.2833333015,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+38.4833333492,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
+38.4833333492,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
+38.6500000954,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+38.6500000954,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+50.6333334446,[debug],turtlebot1,simulation,robot-pose,x=-20.02;y=16.06;yaw=-2.91
+50.6333334446,[debug],turtlebot1,simulation,robot-pose,x=-20.02;y=16.06;yaw=-2.91
+52.9000000954,[debug],turtlebot2,simulation,robot-pose,x=-32.89;y=33.97;yaw=-3.10
+52.9000000954,[debug],turtlebot2,simulation,robot-pose,x=-32.89;y=33.97;yaw=-3.10
+53.2000000477,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+53.2833333015,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+53.4833333492,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
+53.4833333492,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
+53.6500000954,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+53.6500000954,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+54.3166666031,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-19.0, 16.0, 3.141592653589793, True], [-37.0, 16.0, 1.5707963267948966, True], [-37.0, 33.95, 3.141592653589793, True], [-39.44, 33.95, 0.0, False]])
+65.6333334446,[debug],turtlebot1,simulation,robot-pose,x=-22.41;y=15.95;yaw=-3.10
+65.6333334446,[debug],turtlebot1,simulation,robot-pose,x=-22.41;y=15.95;yaw=-3.10
+67.9000000954,[debug],turtlebot2,simulation,robot-pose,x=-32.89;y=33.97;yaw=-3.10
+67.9000000954,[debug],turtlebot2,simulation,robot-pose,x=-32.89;y=33.97;yaw=-3.10
+68.2000000477,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+68.2833333015,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+68.4833333492,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
+68.4833333492,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
+68.6500000954,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+68.6500000954,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+80.6500000954,[debug],turtlebot1,simulation,robot-pose,x=-24.91;y=15.96;yaw=2.88
+80.6500000954,[debug],turtlebot1,simulation,robot-pose,x=-24.91;y=15.96;yaw=2.88
+82.9000000954,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.10
+82.9000000954,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.10
+83.2000000477,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+83.2999999523,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+83.4833333492,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
+83.4833333492,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
+83.6500000954,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+83.6500000954,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+95.6333334446,[debug],turtlebot1,simulation,robot-pose,x=-27.54;y=16.12;yaw=3.09
+95.6333334446,[debug],turtlebot1,simulation,robot-pose,x=-27.54;y=16.12;yaw=3.09
+97.9000000954,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.10
+97.9000000954,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.10
+98.2000000477,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+98.2666666508,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+98.4833333492,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
+98.4833333492,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
+98.6500000954,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+98.6500000954,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+105.549999952,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-19.0, 16.0, 3.141592653589793, True], [-37.0, 16.0, 1.5707963267948966, True], [-37.0, 33.95, 3.141592653589793, True], [-39.44, 33.95, 0.0, False]])
+110.633333445,[debug],turtlebot1,simulation,robot-pose,x=-30.05;y=16.13;yaw=3.14
+110.633333445,[debug],turtlebot1,simulation,robot-pose,x=-30.05;y=16.13;yaw=3.14
+112.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
+112.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
+113.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+113.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+113.483333349,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
+113.483333349,[debug],turtlebot4,simulation,robot-pose,x=-20.99;y=18.00;yaw=-1.54
+113.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+113.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+125.633333445,[debug],turtlebot1,simulation,robot-pose,x=-32.55;y=16.14;yaw=-3.14
+125.633333445,[debug],turtlebot1,simulation,robot-pose,x=-32.55;y=16.14;yaw=-3.14
+127.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
+127.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
+128.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+128.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+128.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.00;y=18.00;yaw=-1.54
+128.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.00;y=18.00;yaw=-1.54
+128.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+128.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+140.633333445,[debug],turtlebot1,simulation,robot-pose,x=-35.05;y=16.14;yaw=-3.14
+140.633333445,[debug],turtlebot1,simulation,robot-pose,x=-35.05;y=16.14;yaw=-3.14
+142.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
+142.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
+143.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+143.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+143.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.00;y=18.00;yaw=-1.54
+143.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.00;y=18.00;yaw=-1.54
+143.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+143.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+154.900000095,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-37;y=16)
+154.900000095,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-37;y=16)
+155.033333302,[debug],turtlebot1,task-update,navigation,way-point-reached,50.0%
+155.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.66;y=16.29;yaw=1.62
+155.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.66;y=16.29;yaw=1.62
+157.700000048,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-19.0, 16.0, 3.141592653589793, True], [-37.0, 16.0, 1.5707963267948966, True], [-37.0, 33.95, 3.141592653589793, True], [-39.44, 33.95, 0.0, False]])
+157.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
+157.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
+158.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+158.299999952,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+158.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.00;y=18.00;yaw=-1.54
+158.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.00;y=18.00;yaw=-1.54
+158.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+158.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+170.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.75;y=26.40;yaw=1.57
+170.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.75;y=26.40;yaw=1.57
+172.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
+172.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
+173.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+173.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+173.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.00;y=18.00;yaw=-1.54
+173.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.00;y=18.00;yaw=-1.54
+173.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+173.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+185.133333445,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-37;y=33.95)
+185.299999952,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-37;y=33.95)
+185.483333349,[debug],turtlebot1,task-update,navigation,way-point-reached,75.0%
+185.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.93;y=33.50;yaw=3.10
+185.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.93;y=33.50;yaw=3.10
+187.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
+187.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
+188.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+188.299999952,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+188.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.00;y=18.00;yaw=-1.54
+188.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.00;y=18.00;yaw=-1.54
+188.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+188.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+200.633333445,[debug],turtlebot1,simulation,robot-pose,x=-38.55;y=34.69;yaw=-3.09
+200.633333445,[debug],turtlebot1,simulation,robot-pose,x=-38.55;y=34.69;yaw=-3.09
+202.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
+202.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.90;y=33.97;yaw=-3.09
+203.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+203.299999952,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+203.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.01;y=18.00;yaw=-1.54
+203.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.01;y=18.00;yaw=-1.54
+203.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+203.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+210.583333254,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-19.0, 16.0, 3.141592653589793, True], [-37.0, 16.0, 1.5707963267948966, True], [-37.0, 33.95, 3.141592653589793, True], [-39.44, 33.95, 0.0, False]])
+213.450000048,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-39.44;y=33.95)
+213.450000048,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-39.44;y=33.95)
+213.700000048,[debug],turtlebot1,task-update,navigation,way-point-reached,100.0%
+213.783333302,[debug],turtlebot1,available-skills,['send_message', 'wait_message', 'approach_person', 'approach_robot', 'authenticate_person', 'deposit', 'navigation', 'operate_drawer', 'pick_up'],
+213.799999952,[info],turtlebot1,skill-life-cycle,approach_person,(status=STARTED, parameters=['nurse'])
+213.900000095,[debug],turtlebot1,task-update,approach_person,localize-person,(who=nurse)
+214.0,[debug],turtlebot1,task-update,approach_person,goto-person,(who=nurse)
+214.099999905,[debug],turtlebot1,available-skills,['send_message', 'wait_message', 'approach_person', 'approach_robot', 'authenticate_person', 'deposit', 'navigation', 'operate_drawer', 'pick_up'],
+214.099999905,[info],turtlebot1,skill-life-cycle,authenticate_person,(status=STARTED, parameters=['nurse'])
+214.183333397,[debug],turtlebot1,task-update,authenticate_person,request-authentication,(to=nurse)
+214.183333397,[info],nurse,sync,received-request,(status=sending-request)
+214.299999952,[info],nurse,sync,received-request,(status=sending-request)
+214.650000095,[debug],turtlebot1,task-update,authenticate_person,received-authentication,(from=nurse)
+214.75,[debug],turtlebot1,available-skills,['send_message', 'wait_message', 'approach_person', 'approach_robot', 'authenticate_person', 'deposit', 'navigation', 'operate_drawer', 'pick_up'],
+214.75,[info],turtlebot1,skill-life-cycle,operate_drawer,(status=STARTED, parameters=['open'])
+214.783333302,[debug],turtlebot1,task-update,operate_drawer,open
+215.633333445,[debug],turtlebot1,simulation,robot-pose,x=-39.26;y=34.35;yaw=-0.05
+215.633333445,[debug],turtlebot1,simulation,robot-pose,x=-39.26;y=34.35;yaw=-0.05
+215.783333302,[debug],turtlebot1,available-skills,['send_message', 'wait_message', 'approach_person', 'approach_robot', 'authenticate_person', 'deposit', 'navigation', 'operate_drawer', 'pick_up'],
+215.783333302,[info],turtlebot1,skill-life-cycle,send_message,(status=STARTED, parameters=['nurse'])
+215.866666555,[info],turtlebot1,sync,send-message,(to=nurse)
+217.716666698,[info],nurse,sync,wait-message,(status=message-received)
+217.716666698,[info],nurse,sync,wait-message,(status=message-received)
+217.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.91;y=33.97;yaw=-3.08
+217.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.91;y=33.97;yaw=-3.08
+218.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+218.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+218.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.01;y=18.00;yaw=-1.54
+218.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.01;y=18.00;yaw=-1.54
+218.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+218.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+219.633333445,[debug],turtlebot1,available-skills,['send_message', 'wait_message', 'approach_person', 'approach_robot', 'authenticate_person', 'deposit', 'navigation', 'operate_drawer', 'pick_up'],
+219.633333445,[info],turtlebot1,skill-life-cycle,wait_message,(status=STARTED, parameters=['r1'])
+219.783333302,[info],turtlebot1,sync,wait-message,(status=message-received)
+219.883333445,[debug],turtlebot1,available-skills,['send_message', 'wait_message', 'approach_person', 'approach_robot', 'authenticate_person', 'deposit', 'navigation', 'operate_drawer', 'pick_up'],
+219.883333445,[info],turtlebot1,skill-life-cycle,operate_drawer,(status=STARTED, parameters=['close'])
+219.983333349,[debug],turtlebot1,task-update,operate_drawer,close
+221.016666651,[debug],turtlebot1,available-skills,['send_message', 'wait_message', 'approach_person', 'approach_robot', 'authenticate_person', 'deposit', 'navigation', 'operate_drawer', 'pick_up'],
+221.016666651,[info],turtlebot1,skill-life-cycle,navigation,(status=STARTED, parameters=[[-37.0, 33.95, -1.5707963267948966, True], [-37.0, 16.0, 0.0, True], [-26.0, 16.0, -1.5707963267948966, True], [-26.0, 13.0, 1.57, False]])
+227.700000048,[info],nurse,sync,wait-message,(status=message-received)
+227.700000048,[info],nurse,sync,wait-message,(status=message-received)
+230.633333445,[debug],turtlebot1,simulation,robot-pose,x=-38.37;y=34.51;yaw=0.19
+230.633333445,[debug],turtlebot1,simulation,robot-pose,x=-38.37;y=34.51;yaw=0.19
+232.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.91;y=33.97;yaw=-3.07
+232.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.91;y=33.97;yaw=-3.07
+233.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+233.316666603,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+233.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.01;y=18.00;yaw=-1.54
+233.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.01;y=18.00;yaw=-1.54
+233.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+233.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+234.183333397,[info],nurse,sync,request-sent,(status=waiting)
+234.299999952,[info],nurse,sync,request-sent,(status=waiting)
+237.700000048,[info],nurse,sync,wait-message,(status=message-received)
+237.700000048,[info],nurse,sync,wait-message,(status=message-received)
+241.066666603,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-37;y=33.95)
+241.066666603,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-37;y=33.95)
+241.150000095,[debug],turtlebot1,task-update,navigation,way-point-reached,25.0%
+245.633333445,[debug],turtlebot1,simulation,robot-pose,x=-37.33;y=34.29;yaw=-1.52
+245.633333445,[debug],turtlebot1,simulation,robot-pose,x=-37.33;y=34.29;yaw=-1.52
+247.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.91;y=33.97;yaw=-3.07
+247.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.91;y=33.97;yaw=-3.07
+248.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+248.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+248.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.02;y=18.00;yaw=-1.54
+248.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.02;y=18.00;yaw=-1.54
+248.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+248.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+260.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.62;y=33.21;yaw=-1.45
+260.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.62;y=33.21;yaw=-1.45
+262.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.91;y=33.97;yaw=-3.06
+262.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.91;y=33.97;yaw=-3.06
+263.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+263.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+263.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.02;y=18.00;yaw=-1.54
+263.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.02;y=18.00;yaw=-1.54
+263.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+263.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+264.983333349,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-37.0, 33.95, -1.5707963267948966, True], [-37.0, 16.0, 0.0, True], [-26.0, 16.0, -1.5707963267948966, True], [-26.0, 13.0, 1.57, False]])
+275.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.59;y=31.96;yaw=-1.57
+275.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.59;y=31.96;yaw=-1.57
+277.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.92;y=33.98;yaw=-3.05
+277.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.92;y=33.98;yaw=-3.05
+278.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+278.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+278.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+278.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+278.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+278.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+290.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.59;y=30.71;yaw=-1.57
+290.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.59;y=30.71;yaw=-1.57
+292.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.92;y=33.98;yaw=-3.05
+292.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.92;y=33.98;yaw=-3.05
+293.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+293.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.46;y=17.82;yaw=-1.25
+293.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+293.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+293.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+293.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+305.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.61;y=29.46;yaw=-1.62
+305.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.61;y=29.46;yaw=-1.62
+307.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.92;y=33.98;yaw=-3.06
+307.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.92;y=33.98;yaw=-3.06
+308.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+308.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+308.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+308.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+308.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+308.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+317.099999905,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-37.0, 33.95, -1.5707963267948966, True], [-37.0, 16.0, 0.0, True], [-26.0, 16.0, -1.5707963267948966, True], [-26.0, 13.0, 1.57, False]])
+320.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.59;y=28.21;yaw=-1.56
+320.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.59;y=28.21;yaw=-1.56
+322.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.92;y=33.98;yaw=-3.06
+322.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.92;y=33.98;yaw=-3.06
+323.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+323.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+323.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+323.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+323.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+323.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+335.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.58;y=26.95;yaw=-1.58
+335.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.58;y=26.95;yaw=-1.58
+337.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+337.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+338.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+338.316666603,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+338.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+338.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+338.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+338.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+350.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.61;y=25.70;yaw=-1.59
+350.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.61;y=25.70;yaw=-1.59
+352.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+352.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+353.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+353.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+353.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+353.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+353.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+353.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+365.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.62;y=24.45;yaw=-1.54
+365.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.62;y=24.45;yaw=-1.54
+367.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+367.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+368.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+368.316666603,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+368.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+368.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+368.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+368.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+369.333333254,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-37.0, 33.95, -1.5707963267948966, True], [-37.0, 16.0, 0.0, True], [-26.0, 16.0, -1.5707963267948966, True], [-26.0, 13.0, 1.57, False]])
+380.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.63;y=23.21;yaw=-1.69
+380.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.63;y=23.21;yaw=-1.69
+382.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+382.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+383.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+383.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+383.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+383.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+383.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+383.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+395.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.73;y=21.96;yaw=-1.60
+395.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.73;y=21.96;yaw=-1.60
+397.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+397.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+398.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+398.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+398.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+398.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+398.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+398.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+410.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.69;y=20.71;yaw=-1.56
+410.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.69;y=20.71;yaw=-1.56
+412.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+412.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+413.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+413.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+413.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+413.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+413.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+413.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+421.116666555,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-37.0, 33.95, -1.5707963267948966, True], [-37.0, 16.0, 0.0, True], [-26.0, 16.0, -1.5707963267948966, True], [-26.0, 13.0, 1.57, False]])
+425.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.68;y=19.46;yaw=-1.58
+425.650000095,[debug],turtlebot1,simulation,robot-pose,x=-36.68;y=19.46;yaw=-1.58
+427.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+427.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+428.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+428.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+428.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+428.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+428.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+428.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+440.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.67;y=18.21;yaw=-1.54
+440.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.67;y=18.21;yaw=-1.54
+442.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+442.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+443.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+443.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+443.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+443.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+443.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+443.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+455.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.73;y=16.96;yaw=-1.75
+455.633333445,[debug],turtlebot1,simulation,robot-pose,x=-36.73;y=16.96;yaw=-1.75
+457.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+457.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+458.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+458.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+458.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+458.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+458.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+458.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+466.916666746,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-37;y=16)
+466.916666746,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-37;y=16)
+467.083333254,[debug],turtlebot1,task-update,navigation,way-point-reached,50.0%
+470.650000095,[debug],turtlebot1,simulation,robot-pose,x=-36.92;y=16.44;yaw=-0.04
+470.650000095,[debug],turtlebot1,simulation,robot-pose,x=-36.92;y=16.44;yaw=-0.04
+472.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+472.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+473.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+473.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+473.383333445,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-37.0, 33.95, -1.5707963267948966, True], [-37.0, 16.0, 0.0, True], [-26.0, 16.0, -1.5707963267948966, True], [-26.0, 13.0, 1.57, False]])
+473.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+473.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+473.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+473.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+485.633333445,[debug],turtlebot1,simulation,robot-pose,x=-35.74;y=15.67;yaw=-0.11
+485.633333445,[debug],turtlebot1,simulation,robot-pose,x=-35.74;y=15.67;yaw=-0.11
+487.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+487.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+488.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+488.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+488.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+488.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+488.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+488.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+500.633333445,[debug],turtlebot1,simulation,robot-pose,x=-33.24;y=15.67;yaw=0.01
+500.633333445,[debug],turtlebot1,simulation,robot-pose,x=-33.24;y=15.67;yaw=0.01
+502.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+502.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+503.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+503.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+503.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+503.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+503.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+503.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+515.633333445,[debug],turtlebot1,simulation,robot-pose,x=-30.43;y=16.05;yaw=-0.07
+515.650000095,[debug],turtlebot1,simulation,robot-pose,x=-30.43;y=16.05;yaw=-0.07
+517.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.05
+517.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.05
+518.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+518.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+518.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+518.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+518.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+518.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+525.083333254,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-37.0, 33.95, -1.5707963267948966, True], [-37.0, 16.0, 0.0, True], [-26.0, 16.0, -1.5707963267948966, True], [-26.0, 13.0, 1.57, False]])
+530.633333445,[debug],turtlebot1,simulation,robot-pose,x=-27.90;y=16.08;yaw=-0.00
+530.633333445,[debug],turtlebot1,simulation,robot-pose,x=-27.90;y=16.08;yaw=-0.00
+532.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.05
+532.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.05
+533.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+533.299999952,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+533.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+533.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+533.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+533.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+544.466666698,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-26;y=16)
+544.466666698,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-26;y=16)
+544.616666555,[debug],turtlebot1,task-update,navigation,way-point-reached,75.0%
+545.650000095,[debug],turtlebot1,simulation,robot-pose,x=-26.37;y=16.29;yaw=-1.52
+545.650000095,[debug],turtlebot1,simulation,robot-pose,x=-26.37;y=16.29;yaw=-1.52
+547.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+547.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+548.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+548.299999952,[debug],turtlebot3,simulation,robot-pose,x=-11.47;y=17.82;yaw=-1.25
+548.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+548.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+548.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+548.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+560.633333445,[debug],turtlebot1,simulation,robot-pose,x=-26.02;y=15.40;yaw=-1.16
+560.633333445,[debug],turtlebot1,simulation,robot-pose,x=-26.02;y=15.40;yaw=-1.16
+562.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+562.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.93;y=33.98;yaw=-3.06
+563.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
+563.283333302,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
+563.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+563.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+563.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+563.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+575.633333445,[debug],turtlebot1,simulation,robot-pose,x=-25.82;y=14.17;yaw=-1.65
+575.633333445,[debug],turtlebot1,simulation,robot-pose,x=-25.82;y=14.17;yaw=-1.65
+576.983333349,[info],turtlebot1,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-37.0, 33.95, -1.5707963267948966, True], [-37.0, 16.0, 0.0, True], [-26.0, 16.0, -1.5707963267948966, True], [-26.0, 13.0, 1.57, False]])
+577.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.06
+577.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.06
+578.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
+578.299999952,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
+578.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+578.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+578.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+578.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+590.633333445,[debug],turtlebot1,simulation,robot-pose,x=-25.91;y=13.41;yaw=1.67
+590.633333445,[debug],turtlebot1,simulation,robot-pose,x=-25.91;y=13.41;yaw=1.67
+591.166666746,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-26;y=13)
+591.316666603,[debug],turtlebot1,move-base-info,Hooray, the base moved arrived,(x=-26;y=13)
+591.533333302,[debug],turtlebot1,task-update,navigation,way-point-reached,100.0%
+591.633333445,[debug],turtlebot1,available-skills,['send_message', 'wait_message', 'approach_person', 'approach_robot', 'authenticate_person', 'deposit', 'navigation', 'operate_drawer', 'pick_up'],
+591.633333445,[info],turtlebot1,skill-life-cycle,approach_robot,(status=STARTED, parameters=['lab_arm'])
+591.716666698,[debug],turtlebot1,task-update,approach_robot,localize-robot,(who=lab_arm)
+591.799999952,[debug],turtlebot1,task-update,approach_robot,goto-robot,(who=lab_arm)
+591.883333445,[debug],turtlebot1,available-skills,['send_message', 'wait_message', 'approach_person', 'approach_robot', 'authenticate_person', 'deposit', 'navigation', 'operate_drawer', 'pick_up'],
+591.883333445,[info],turtlebot1,skill-life-cycle,operate_drawer,(status=STARTED, parameters=['open'])
+591.966666698,[debug],turtlebot1,task-update,operate_drawer,open
+592.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.06
+592.900000095,[debug],turtlebot2,simulation,robot-pose,x=-32.94;y=33.98;yaw=-3.06
+592.983333349,[debug],turtlebot1,available-skills,['send_message', 'wait_message', 'approach_person', 'approach_robot', 'authenticate_person', 'deposit', 'navigation', 'operate_drawer', 'pick_up'],
+592.983333349,[info],turtlebot1,skill-life-cycle,send_message,(status=STARTED, parameters=['lab_arm'])
+593.083333254,[info],turtlebot1,sync,send-message,(to=lab_arm)
+593.200000048,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
+593.316666603,[debug],turtlebot3,simulation,robot-pose,x=-11.48;y=17.82;yaw=-1.25
+593.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+593.483333349,[debug],turtlebot4,simulation,robot-pose,x=-21.03;y=18.00;yaw=-1.54
+593.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+593.650000095,[debug],turtlebot5,simulation,robot-pose,x=-40.39;y=25.23;yaw=0.33
+593.983333349,[info],lab_arm,sync,wait-message,(status=message-received)
+593.983333349,[info],lab_arm,sync,wait-message,(status=message-received)
+593.983333349,[info],Inventory,sync,wait-sample,(status=sample-received)
+593.983333349,ENDSIM
+593.983333349,[info],Inventory,sync,wait-sample,(status=sample-received)
+593.983333349,ENDSIM
+603.983333349,[info],Inventory,sync,wait-sample,(status=sample-received)
+603.983333349,ENDSIM
+603.983333349,[info],Inventory,sync,wait-sample,(status=sample-received)
+603.983333349,ENDSIM
+603.983333349,[info],lab_arm,sync,wait-message,(status=message-received)
+603.983333349,[info],lab_arm,sync,wait-message,(status=message-received)
+603.983333349,[info],Inventory,sync,wait-sample,(status=sample-received)
+603.983333349,[info],Inventory,sync,wait-sample,(status=sample-received)
+603.983333349,ENDSIM
+603.983333349,ENDSIM
+0.0,[debug],simulation closed,reach-target,execution-wall-clock=725.8533170223236
