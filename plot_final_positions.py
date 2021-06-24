@@ -22,8 +22,6 @@ for num in range(81):
         except KeyError:
             dic[turtlebot] = [position]
 
-    # In[26]:
-
 
     positions = list(dic.values())
     robots = list(dic.keys())
@@ -39,15 +37,7 @@ for num in range(81):
              'turtlebot5': 'gist_heat_r'}
 
 
-    # In[35]:
-
-
     lab_position = [-26.00, 13.00]
-
-
-    # In[57]:
-
-
     nurse = nurse[:-1].replace('[', '', 1)
     nurse_position = re.findall(r'\[.*?\]', nurse)[0]
     nurse_position = eval(nurse_position)[:-1]
@@ -68,4 +58,3 @@ for num in range(81):
     plt.annotate("Nurse", (nurse_position[0], nurse_position[1]))
     plt.savefig(f"plots/{num:02d}")
     plt.clf()
-
