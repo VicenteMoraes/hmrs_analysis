@@ -1,16 +1,8 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[49]:
-
-
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import numpy as np
 import re
 
-
-# In[56]:
 
 for num in range(81):
     with open(f'results/planned/log/experiment1_trial{num:02d}.log', 'r') as rf:
@@ -30,8 +22,6 @@ for num in range(81):
         except KeyError:
             dic[turtlebot] = [position]
 
-    # In[26]:
-
 
     positions = list(dic.values())
     robots = list(dic.keys())
@@ -47,22 +37,13 @@ for num in range(81):
              'turtlebot5': 'gist_heat_r'}
 
 
-    # In[35]:
-
-
     lab_position = [-26.00, 13.00]
-
-
-    # In[57]:
 
 
     nurse = nurse[:-1].replace('[', '', 1)
     nurse_position = re.findall(r'\[.*?\]', nurse)[0]
     nurse_position = eval(nurse_position)[:-1]
     nurse_position
-
-
-    # In[71]:
 
 
     def animate(i):
@@ -74,7 +55,6 @@ for num in range(81):
                 ax.scatter([x[0] for x in positions[j][:i]], [x[1] for x in positions[j][:i]],
                         c=c, cmap=cmaps[robots[j]], zorder=j+100)
             except:
-
                 ax.scatter([x[0] for x in positions[j][:i]], [x[1] for x in positions[j][:i]],
                         c=c[:len([x[0] for x in positions[j][:i]])], cmap=cmaps[robots[j]], zorder=j+100)
             ax.annotate(robots[j], positions[j][0])
@@ -85,9 +65,6 @@ for num in range(81):
 
     fig, ax = plt.subplots()
     ani = animation.FuncAnimation(fig, animate, frames=29)
-
-
-    # In[72]:
 
     ani.save(f'animations/{num:02d}.mp4', fps=2)
     print(f"FINISHED:{num}")
