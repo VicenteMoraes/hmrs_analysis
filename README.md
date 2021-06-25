@@ -14,3 +14,7 @@ Run `jupyter notebook` to access the notebooks in the notebook folder, you can c
 direct comparisons between Baseline and Planner results in the Comparison.ipynb file.
 
 Finally all simulations are available as matplotlib animations in the animations folder and all the final positions for the robots are recorded in the plots folder.
+
+## Image
+
+![Example](plots/57.png)
