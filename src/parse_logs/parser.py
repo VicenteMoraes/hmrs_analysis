@@ -11,7 +11,7 @@ exec_code = '!!set_experimennt_run_foleder!!' # refer to the date of generation 
 class TrialRun():
     def __init__(self, trial_id, code, machine):
         # identification
-        self.trial_id, self.code, self.machine = int(trial_id), code, machine
+        self.trial_id, self.code, self.machine = trial_id, code, machine
         # independent variables
         self.factors = {}
         self.treatment = None
@@ -171,19 +171,31 @@ def parse_folder_of_log_files(log_files_path):
     Read a logs from a folder to a dataframe
     '''
     for machine, log_file_name, log_file_path in log_files_path:
-        [trial_id, code] = log_file_name.split('_')
-        trial_run_result = TrialRun(trial_id=trial_id, code=code, machine=machine)
+        trial_run_result: TrialRun = None
+        try:
+            [trial_id, code] = log_file_name.split('_')
+            trial_run_result = TrialRun(trial_id=int(trial_id), code=code, machine=machine)
+        except Exception as e:
+            print(f'file {log_file_name} with wrong name format:')
+            print(e)
+            print(f'ignoring {log_file_name}')
+            continue
         
-        with open(log_file_path, 'r') as rf:
-            trial_result = None
-            try:
-                # parse log
-                trial_result = reduce(parse_line, rf, trial_run_result)
-                yield trial_result
-            except Exception as err:
-                print(f'failure parsing {log_file_path} for ')
-                print(trial_id, code, machine)
-                print(err)
+        try:
+            with open(log_file_path, 'r') as rf:
+                trial_result = None
+                try:
+                    # parse log
+                    trial_result = reduce(parse_line, rf, trial_run_result)
+                    yield trial_result
+                except Exception as err:
+                    print(f'failure parsing {log_file_path} for ')
+                    print(trial_id, code, machine)
+                    print(err)
+        except Exception as e:
+            print(f'error reading {log_file_name}:')
+            print(e)
+            raise e
     return
 
 
