@@ -1,12 +1,8 @@
-import os
 import json
-from functools import reduce
-from collections import namedtuple
 from flatten_json import flatten
+from functools import reduce
 
-#global root_data_path
-root_data_path = '../data'
-exec_code = '!!set_experimennt_run_foleder!!' # refer to the date of generation and number of execution
+from .parse_base import log_files_paths, parse_log_line, LogDir
 
 class TrialRun():
     def __init__(self, trial_id, code, machine):
@@ -38,35 +34,12 @@ class TrialRun():
         }
         return flatten(_dic) ## flat nested dicts, such as factors
 
-def is_float(potential_float):
-    try:
-        float(potential_float)
-        return True
-    except ValueError:
-        return False
 
-def get_next_part(content, separator):
-    if not separator in content:
-        return [None, content]
-    else:
-        return content.split(separator, 1)
 
-def iter_log_files_on_a_folder(folder_path):
-    with os.scandir(folder_path) as entries:
-        for entry in entries:
-            if entry.is_file() and entry.name.endswith('.log'):
-                yield entry.name.removesuffix('.log'), entry
-        return
 
-def iter_folders_on_a_folder(folder_path):
-    with os.scandir(folder_path) as entries:
-        for entry in entries:
-            if entry.is_dir():
-                yield entry.name, entry
-        return
-
-def get_design_setter(exp_run_code):
-    exp_gen_path = f'{root_data_path}/{exp_run_code}/step1_experiment_generation/design.json'
+def get_design_setter(exec_code):
+    exp_gen_path = \
+        LogDir.get_path(exec_code, 'step1_experiment_generation', 'design.json')
     design:dict = None
     with open(exp_gen_path, 'r') as design_file:
         design = json.load(design_file)
@@ -89,33 +62,8 @@ def set_with_design(trial_run_result, trials_map):
     trial_run_result.factors = trial_design['factors']
     trial_run_result.treatment = trial_design['treatment']
 
-def log_files_paths(exp_run_code):
-    exp_data_path = f'{root_data_path}/{exp_run_code}/step2_execution/'
-    
-    for machine, run_folder_path in iter_folders_on_a_folder(exp_data_path):
-        for log_file_name, file_path in iter_log_files_on_a_folder(run_folder_path):
-            yield machine, log_file_name, file_path
-    return
 
-def parse_log_line(line):
-    '''
-    Parse a log line form a log file, interpreting it as 4 parts: time, log_evel, entity, content
-    Return content as a tuple
-    '''
-    log_entry = namedtuple('log_entry', 'time log_level entity content')
-    try:
-        rest = line
-        [first_part, rest] = get_next_part(rest, ',')
-        if not is_float(first_part):
-            # not standard log
-            return log_entry(None, None, None, line) 
-        time = float(first_part)
-        [log_level, rest] = get_next_part(rest, ',')
-        [entity, log_content] = get_next_part(rest, ',')
-        return log_entry(time, log_level, entity, log_content)    
-    except Exception as e:
-        print(f'cannot parse line {line}')
-        raise e
+
 
 def parse_end_line(trial_run_result, log_entry):
     '''
@@ -200,13 +148,13 @@ def parse_folder_of_log_files(log_files_path):
 
 
 
-def get_trial_runs(exp_run_code):
+def get_trial_runs(exec_code):
     # load experiment design, and create a map
-    set_design_in_trial_run = get_design_setter(exp_run_code)
+    set_design_in_trial_run = get_design_setter(exec_code)
     
     # open and parse all log files, generating trial_run objects
     trial_run_results = parse_folder_of_log_files(log_files_paths(
-        exp_run_code=exp_run_code))
+        exec_code=exec_code))
 
     # for each trial run, get factors + treatment from the trial code
     for trial_run in trial_run_results:
