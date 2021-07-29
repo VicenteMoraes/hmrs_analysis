@@ -120,20 +120,6 @@ def parse_skill_life_cycle(content):
 
     return True, skill_line_info
 
-# def parse_line(line, time, log_level, entity, content, skill):
-#     task_ended, task_started, nav_way_point = None, None, None
-#     log_entry = parse_log_line(line)
-#         # if is end:
-#         #     pass
-#     is_skill, skill, params = parse_skill_life_cycle(log_entry)
-#     if not is_skill:
-#         return task_ended, task_started, nav_way_point
-#     if is_skill:
-#         task_ended = parse_task_ended(line)
-#         task_started = parse_task_started(line)
-#         nav_way_point = parse_nav_way_point(line)
-#     return task_ended, task_started, nav_way_point
-
 def parse_line_and_call_handle(line, *parse_handle_pairs):
     is_skill, skill_line_info = parse_skill_life_cycle(line)
     if not is_skill:

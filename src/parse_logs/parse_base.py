@@ -58,6 +58,11 @@ def parse_log_line(line):
     Return content as a tuple
     '''
     log_entry = namedtuple('log_entry', 'time log_level entity content')
+    def strip_if_str(pstr):
+        if isinstance(pstr, str):
+            return pstr.strip()
+        else:
+            return pstr
     try:
         rest = line
         [first_part, rest] = get_next_part(rest, ',')
@@ -67,7 +72,10 @@ def parse_log_line(line):
         time = float(first_part)
         [log_level, rest] = get_next_part(rest, ',')
         [entity, log_content] = get_next_part(rest, ',')
-        return log_entry(time, log_level, entity, log_content)    
+        return log_entry(time, 
+            strip_if_str(log_level),
+            strip_if_str(entity),
+            strip_if_str(log_content))    
     except Exception as e:
         print(f'cannot parse line {line}')
         raise e

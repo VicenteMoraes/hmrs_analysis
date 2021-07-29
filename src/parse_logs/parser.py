@@ -161,6 +161,3 @@ def get_trial_runs(exec_code):
         set_design_in_trial_run(trial_run)
         yield trial_run 
     return
-# baseline_results_df = read_log_files_to_dataframe(log_files_paths('baseline'))
-# planned_results_df = read_log_files_to_dataframe(log_files_paths('planned'))
-# dataframe = pd.DataFrame.from_records([tr.to_dict() for tr in trial_runs])
