@@ -17,6 +17,16 @@ class LogDir:
         path = os.path.join(base_path, *path_args)
         return path
 
+def arr_to_map(arr, by):
+    def set_value(map, obj):
+        key = obj[by]
+        map[key] = obj
+        return map
+    return reduce(set_value, arr, {})
+
+def get_exec_folder_path(exec_code):
+    return LogDir.get_path(exec_code, 'step2_execution')
+
 def is_float(potential_float):
     try:
         float(potential_float)
@@ -104,3 +114,12 @@ def iter_results_dir(folder_path):
     for exec_group_name, exec_group_folder in iter_folders_on_a_folder(folder_path):
         yield exec_group_name, log_files_folder_wrapper(exec_group_folder)
     return
+
+def map_field(field, iter):
+    return map(lambda obj: getattr(obj.content, field), iter)
+
+def map_value(key, iter):
+    return map(lambda r: r[key], iter)
+
+def map_named(name, iter):
+    return map(lambda r: r._asdict()[name], iter)

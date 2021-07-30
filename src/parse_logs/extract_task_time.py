@@ -1,8 +1,10 @@
 import re
+import json
+from copy import deepcopy
 
 from collections import namedtuple
 from enum import Enum
-from .parse_base import iter_results_dir, parse_log_line, get_next_part, LogDir
+from .parse_base import get_exec_folder_path, iter_results_dir, parse_log_line, get_next_part, LogDir
 
 class MissionData:
     def __init__(self):
@@ -98,25 +100,49 @@ def extract_status_and_parameters(text):
     except Exception as e:
         print(e)
         return None, None
+
+def unpack(content, ntype, parameters):
+    new_type = namedtuple(ntype, parameters)
+    params = []
+    ncontent = deepcopy(content)
+    for param_key in parameters.split(' '):
+        try:
+            params.append(content.get(param_key, None))
+            del ncontent[param_key]
+        except Exception as e:
+            pass
+    return new_type(*params), ncontent
     
+
+
+def parse_skill_line(log_line):
+    try:
+        content_json = json.loads(log_line.content)
+        is_skill = not not content_json.get('skill-life-cycle')
+        skill = content_json.get('skill', None)
+        if skill:
+            del content_json['skill']
+        status = content_json.get('skill-life-cycle', None)
+        if status:
+            del content_json['skill-life-cycle']
+        return is_skill, skill, status, content_json
+    except Exception as e:
+        return False, None, None, None
+
 def parse_skill_life_cycle(content):
     log_line = parse_log_line(content)
     if not log_line.time: # not following 
         return False, None
     
-    next_token, rest = get_next_part(log_line.content)
-    is_skill = (next_token == 'skill-life-cycle')
+    is_skill, skill, status, content = parse_skill_line(log_line)
     if not is_skill:
         return False, None
-
-    skill, parameters_content = get_next_part(rest)
-    status, parameters = extract_status_and_parameters(parameters_content)
     
     skill_line_info = { 'time': log_line.time, 
                         'robot': log_line.entity,
                         'skill': skill,
                         'status': status,
-                        'parameters': parameters }
+                        'parameters': content }
 
     return True, skill_line_info
 
@@ -131,9 +157,10 @@ def parse_line_and_call_handle(line, *parse_handle_pairs):
             handler(**skill_line_info, **aditional_info)
             
 def parse_trial_run_logs(exec_code, exec_group, trial_run_code, iter_lines, 
-    out_tasks_results, out_nav_segments_results):
+                         out_tasks_results, out_nav_segments_results):
+    
     handle_task_start, handle_task_end, reach_way_point, handle_mission_end = \
-    init_task_state_interpreter(exec_code, exec_group, trial_run_code)
+        init_task_state_interpreter(exec_code, exec_group, trial_run_code)
     
     for line in iter_lines:
         parse_line_and_call_handle(line, 
@@ -148,7 +175,7 @@ def parse_trial_run_logs(exec_code, exec_group, trial_run_code, iter_lines,
 def task_results_parser(exec_code):
     tasks_results: list[TaskResult] = []
     nav_segments_results: list[NavSegmentResult] = []
-    folder_patrh = LogDir.get_path(exec_code, 'step2_execution')
+    folder_patrh = get_exec_folder_path(exec_code)
 
     for exec_group, iter_exec_group in iter_results_dir(folder_patrh):
         for trial_run_code, iter_lines in iter_exec_group:

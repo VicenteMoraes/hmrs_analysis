@@ -1,5 +1,6 @@
 from enum import Enum
 from functools import reduce
+from parse_logs.parse_base import arr_to_map
 from parse_logs.parse_coordinator_logs import iter_coordinator_logs_in_scenario, read_design
 from parse_logs.parse_coordinator_logs import filter_log
 
@@ -32,12 +33,6 @@ def get_verification_pairs():
         ]
     return verification_pairs
 
-def arr_to_map(arr, by):
-    def set_value(map, obj):
-        key = obj[by]
-        map[key] = obj
-        return map
-    return reduce(set_value, arr, {})
 
 def check_mission_coordination(exec_code):
     
@@ -55,6 +50,7 @@ def check_mission_coordination(exec_code):
 
     # TODO check all scenarios where checked
     return verification
+
 
 def map_field(field, iter):
     return map(lambda obj: getattr(obj.content, field), iter)
