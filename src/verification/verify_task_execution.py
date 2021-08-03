@@ -1,9 +1,9 @@
 from enum import Enum
 from functools import reduce
 from parse_logs.parse_base import arr_to_map
-from parse_logs.parse_coordinator_logs import filter_log, read_design
+from parse_logs.parse_coordinator_logs import read_design
 
-from parse_logs.parse_trial_run import iter_exec_logs_in_experiment, parse_trial_log
+from parse_logs.parse_trial_run import iter_exec_logs_in_experiment
 
 # Task Execution checks
 class task_execution_check(Enum):
@@ -33,7 +33,7 @@ def check_task_execution(exec_code):
         trial_design = trial_design_map[trial_code]
         
         # parse log
-        trial_tasks_exec_results, _ = parse_trial_log(exec_code, exec_group, trial_code, iter_log_lines)
+        trial_tasks_exec_results = None# parse_trial_log(exec_code, exec_group, trial_code, iter_log_lines)
         trial_end_result = None # TODO
         # check trial execution
         for property, check_fnc in get_verification_pairs():

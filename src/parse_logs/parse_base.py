@@ -90,8 +90,12 @@ def parse_log_line(line):
         print(f'cannot parse line {line}')
         raise e
 
+def get_done_file(log_file: os.DirEntry):
+    return log_file.path.removesuffix('.log') + '.done'
+    
 def iter_lines(log_file_path):
     try:
+        # iterate over .log file
         with open(log_file_path, 'r') as rf:
             try:
                 for line in rf.readlines():
@@ -100,7 +104,18 @@ def iter_lines(log_file_path):
             except Exception as err:
                 print(f'failure parsing {log_file_path} for ')
                 print(err)
-        return
+        # iterate over .log file
+        
+        try:
+            with open(get_done_file(log_file_path), 'r') as rf:
+                for line in rf.readlines():
+                    yield line
+                return
+            # parse log
+        except Exception as err:
+            print(f'failure parsing .done file "{get_done_file(log_file_path)}" for ')
+            print(err)
+
     except Exception as e:
         print(f'error reading {log_file_path}:')
         print(e)
@@ -108,6 +123,8 @@ def iter_lines(log_file_path):
 
 def iter_results_dir(folder_path):
     def log_files_folder_wrapper(exec_group_folder):
+        if '.ignore' in exec_group_folder.path:
+            return
         for log_file_name, file in iter_log_files_on_a_folder(exec_group_folder):
             yield log_file_name, iter_lines(file)
     

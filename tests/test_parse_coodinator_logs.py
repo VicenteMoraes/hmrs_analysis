@@ -3,7 +3,7 @@ import sys
 sys.path.append('./src')
 
 from parse_logs.parse_base import LogDir
-from parse_logs.parse_coordinator_logs import filter_log, iter_coordinator_logs_in_scenario, read_design
+from parse_logs.parse_coordinator_logs import filter_log, get_flat_design, iter_coordinator_logs_in_scenario, read_design
 
 
 def test_iterate_over_files():
@@ -20,6 +20,11 @@ def test_read_design():
     assert exp.factors
     assert exp.trials
 
+def test_get_flat_design():
+    LogDir.base_data_path = './tests/data'
+    
+    exp = get_flat_design(exec_code='experiment_2021_04_01_16_20_00_run_1')
+    assert exp
 
 def test_filter_line_by_entity():
     LogDir.base_data_path = './tests/data'

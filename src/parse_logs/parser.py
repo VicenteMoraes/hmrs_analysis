@@ -5,9 +5,9 @@ from functools import reduce
 from .parse_base import log_files_paths, parse_log_line, LogDir
 
 class TrialRun():
-    def __init__(self, trial_id, code, machine):
+    def __init__(self, exec_group, scenario_id, code):
         # identification
-        self.trial_id, self.code, self.machine = trial_id, code, machine
+        self.exec_group, self.scenario_id, self.code = exec_group, int(scenario_id), code
         # independent variables
         self.factors = {}
         self.treatment = None
@@ -21,9 +21,9 @@ class TrialRun():
 
     def to_dict(self):
         _dic = {
-            'trial_id': self.trial_id,
+            'exec_group': self.exec_group,
+            'scenario_id': self.scenario_id,
             'code': self.code,
-            'machine': self.machine,
             'treatment': self.treatment,
             'ttc': self.ttc,
             'failure_time': self.failure_time,
@@ -62,6 +62,11 @@ def set_with_design(trial_run_result, trials_map):
     trial_run_result.factors = trial_design['factors']
     trial_run_result.treatment = trial_design['treatment']
 
+
+
+# def sample_received(trial_run_result, log_entry):
+#     if log_entry.entity != "lab_arm":
+#         sky_status = 
 
 
 
@@ -124,9 +129,7 @@ def parse_folder_of_log_files(log_files_path):
             [trial_id, code] = log_file_name.split('_')
             trial_run_result = TrialRun(trial_id=int(trial_id), code=code, machine=machine)
         except Exception as e:
-            print(f'file {log_file_name} with wrong name format:')
-            print(e)
-            print(f'ignoring {log_file_name}')
+            print(f'ignoring "{log_file_name}.log, wrong name format"')
             continue
         
         try:

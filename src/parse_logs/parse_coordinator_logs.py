@@ -2,6 +2,9 @@
 
 import json
 from collections import namedtuple
+from typing import List
+
+from flatten_json import flatten
 from parse_logs.parse_base import LogDir, iter_folders_on_a_folder, iter_log_files_on_a_folder, iter_lines, parse_log_line
 
 exp_design = namedtuple('exp_design', 'factors scenarios trials')
@@ -27,6 +30,15 @@ def read_design(exec_code) -> exp_design:
 
     return exp_design(factors, scenarios, trials)
 
+def get_flat_design(exec_code) -> List[dict]:
+    exp_design = read_design(exec_code)
+    trials_designs = [flatten({'code': trial['code'],
+                                'scenario_id': trial['id'], 
+                                'factors': trial['factors'],
+                                'treatment': 'planned' if 'p' in trial['code'] else 'baseline'
+                                    }) for trial in exp_design.trials]
+    return trials_designs
+    
 def log_entry_content_as_json(log_entry):
     log_entry_type = namedtuple('log_entry', 'time log_level entity content')
     time, log_level, entity, content = log_entry

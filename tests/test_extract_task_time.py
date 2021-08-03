@@ -7,7 +7,7 @@ print(sys.path)
 from collections import namedtuple
 from parse_logs.extract_task_time import TaskResult, \
         init_task_state_interpreter, task_started, task_ended, parse_line_and_call_handle, \
-        extract_status_and_parameters, parse_trial_run_logs, task_results_parser
+        extract_status_and_parameters
 from parse_logs.parse_base import LogDir
 
 line_start_1 = \
