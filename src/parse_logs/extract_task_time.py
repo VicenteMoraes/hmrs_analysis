@@ -210,12 +210,15 @@ def check_all_fields_on(origin, model):
             return False
     return True
     
-## 
-def parse_sample_received(skill_log_info):
-    print(skill_log_info['entity'])
-    if skill_log_info['entity'] == 'lab_arm':
-        return True, None
-    return False, None
+##
+def parse_executor_robot(skill_log_info):
+    if skill_log_info.get('parameters', None) and \
+        skill_log_info.get('parameters').get('label', None) == 'navto_room':
+        # and \
+        #skill_log_info['skill-life-cycle'] == 'STARTED':
+        return True, {'executor': skill_log_info['entity']} 
+    else:
+        return False, None
 
 def parse_sample_received(skill_log_info):
     if skill_log_info['entity'] == 'lab_arm' and \
@@ -243,16 +246,26 @@ def parse_timeout_sim(skill_log_info):
 
 def parse_timeout_wallclock(skill_log_info):
     if skill_log_info.get('entity') == 'trial-watcher' and \
-        'False: wall-clock=' in skill_log_info.get('content', None):
+        'False: wall-clock' in skill_log_info.get('content', ''):
         return True, {'end_state': 'timeout-wall'}
     return False, None
 
-def parse_mission_end(skill_log_info):
+def parse_wallclock_time(skill_log_info):
+    if skill_log_info.get('entity') == 'trial-watcher':
+        return True, {'total_time_wall_clock': skill_log_info.get('time')}
     return False, None
+
+# def parse_mission_end(skill_log_info):
+#     if skill_log_info.get('content', None) == 'end!':
+#         return True, {''}
+#     return False, None
     
 
 def init_trial_state_interpreter(exec_group, scenario_id, trial_run_code):
     trial_run_result = TrialRun(exec_group=exec_group, scenario_id=scenario_id, code=trial_run_code)
+
+    def handle_assigned_robot(assigned, **kargs):
+        trial_run_result.assigned = assigned
 
     def handle_mission_end_success(end_state, time, **kargs):
         trial_run_result.end_state = end_state
@@ -263,7 +276,7 @@ def init_trial_state_interpreter(exec_group, scenario_id, trial_run_code):
         trial_run_result.failure_time = time
         trial_run_result.has_failure = True
 
-    return handle_mission_end_success, handle_mission_end_failure, trial_run_result
+    return handle_assigned_robot, handle_mission_end_success, handle_mission_end_failure, trial_run_result
 
 class TaskStateExtractor(Extractor):
     def __init__(self):
@@ -292,18 +305,25 @@ class TrialEndStateExtractor(Extractor):
         self.trial_run: TrialRun = None
 
     def init_trial(self, exec_code, exec_group, scenario_id, trial_run_code):
-        self.handle_mission_success_end, self.handle_mission_fail_end, curr_trial = \
+        self.handle_assigned_robot, self.handle_mission_success_end, self.handle_mission_fail_end, curr_trial = \
             init_trial_state_interpreter(exec_group, scenario_id, trial_run_code)
         
         self.trial_run = curr_trial
 
+        def get_setter(field):
+            def setter(**kvalue):
+                setattr(curr_trial, field, kvalue[field])
+            return setter
+
         # each parser is called for each line, when a match is found, 
         #   the handle is called with the appropriate end_state
-        return [(parse_sample_received, self.handle_mission_success_end, True),
+        return [(parse_executor_robot, get_setter('executor'), True),
+                (parse_sample_received, self.handle_mission_success_end, True),
                 (parse_low_battery, self.handle_mission_fail_end, False),
-                (parse_timeout_wallclock, self.handle_mission_fail_end, False),
                 (parse_timeout_sim, self.handle_mission_fail_end, False),
-                (parse_no_skill_failure, self.handle_mission_fail_end, False)]
+                (parse_no_skill_failure, self.handle_mission_fail_end, False),
+                (parse_timeout_wallclock, get_setter('end_state'), False),
+                (parse_wallclock_time, get_setter('total_time_wall_clock'), False)]
     
     # def end_trial():
     #     pass

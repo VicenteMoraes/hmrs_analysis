@@ -11,6 +11,7 @@ class TrialRun():
         # independent variables
         self.factors = {}
         self.treatment = None
+        self.executor = None
         # dependent variables / results 
         self.ttc = None
         self.failure_time = None
@@ -25,12 +26,13 @@ class TrialRun():
             'scenario_id': self.scenario_id,
             'code': self.code,
             'treatment': self.treatment,
+            'executor': self.executor,
             'ttc': self.ttc,
             'failure_time': self.failure_time,
             'end_state': self.end_state,
             'total_time_wall_clock': self.total_time_wall_clock,
             'has_failure': self.has_failure,
-            'factors': self.factors,
+            #'factors': self.factors,
         }
         return flatten(_dic) ## flat nested dicts, such as factors
 
