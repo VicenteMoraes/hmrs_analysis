@@ -18,21 +18,21 @@ def test_parse_log_line_end_sim():
     assert pytest.approx(log_entry.time) == 399.5667
     assert pytest.approx(log_entry.content) == 'ENDSIM'
 
-def test_parse_folder_of_log_files():
-    LogDir.base_data_path = './tests/data'
-    records = parser.parse_folder_of_log_files(
-        parser.log_files_paths(exec_code='experiment_2021_04_01_16_20_00_run_1'))
-    records = list(records) 
-    assert len(records) == 8
-    assert records[0].trial_id == 1
+# def test_parse_folder_of_log_files():
+#     LogDir.base_data_path = './tests/data'
+#     records = parser.parse_folder_of_log_files(
+#         parser.log_files_paths(exec_code='experiment_2021_04_01_16_20_00_run_1'))
+#     records = list(records) 
+#     assert len(records) == 8
+#     assert records[0].trial_id == 1
 
-def test_get_trial_runs_records():
-    LogDir.base_data_path = './tests/data'
-    trial_runs = parser.get_trial_runs('experiment_2021_04_01_16_20_00_run_1')
-    trial_runs = list(trial_runs)
-    assert len(trial_runs) == 8
-    assert trial_runs[0].code == 'aab'
-    assert trial_runs[0].treatment == 'baseline'
-    assert trial_runs[0].factors['avg_speed'] == 'a'
+# def test_get_trial_runs_records():
+#     LogDir.base_data_path = './tests/data'
+#     trial_runs = parser.get_trial_runs('experiment_2021_04_01_16_20_00_run_1')
+#     trial_runs = list(trial_runs)
+#     assert len(trial_runs) == 8
+#     assert trial_runs[0].code == 'aab'
+#     assert trial_runs[0].treatment == 'baseline'
+#     assert trial_runs[0].factors['avg_speed'] == 'a'
 
 

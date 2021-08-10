@@ -1,9 +1,11 @@
 import os
-
+import json 
+from copy import deepcopy
 from functools import reduce
 from collections import namedtuple
 
 import pathlib
+from typing import List, Tuple
 
 class LogDir:
     base_data_path = './data'
@@ -17,6 +19,8 @@ class LogDir:
         path = os.path.join(base_path, *path_args)
         return path
 
+### Util functions 
+
 def arr_to_map(arr, by):
     def set_value(map, obj):
         key = obj[by]
@@ -24,8 +28,32 @@ def arr_to_map(arr, by):
         return map
     return reduce(set_value, arr, {})
 
-def get_exec_folder_path(exec_code):
-    return LogDir.get_path(exec_code, 'step2_execution')
+def asdic(obj) -> dict:
+    if getattr(obj, '_asdict', None):
+        return obj._asdict()
+    return obj
+
+def merge(obj1, obj2):
+    robj = {}
+    if obj1:
+        robj.update(asdic(obj1))
+    if obj2:
+        robj.update(asdic(obj2))
+    return robj
+
+
+def unpack(content, ntype, parameters):
+    new_type = namedtuple(ntype, parameters)
+    params = []
+    ncontent = deepcopy(content)
+    for param_key in parameters.split(' '):
+        try:
+            params.append(content.get(param_key, None))
+            del ncontent[param_key]
+        except Exception as e:
+            pass
+    return new_type(*params), ncontent
+    
 
 def is_float(potential_float):
     try:
@@ -34,11 +62,20 @@ def is_float(potential_float):
     except Exception as e:
         return False
 
+def flatten(t):
+    return [item for sublist in t for item in sublist]
+
+def get_exec_folder_path(exec_code):
+    return LogDir.get_path(exec_code, 'step2_execution')
+
 def get_next_part(content, separator=','):
     if not separator in content:
         return [None, content]
     else:
         return content.split(separator, 1)
+
+
+# iterate over log folders and files
 
 def iter_folders_on_a_folder(folder_path):
     with os.scandir(LogDir.get_path(folder_path)) as entries:
@@ -54,13 +91,13 @@ def iter_log_files_on_a_folder(folder_path):
                 yield entry.name.removesuffix('.log'), entry
         return
 
-def log_files_paths(exec_code):
-    data_path = LogDir.get_path(exec_code, 'step2_execution')
+# def log_files_paths(exec_code):
+#     data_path = LogDir.get_path(exec_code, 'step2_execution')
     
-    for machine, run_folder_path in iter_folders_on_a_folder(data_path):
-        for log_file_name, file_path in iter_log_files_on_a_folder(run_folder_path):
-            yield machine, log_file_name, file_path
-    return
+#     for machine, run_folder_path in iter_folders_on_a_folder(data_path):
+#         for log_file_name, file_path in iter_log_files_on_a_folder(run_folder_path):
+#             yield machine, log_file_name, file_path
+#     return
 
 def parse_log_line(line):
     '''
@@ -91,29 +128,39 @@ def parse_log_line(line):
         raise e
 
 def get_done_file(log_file: os.DirEntry):
-    return log_file.path.removesuffix('.log') + '.done'
-    
+    if isinstance(log_file, str):
+        return log_file.removesuffix('.log') + '.done'
+    else:
+        return log_file.path.removesuffix('.log') + '.done'
+
+def sort_line(line):
+    [time, _] = get_next_part(line, ',')
+    time = float(time)
+    return time
+
 def iter_lines(log_file_path):
     try:
         # iterate over .log file
         with open(log_file_path, 'r') as rf:
             try:
+                lines = []
                 for line in rf.readlines():
+                    lines.append(line)
+                lines.sort(key=sort_line)
+                for line in lines:
                     yield line
                 # parse log
             except Exception as err:
                 print(f'failure parsing {log_file_path} for ')
                 print(err)
-        # iterate over .log file
-        
+        # iterate over .done file
         try:
             with open(get_done_file(log_file_path), 'r') as rf:
                 for line in rf.readlines():
                     yield line
                 return
-            # parse log
         except Exception as err:
-            print(f'failure parsing .done file "{get_done_file(log_file_path)}" for ')
+            print(f'failure parsing .done file "{get_done_file(log_file_path)}"')
             print(err)
 
     except Exception as e:
@@ -140,3 +187,104 @@ def map_value(key, iter):
 
 def map_named(name, iter):
     return map(lambda r: r._asdict()[name], iter)
+
+
+def parse_skill_line(log_line):
+    try:
+        content_json = json.loads(log_line.content)
+        is_skill = not not content_json.get('skill')
+        skill = content_json.get('skill', None)
+        if skill:
+            del content_json['skill']
+        skill_life_cycle_field = content_json.get('skill-life-cycle', None)
+        status_field = content_json.get('status', None)
+        report_status_field = content_json.get('report-status', None)
+
+        if skill_life_cycle_field:
+            del content_json['skill-life-cycle']
+        if status_field:
+            del content_json['status']
+        if report_status_field:
+            del content_json['report-status']
+        status = skill_life_cycle_field or status_field or report_status_field
+        return is_skill, skill, status, content_json
+    except Exception as e:
+        return False, None, None, None
+
+
+def parse_skill_life_cycle(content):
+    log_line = parse_log_line(content)
+    if type(log_line.time) != float:
+        return False, None
+    
+    is_skill, skill, status, content = parse_skill_line(log_line)
+    if not is_skill:
+        return False, asdic(log_line)
+    
+    skill_line_info = { 'time': log_line.time, 
+                        'entity': log_line.entity,
+                        'skill': skill,
+                        'status': status,
+                        'parameters': content }
+
+    return True, skill_line_info
+
+
+def parse_line_and_call_handle(line, parse_handle_pairs):
+    is_skill, content = parse_skill_life_cycle(line)
+    for parser, handler, skill_only in parse_handle_pairs:
+        if not is_skill:
+            if skill_only:
+                continue
+        try:
+            is_match, aditional_info = parser(content)
+            if is_match:
+                params = merge(content, aditional_info)
+                handler(**params)
+                #handler(content=content, **aditional_info)
+        except Exception as e:
+            print(f'failure on parsing the line "{line}"')
+            print(e)
+
+class Extractor():
+    def __init__(self):
+        pass
+    
+    def init_trial(self, exec_code, exec_group, scenario_id, trial_run_code) -> List[Tuple]:
+        pass
+
+    def end_trial(self):
+        pass
+
+    def result(self):
+        pass
+
+def parse_trial_run_logs(iter_lines, handle_pairs):
+    for line in iter_lines:
+        parse_line_and_call_handle(line, handle_pairs)
+
+class ExperimentParser():
+    def __init__(self, *extractors):
+        self.extractors: List[Extractor] = extractors
+
+    def extract(self, exec_code):    
+        folder_patrh = get_exec_folder_path(exec_code)
+        for exec_group, iter_exec_group in iter_results_dir(folder_patrh):
+            for file_name, iter_lines in iter_exec_group:
+                scenario_id = None
+                try:
+                    [scenario_id, trial_run_code] = file_name.split('_')
+                except Exception as e:
+                    print(f'ignoring "{file_name}.log, wrong name format"')
+                    continue
+                # init trial parse
+                handle_tuples = [ extractor.init_trial(exec_code, exec_group, scenario_id, trial_run_code) for extractor in self.extractors]
+                # parse each line
+                parse_trial_run_logs(iter_lines, flatten(handle_tuples))
+                # end the trials
+                [ extractor.end_trial() for extractor in self.extractors]
+                
+                yield reduce(merge, ([{e.name: e.result()} for e in self.extractors ]), {}), \
+                      (exec_group, int(scenario_id), trial_run_code)
+
+        return
