@@ -125,7 +125,7 @@ def parse_wallclock_time(skill_log_info):
 def parse_battery_level(log_info):
     try:
         bl = log_info['content']['battery-level']
-        bl = float(bl[:-1])
+        bl = float(bl[:-1])/100
         return True, {'last_battery_levels': { log_info['entity']: bl }} 
     except Exception as e:
         return False, None

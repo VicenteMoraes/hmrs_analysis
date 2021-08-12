@@ -37,8 +37,8 @@ def test_extract_experimen():
 def test_parse_battery_level():
     LogDir.base_data_path = './tests/data'
     trial_run_objects = parse_experiment_result(exec_code='experiment_2021_07_29_16_15_21_run_1')
-    first = next(trial_run_objects)
-    assert first.to_dict()['battery_level']
+    first = next(trial_run_objects).to_dict()
+    assert first['end_battery_level']
 
 
 def test_extract_experiment_success():
