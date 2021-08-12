@@ -18,13 +18,11 @@ def test_parse_log_line_end_sim():
     assert pytest.approx(log_entry.time) == 399.5667
     assert pytest.approx(log_entry.content) == 'ENDSIM'
 
-# def test_parse_folder_of_log_files():
-#     LogDir.base_data_path = './tests/data'
-#     records = parser.parse_folder_of_log_files(
-#         parser.log_files_paths(exec_code='experiment_2021_04_01_16_20_00_run_1'))
-#     records = list(records) 
-#     assert len(records) == 8
-#     assert records[0].trial_id == 1
+def test_parse_battery_level():
+    log_entry = parse_base.parse_log_line('75.60, [INFO], turtlebot1, {"battery-level": "22.92%"}')
+    assert pytest.approx(log_entry.time) == 75.60
+    getattr(log_entry.content, 'battery-level', None) == '22.92%'
+
 
 # def test_get_trial_runs_records():
 #     LogDir.base_data_path = './tests/data'

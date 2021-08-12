@@ -29,12 +29,17 @@ class TrialRun():
         self.ttc = None
         self.failure_time = None
         self.end_state = None
-        self.end_battery_level = None
+        self.last_battery_levels = None
         self.has_failure = False
         # metadata
         self.total_time_wall_clock = None
 
     def to_dict(self):
+        end_battery_level = None
+        if self.last_battery_levels:
+            end_battery_levels = [value for key, value in self.last_battery_levels.items()]
+            end_battery_level = end_battery_levels.pop(0)
+            
         _dic = {
             'exec_group': self.exec_group,
             'scenario_id': self.scenario_id,
@@ -44,12 +49,13 @@ class TrialRun():
             'ttc': self.ttc,
             'failure_time': self.failure_time,
             'end_state': self.end_state,
+            'end_battery_level': end_battery_level,
             'total_time_wall_clock': self.total_time_wall_clock,
-            'end_battery_level': self.end_battery_level,
+            'last_battery_levels': self.last_battery_levels,
             'has_failure': self.has_failure,
             #'factors': self.factors,
         }
-        return flatten(_dic) ## flat nested dicts, such as factors
+        return _dic ## flat nested dicts, such as factors
 
 
 
@@ -117,14 +123,12 @@ def parse_wallclock_time(skill_log_info):
 #     return False, None
 
 def parse_battery_level(log_info):
-    if log_info.get('parameters', None) and \
-        log_info.get('parameters').get('label', None) == 'navto_room':
-        # and \
-        #skill_log_info['skill-life-cycle'] == 'STARTED':
-        return True, {'executor': log_info['entity']} 
-    else:
+    try:
+        bl = log_info['content']['battery-level']
+        bl = float(bl[:-1])
+        return True, {'last_battery_levels': { log_info['entity']: bl }} 
+    except Exception as e:
         return False, None
-    pass
 
 def init_trial_state_interpreter(exec_group, scenario_id, trial_run_code):
     trial_run_result = TrialRun(exec_group=exec_group, scenario_id=scenario_id, code=trial_run_code)
@@ -158,7 +162,13 @@ class TrialEndStateExtractor(Extractor):
 
         def get_setter(field):
             def setter(**kvalue):
-                setattr(curr_trial, field, kvalue[field])
+                value = kvalue[field]
+                attr = getattr(curr_trial, field, None)
+                if attr and isinstance(attr, dict) and \
+                    isinstance(value, dict):
+                    attr.update(value)
+                else:
+                    setattr(curr_trial, field, value)
             return setter
 
         # each parser is called for each line, when a match is found, 
@@ -168,7 +178,7 @@ class TrialEndStateExtractor(Extractor):
                 (parse_low_battery, self.handle_mission_fail_end, False),
                 (parse_timeout_sim, self.handle_mission_fail_end, False),
                 (parse_no_skill_failure, self.handle_mission_fail_end, False),
-                (parse_battery_level, get_setter('end_battery_level'), False),
+                (parse_battery_level, get_setter('last_battery_levels'), False),
                 (parse_timeout_wallclock, get_setter('end_state'), False),
                 (parse_wallclock_time, get_setter('total_time_wall_clock'), False)]
     

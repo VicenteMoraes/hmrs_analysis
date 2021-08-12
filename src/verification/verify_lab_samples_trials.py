@@ -65,8 +65,8 @@ def check_available_robots_were_part_of_the_coalition_formation_process(factors_
     robots_in_the_design = scenario['robots']
     robots_in_the_design_names = set(map(lambda r:r['name'], robots_in_the_design))
 
-    inconpatible_workers = list(map_named('content', filter_log(coordinator_request_log, entity='incompatible_workers', content_as_json=True)))
-    evaluated_workers = list(map_named('content', filter_log(coordinator_request_log, entity='bid', content_as_json=True)))
+    inconpatible_workers = list(map_named('content', filter_log(coordinator_request_log, entity='incompatible_workers')))
+    evaluated_workers = list(map_named('content', filter_log(coordinator_request_log, entity='bid')))
     
     robots_in_the_ensemble = set(map_value('worker', inconpatible_workers + evaluated_workers))
 
@@ -83,7 +83,7 @@ def check_all_robots_with_the_skills_were_evaluated(factors_map, scenario, trial
 
     set_of_names_of_scenario_robots_with_required_skills = set(map_value('name', scenario_robots_with_required_skills))
     
-    evaluated_robots_logs = filter_log(coordinator_request_log, entity='bid', content_as_json=True)
+    evaluated_robots_logs = filter_log(coordinator_request_log, entity='bid')
     evaluated_robots_content = map_named('content', evaluated_robots_logs)
     sef_of_name_of_evaluated_robots = set(map_value('worker', evaluated_robots_content))
 

@@ -32,6 +32,6 @@ def test_get_flat_design():
 #     design_json_path = LogDir.get_path(exec_code, 
 #         'step1_experiment_generation', 'logs', 'aap', 'cf_request_0.log')
 
-#     incompatible_workers = filter_log(design_json_path, entity='incompatible_workers', content_as_json=True)
+#     incompatible_workers = filter_log(design_json_path, entity='incompatible_workers')
 #     assert len(incompatible_workers) == 4
 

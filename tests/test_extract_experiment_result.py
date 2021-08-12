@@ -28,6 +28,22 @@ def test_parse_experiment_result():
     trial_run_df = pd.DataFrame.from_records(trial_run_dicts)
     print(trial_run_df.to_csv())
 
+def test_extract_experimen():
+    LogDir.base_data_path = './tests/data'
+    trial_run_objects = parse_experiment_result(exec_code='experiment_2021_07_29_16_15_21_run_1')
+    a = next(tr for tr in trial_run_objects if tr.end_state == 'success')
+    assert a
+    
 def test_parse_battery_level():
     LogDir.base_data_path = './tests/data'
-    pass
+    trial_run_objects = parse_experiment_result(exec_code='experiment_2021_07_29_16_15_21_run_1')
+    first = next(trial_run_objects)
+    assert first.to_dict()['battery_level']
+
+
+def test_extract_experiment_success():
+    LogDir.base_data_path = './tests/data'
+    trial_run_objects = parse_experiment_result(exec_code='experiment_2021_07_29_16_15_21_run_1')
+    successses = [tr for tr in trial_run_objects if tr.end_state == 'success']
+    for succ in successses:
+        assert succ.to_dict()['ttc']

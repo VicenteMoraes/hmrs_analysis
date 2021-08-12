@@ -85,11 +85,16 @@ def iter_folders_on_a_folder(folder_path):
         return
 
 def iter_log_files_on_a_folder(folder_path):
-    with os.scandir(folder_path) as entries:
-        for entry in entries:
-            if entry.is_file() and entry.name.endswith('.log'):
-                yield entry.name.removesuffix('.log'), entry
-        return
+    entries = os.listdir(folder_path)
+    entries.sort()
+    for entry_name in entries:
+        if not entry_name.endswith('.log'):
+            continue
+        entry = pathlib.Path(os.path.join(folder_path, entry_name))
+        yield entry.name.removesuffix('.log'), entry
+            
+    return
+
 
 # def log_files_paths(exec_code):
 #     data_path = LogDir.get_path(exec_code, 'step2_execution')
@@ -110,6 +115,12 @@ def parse_log_line(line):
             return pstr.strip()
         else:
             return pstr
+
+    def loads_if_json(content):
+        try:
+            return json.loads(content)
+        except Exception as err:
+            return content
     try:
         rest = line
         [first_part, rest] = get_next_part(rest, ',')
@@ -122,16 +133,17 @@ def parse_log_line(line):
         return log_entry(time, 
             strip_if_str(log_level),
             strip_if_str(entity),
-            strip_if_str(log_content))    
+            loads_if_json(strip_if_str(log_content)))
     except Exception as e:
         print(f'cannot parse line {line}')
         raise e
 
-def get_done_file(log_file: os.DirEntry):
-    if isinstance(log_file, str):
-        return log_file.removesuffix('.log') + '.done'
+def get_done_file(log_file: pathlib.Path):
+    done_file_name = pathlib.Path(log_file.name.removesuffix('.log') + '.done')
+    if done_file_name.is_file():
+        return done_file_name
     else:
-        return log_file.path.removesuffix('.log') + '.done'
+        return None
 
 def sort_line(line):
     [time, _] = get_next_part(line, ',')
@@ -154,14 +166,17 @@ def iter_lines(log_file_path):
                 print(f'failure parsing {log_file_path} for ')
                 print(err)
         # iterate over .done file
-        try:
-            with open(get_done_file(log_file_path), 'r') as rf:
+        done_log_file = get_done_file(log_file_path)
+        if not done_log_file:
+            return
+        with open(done_log_file, 'r') as rf:
+            try:
                 for line in rf.readlines():
                     yield line
                 return
-        except Exception as err:
-            print(f'failure parsing .done file "{get_done_file(log_file_path)}"')
-            print(err)
+            except Exception as err:
+                print(f'failure parsing {log_file_path} for ')
+                print(err)
 
     except Exception as e:
         print(f'error reading {log_file_path}:')
@@ -191,7 +206,7 @@ def map_named(name, iter):
 
 def parse_skill_line(log_line):
     try:
-        content_json = json.loads(log_line.content)
+        content_json = log_line.content #json.loads(log_line.content)
         is_skill = not not content_json.get('skill')
         skill = content_json.get('skill', None)
         if skill:

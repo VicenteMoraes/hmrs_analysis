@@ -39,23 +39,14 @@ def get_flat_design(exec_code) -> List[dict]:
                                     }) for trial in exp_design.trials]
     return trials_designs
     
-def log_entry_content_as_json(log_entry):
-    log_entry_type = namedtuple('log_entry', 'time log_level entity content')
-    time, log_level, entity, content = log_entry
-    content = json.loads(content)
-    return log_entry_type(time=time, log_level=log_level, entity=entity, content=content)
 
-def filter_log(file_path, entity = None, content_as_json=False):
+def filter_log(file_path, entity = None):
     def filter_fnc(entry):
         if entity:
             if entry.entity != entity:
                 return False
         return True
 
-    if content_as_json:
-        parse_func = log_entry_content_as_json
-    else:
-        parse_func = lambda x: x # noop
 
     iter_log_entries =  map(parse_log_line, iter_lines(file_path))
-    return [ parse_func(log_entry) for log_entry in iter_log_entries if filter_fnc(log_entry)]
+    return [ log_entry for log_entry in iter_log_entries if filter_fnc(log_entry)]
