@@ -10,7 +10,7 @@ from parse_logs.extract_experiment_result import parse_experiment_result
 
 def test_parse_experiment_result():
     LogDir.base_data_path = './tests/data'
-    trial_run_objects = parse_experiment_result(exec_code='experiment_2021_04_01_16_20_00_run_1')
+    trial_run_objects = parse_experiment_result(exec_code='experiment_2021_07_29_16_15_21_run_1')
     no_state = []
     no_executor= []
     trial_runs = []
@@ -27,3 +27,7 @@ def test_parse_experiment_result():
 
     trial_run_df = pd.DataFrame.from_records(trial_run_dicts)
     print(trial_run_df.to_csv())
+
+def test_parse_battery_level():
+    LogDir.base_data_path = './tests/data'
+    pass

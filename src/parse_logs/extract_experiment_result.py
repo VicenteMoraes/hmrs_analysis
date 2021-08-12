@@ -29,6 +29,7 @@ class TrialRun():
         self.ttc = None
         self.failure_time = None
         self.end_state = None
+        self.end_battery_level = None
         self.has_failure = False
         # metadata
         self.total_time_wall_clock = None
@@ -44,6 +45,7 @@ class TrialRun():
             'failure_time': self.failure_time,
             'end_state': self.end_state,
             'total_time_wall_clock': self.total_time_wall_clock,
+            'end_battery_level': self.end_battery_level,
             'has_failure': self.has_failure,
             #'factors': self.factors,
         }
@@ -113,7 +115,16 @@ def parse_wallclock_time(skill_log_info):
 #     if skill_log_info.get('content', None) == 'end!':
 #         return True, {''}
 #     return False, None
-    
+
+def parse_battery_level(log_info):
+    if log_info.get('parameters', None) and \
+        log_info.get('parameters').get('label', None) == 'navto_room':
+        # and \
+        #skill_log_info['skill-life-cycle'] == 'STARTED':
+        return True, {'executor': log_info['entity']} 
+    else:
+        return False, None
+    pass
 
 def init_trial_state_interpreter(exec_group, scenario_id, trial_run_code):
     trial_run_result = TrialRun(exec_group=exec_group, scenario_id=scenario_id, code=trial_run_code)
@@ -157,6 +168,7 @@ class TrialEndStateExtractor(Extractor):
                 (parse_low_battery, self.handle_mission_fail_end, False),
                 (parse_timeout_sim, self.handle_mission_fail_end, False),
                 (parse_no_skill_failure, self.handle_mission_fail_end, False),
+                (parse_battery_level, get_setter('end_battery_level'), False),
                 (parse_timeout_wallclock, get_setter('end_state'), False),
                 (parse_wallclock_time, get_setter('total_time_wall_clock'), False)]
     

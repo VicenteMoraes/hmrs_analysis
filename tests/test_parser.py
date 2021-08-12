@@ -2,19 +2,19 @@ import pytest
 import sys
 sys.path.append('./src')
 
-from parse_logs import parser
+from parse_logs import parse_base
 from parse_logs.parse_base import LogDir
 
 
 def test_parse_log_line():
     line = '0.0,[info],turtlebot5,skill-life-cycle,navigation,(status=RUNNING, parameters=[[-21.0, 16.0, 3.141592653589793, True], [-37.0, 16.0, 1.5707963267948966, True], [-37.0, 21.5, 3.141592653589793, True], [-38.0, 21.5, 0.0, False]])'
-    time, log_level, entity, content = parser.parse_log_line(line)
+    time, log_level, entity, content = parse_base.parse_log_line(line)
     assert time == 0.0
     assert log_level == '[info]'
     assert entity == 'turtlebot5'
 
 def test_parse_log_line_end_sim():
-    log_entry = parser.parse_log_line('399.566666603,ENDSIM')
+    log_entry = parse_base.parse_log_line('399.566666603,ENDSIM')
     assert pytest.approx(log_entry.time) == 399.5667
     assert pytest.approx(log_entry.content) == 'ENDSIM'
 
