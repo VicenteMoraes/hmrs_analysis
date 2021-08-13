@@ -47,3 +47,11 @@ def test_extract_experiment_success():
     successses = [tr for tr in trial_run_objects if tr.end_state == 'success']
     for succ in successses:
         assert succ.to_dict()['ttc']
+
+
+def test_extract_all_have_end_state():
+    LogDir.base_data_path, exec_code = './data', 'experiment_2021_07_29_15_33_17_run_1'
+    #LogDir.base_data_path, exec_code = './tests/data', 'experiment_2021_07_29_16_15_21_run_1'
+    trial_run_objects = parse_experiment_result(exec_code=exec_code)
+    no_end_state = next(tr for tr in trial_run_objects if not tr.end_state)
+    assert not no_end_state

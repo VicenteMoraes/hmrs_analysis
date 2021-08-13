@@ -102,7 +102,8 @@ def parse_no_skill_failure(skill_log_info):
         return False, None
 
 def parse_timeout_sim(skill_log_info):
-    if skill_log_info.get('content', None) == 'ENDTIMEOUTSIM':
+    content = skill_log_info.get('content', None)
+    if content and 'ENDTIMEOUTSIM' in content:
         return True, {'end_state': 'timeout-sim'}
     return False, None
 
@@ -175,11 +176,13 @@ class TrialEndStateExtractor(Extractor):
         #   the handle is called with the appropriate end_state
         return [(parse_executor_robot, get_setter('executor'), True),
                 (parse_sample_received, self.handle_mission_success_end, True),
+                # end state
                 (parse_low_battery, self.handle_mission_fail_end, False),
                 (parse_timeout_sim, self.handle_mission_fail_end, False),
                 (parse_no_skill_failure, self.handle_mission_fail_end, False),
-                (parse_battery_level, get_setter('last_battery_levels'), False),
                 (parse_timeout_wallclock, get_setter('end_state'), False),
+                # info
+                (parse_battery_level, get_setter('last_battery_levels'), False),
                 (parse_wallclock_time, get_setter('total_time_wall_clock'), False)]
     
     # def end_trial():

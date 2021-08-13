@@ -139,7 +139,9 @@ def parse_log_line(line):
         raise e
 
 def get_done_file(log_file: pathlib.Path):
-    done_file_name = pathlib.Path(log_file.name.removesuffix('.log') + '.done')
+    done_file_name = log_file.name.removesuffix('.log') + '.done'
+    done_folder = str(log_file.parent)
+    done_file_name = pathlib.Path(os.path.join(done_folder, done_file_name))
     if done_file_name.is_file():
         return done_file_name
     else:
