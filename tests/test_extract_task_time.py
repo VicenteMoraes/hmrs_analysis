@@ -25,13 +25,13 @@ def test_init_task_state_interpreter():
 
 def test_task_parser_end_task():
     start_task, end_task, end_trial = init_task_state_interpreter('2021-04-01', 'aaaa', 'les-01')
-    start_task(100, 'r1', 'navigate', {'from': 'A'})
-    end_task(200, 'r1', 'navigate', 'succ')
+    start_task(100, 'r1', skill='navto', parameters={'label':'navigate', 'from': 'A'})
+    end_task(200, 'r1', skill='navto', parameters={'label':'navigate', 'skill-life-cycle': 'SUCCESS'})
 
     tasks_results: list[TaskResult] = []
     end_trial(tasks_result_to_extend=tasks_results)
 
-    assert tasks_results[0].end_state == 'succ'
+    assert tasks_results[0].end_state == 'SUCCESS'
     assert tasks_results[0].end_time == 200
 
 def test_get_parametesr():
