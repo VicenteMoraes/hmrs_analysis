@@ -74,16 +74,18 @@ def init_task_state_interpreter(exec_code, exec_group, trial_run_code):
         tasks_results.append(task)
         running_tasks[robot] = task
 
-    def end_task(time, entity, parameters, **_):
+    def end_task(time, entity, status, parameters, **_):
         robot = entity
         label = parameters.get('label', None)
-        end_state = parameters.get('skill-life-cycle', None)
-        curr_task = running_tasks[robot]
+        curr_task = running_tasks.get(robot, None)
+        if not curr_task:
+            print(f'parsing ending task {robot}:{label}, but it was not started')
+            return
         if curr_task.label != label:
             failures.append(f'failure parsing "{robot}:{label}" logs. {exec_code}:{exec_group}:{trial_run_code}')
         else:
             curr_task.end_time = time
-            curr_task.end_state = end_state
+            curr_task.end_state = status
             running_tasks[robot] = None
     
     def end_trial(tasks_result_to_extend):
@@ -98,6 +100,8 @@ def parse_task_started(skill_log_info):
     return False, None
 
 def parse_task_ended(skill_log_info):
+    if skill_log_info.get('skill', None) == 'init_robobt':
+        return False, None
     if skill_log_info['status'] == 'SUCCESS':
         return True, {'label': skill_log_info['parameters']['label']}
     return False, None
