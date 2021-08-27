@@ -55,7 +55,7 @@ def init_task_state_interpreter(exec_code, exec_group, trial_run_code):
     tasks_results = []
     failures = []
 
-    def start_task(time, entity, skill, parameters, label=None, **_):
+    def start_task(time, entity, skill, parameters, **_):
         robot = entity
         label = parameters.get('label', None)
         if running_tasks.get(robot):
@@ -64,7 +64,8 @@ def init_task_state_interpreter(exec_code, exec_group, trial_run_code):
                 return
             # else end the last task
             print(f'{robot} started {skill} without logging end of {running_tasks[robot].skill}')
-            end_task(time, robot, running_tasks[robot].skill, end_state='SUCCESS')
+            end_task(time, entity=robot, skill=running_tasks[robot].skill, 
+                    parameters={'skill-life-cycle':'UNKNOWN','label': label})
             
         task = TaskResult(
             exec_code=exec_code, trial_run_code=trial_run_code, exec_group=exec_group,
@@ -73,13 +74,18 @@ def init_task_state_interpreter(exec_code, exec_group, trial_run_code):
         tasks_results.append(task)
         running_tasks[robot] = task
 
-    def end_task(time, robot, skill, end_state):
-        curr_task = running_tasks[robot]
-        if curr_task.skill != skill:
-            failures.append(f'failure parsing "{robot}:{skill}" logs. {exec_code}:{exec_group}:{trial_run_code}')
+    def end_task(time, entity, status, parameters, **_):
+        robot = entity
+        label = parameters.get('label', None)
+        curr_task = running_tasks.get(robot, None)
+        if not curr_task:
+            print(f'parsing ending task {robot}:{label}, but it was not started')
+            return
+        if curr_task.label != label:
+            failures.append(f'failure parsing "{robot}:{label}" logs. {exec_code}:{exec_group}:{trial_run_code}')
         else:
             curr_task.end_time = time
-            curr_task.end_state = end_state
+            curr_task.end_state = status
             running_tasks[robot] = None
     
     def end_trial(tasks_result_to_extend):
@@ -93,7 +99,11 @@ def parse_task_started(skill_log_info):
         return True, {'label': skill_log_info['parameters']['label']}
     return False, None
 
-def parse_task_ended(line):
+def parse_task_ended(skill_log_info):
+    if skill_log_info.get('skill', None) == 'init_robobt':
+        return False, None
+    if skill_log_info['status'] == 'SUCCESS':
+        return True, {'label': skill_log_info['parameters']['label']}
     return False, None
 
 class TaskStateExtractor(Extractor):
