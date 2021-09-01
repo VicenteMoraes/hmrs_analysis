@@ -5,8 +5,10 @@ sys.path.append(f'{cwd}/src')
 print(sys.path)
 
 from collections import namedtuple
+
 from parse_logs.parse_base import LogDir, parse_line_and_call_handle, parse_trial_run_logs
 from parse_logs.extract_tasks_exec_result import extract_status_and_parameters, task_started, task_ended, TaskResult, init_task_state_interpreter
+from parse_logs.extract_tasks_exec_result import parse_task_state
 
 line_start_1 = \
     '9.33333325386,[info],turtlebot5,skill-life-cycle,navigation,(status=STARTED, parameters=[[-37.0, 33.98, -1.5707963267948966, True], [-37.0, 18.93, 0.0, True], [-33.9, 18.93, 3.14, False]])'
@@ -14,7 +16,7 @@ line_start_2 = \
     "218.799999952,[info],turtlebot5,skill-life-cycle,approach_person,(status=STARTED, parameters=['nurse'])"
 
 def test_init_task_state_interpreter():
-    start_task, end_task, end_trial = init_task_state_interpreter('2021-04-01', 'aaaa', 'les-01')
+    start_task, end_task, end_trial = init_task_state_interpreter('2021-04-01', 'aaaa', '01', 'les-01')
     start_task(100, entity='r1', skill='navigate', parameters={'from': 'A'})
 
     tasks_results: list[TaskResult] = []
@@ -24,7 +26,7 @@ def test_init_task_state_interpreter():
     assert tasks_results[0].parameters == {'from': 'A'}
 
 def test_task_parser_end_task():
-    start_task, end_task, end_trial = init_task_state_interpreter('2021-04-01', 'aaaa', 'les-01')
+    start_task, end_task, end_trial = init_task_state_interpreter('2021-04-01', 'aaaa', '01', 'les-01')
     start_task(100, 'r1', skill='navto', parameters={'label':'navigate', 'from': 'A'})
     end_task(200, 'r1', skill='navto', status= 'SUCCESS', parameters={'label':'navigate'})
 
@@ -41,6 +43,14 @@ def test_get_parametesr():
     assert status == 'STARTED'
     assert isinstance(parameters, list)
 
+
+def test_parse_task_state():
+    LogDir.base_data_path = './tests/data'
+    test_exec_code = 'experiment_2021_07_29_16_15_21_run_1'
+    scenarios_gen = parse_task_state(exec_code=test_exec_code)
+    first_scenario = next(scenarios_gen)
+    first_task_result = first_scenario[0].to_dict()
+    assert first_task_result['expent_time'] == 186.1
 
 # def test_parse_line_start_task():
 #     handler_called, parser_called = False, False

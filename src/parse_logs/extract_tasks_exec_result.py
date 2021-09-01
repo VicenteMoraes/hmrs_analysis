@@ -12,26 +12,45 @@ class TaskEndState(Enum):
     UNKNOWN = None
 
 class TaskResult:
-    def __init__(self, exec_code, trial_run_code, exec_group, robot,
-                start_time, skill, label, parameters):
+    def __init__(self, exec_code, code, scenario_id, exec_group, robot,
+                start_time, skill, label, parameters):                
         self.exec_code = exec_code
-        self.trial_run_code = trial_run_code
+        self.code = code
         self.exec_group = exec_group
+        self.scenario_id = scenario_id
         self.robot = robot
-        self.start_time = start_time
         self.skill = skill
         self.label = label
         self.parameters = parameters
-        self.expent_time = None
+        self.start_time = start_time
         self.end_time = None
         self.end_state: TaskEndState = None
+    
+    def to_dict(self):
+        _dic = {
+            'exec_code': self.exec_code,
+            'code': self.code,
+            'exec_group': self.exec_group,
+            'scenario_id': self.scenario_id,
+
+            'robot': self.robot,
+            'skill': self.skill,
+            'label': self.label,
+            'parameters': self.parameters,
+            'start_time': self.start_time,
+            'end_time': self.end_time,
+            'expent_time': self.end_time - self.start_time if self.end_time and self.start_time else None,
+            'end_state': self.end_state
+        }
+        return _dic ## flat nested dicts, such as factors
+
 
 task_started = namedtuple('task_started', 'robot skill parameters')
 task_ended = namedtuple('task_ended', 'robot skill end_state time')
 
-def parse_experiment_result(exec_code):    
+def parse_task_state(exec_code):    
     ep = ExperimentParser(TaskStateExtractor())
-    for res in ep.extract(exec_code = exec_code):
+    for res, meta in ep.extract(exec_code = exec_code):
         yield res[TaskStateExtractor.name]
     return
 
@@ -49,7 +68,7 @@ def extract_status_and_parameters(text):
         print(e)
         return None, None
 
-def init_task_state_interpreter(exec_code, exec_group, trial_run_code):
+def init_task_state_interpreter(exec_code, exec_group, scenario_id, trial_run_code):
     running_tasks: dict[str, TaskResult] = {}
     
     tasks_results = []
@@ -64,30 +83,30 @@ def init_task_state_interpreter(exec_code, exec_group, trial_run_code):
                 return
             # else end the last task
             print(f'{robot} started {skill} without logging end of {running_tasks[robot].skill}')
-            end_task(time, entity=robot, skill=running_tasks[robot].skill, 
-                    parameters={'skill-life-cycle':'UNKNOWN','label': label})
+            end_task(time, entity=robot, parameters={ 'skill-life-cycle':'UNKNOWN' })
             
         task = TaskResult(
-            exec_code=exec_code, trial_run_code=trial_run_code, exec_group=exec_group,
+            exec_code=exec_code, code=trial_run_code, scenario_id=scenario_id, exec_group=exec_group,
             robot=robot, skill=skill, label=label, parameters=parameters, start_time=time
         )
         tasks_results.append(task)
         running_tasks[robot] = task
 
-    def end_task(time, entity, status, parameters, **_):
+    def end_task(time, entity, parameters, label=None, status=None, **_):
         robot = entity
         label = parameters.get('label', None)
         curr_task = running_tasks.get(robot, None)
         if not curr_task:
             print(f'parsing ending task {robot}:{label}, but it was not started')
             return
-        if curr_task.label != label:
+        if label and curr_task.label != label:
             failures.append(f'failure parsing "{robot}:{label}" logs. {exec_code}:{exec_group}:{trial_run_code}')
-        else:
-            curr_task.end_time = time
-            curr_task.end_state = status
-            running_tasks[robot] = None
-    
+            return
+        
+        curr_task.end_time = time
+        curr_task.end_state = status
+        running_tasks[robot] = None
+
     def end_trial(tasks_result_to_extend):
         # TODO handle not detected end of tasks
         tasks_result_to_extend.extend(tasks_results)
@@ -113,11 +132,10 @@ class TaskStateExtractor(Extractor):
             self.tasks_results: list[TaskResult] = None
             self.handle_task_start, self.handle_task_end, self.ctx_end_trial = None, None, None
     
-
     def init_trial(self, exec_code, exec_group, scenario_id, trial_run_code):
         self.tasks_results: list[TaskResult] = []
         self.handle_task_start, self.handle_task_end, self.ctx_end_trial = \
-            init_task_state_interpreter(exec_code, exec_group, trial_run_code)
+            init_task_state_interpreter(exec_code, exec_group, scenario_id, trial_run_code)
         
         # pair fnc for parse/match and handle (in case of a match)            
         return  [(parse_task_started, self.handle_task_start, True),

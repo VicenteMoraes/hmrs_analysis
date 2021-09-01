@@ -1,10 +1,10 @@
-10.88, [DEBUG], r2, {"skill": "navigation", "skill-life-cycle": "STARTED"}
+10.88, [DEBUG], r2, {"skill": "navigation", "skill-life-cycle": "STARTED", "label": "navto_room" }
 22.68, [INFO], r2, {"battery-level": "16.72%"}
 22.70, [INFO], r5, {"y": "18.00", "x": "-13.50", "yaw": "-1.50"}
 37.68, [INFO], r2, {"battery-level": "15.82%"}
 44.42, [DEBUG], None, [debug],r2,move-base-info,Hooray, the base moved arrived,(x=-37;y=33.95)
 44.43, [DEBUG], r2, {"status": "way-point-reached", "skill": "navigation", "percentage": "33.33%", "goingto": "IC Room 6"}
-49.33, [DEBUG], r2, {"skill": "navigation", "skill-life-cycle": "RUNNING"}
+49.33, [DEBUG], r2, {"skill": "navigation", "skill-life-cycle": "RUNNING", }
 52.35, [INFO], r1, {"y": "17.82", "x": "-11.46", "yaw": "-1.25"}
 52.68, [INFO], r2, {"battery-level": "14.92%"}
 67.68, [INFO], r2, {"battery-level": "14.02%"}
@@ -23,34 +23,35 @@
 196.87, [DEBUG], None, [debug],r2,move-base-info,Hooray, the base moved arrived,(x=-33.9;y=18.93)
 196.87, [DEBUG], None, [debug],r2,move-base-info,Hooray, the base moved arrived,(x=-33.9;y=18.93)
 196.98, [DEBUG], r2, {"status": "way-point-reached", "skill": "navigation", "percentage": "100.00%", "goingto": "IC Room 6"}
+196.98, [DEBUG], r2, {"param_list": ["IC Room 6", [[-19.0, 16.0, 3.141592653589793, true], [-37.0, 16.0, 1.5707963267948966, true], [-37.0, 18.93, 0.0, true], [-33.9, 18.93, 3.14, false]]], "skill": "navigation", "skill-life-cycle": "SUCCESS", "label": "navto_room"}
 197.05, [DEBUG], r2, "available-skills=['send_message', 'wait_message', 'approach_person', 'approach_robot', 'authenticate_person', 'navigation', 'operate_drawer']"
-197.05, [DEBUG], r2, {"skill": "approach_person", "skill-life-cycle": "STARTED"}
+197.05, [DEBUG], r2, {"skill": "approach_person", "skill-life-cycle": "STARTED", "label": "approach_nurse"}
 197.18, [DEBUG], r2, {"status": "localize-person", "skill": "approach-person", "who": "nurse"}
 197.38, [DEBUG], r2, {"status": "goto-person", "skill": "approach-person", "who": "nurse"}
 197.48, [DEBUG], r2, "available-skills=['send_message', 'wait_message', 'approach_person', 'approach_robot', 'authenticate_person', 'navigation', 'operate_drawer']"
-197.48, [DEBUG], r2, {"skill": "authenticate_person", "skill-life-cycle": "STARTED"}
+197.48, [DEBUG], r2, {"skill": "authenticate_person", "skill-life-cycle": "STARTED", "label": "authenticate_nurse"}
 197.58, [DEBUG], None, [info],nurse,sync,received-request,(status=sending-request)
 197.58, [DEBUG], r2, {"status": "request-authentication", "to": "nurse", "skill": "authenticate-person"}
 197.58, [DEBUG], None, [info],nurse,sync,received-request,(status=sending-request)
 198.03, [DEBUG], r2, {"status": "received-authentication", "skill": "authenticate-person", "from": "nurse"}
 198.12, [DEBUG], r2, "available-skills=['send_message', 'wait_message', 'approach_person', 'approach_robot', 'authenticate_person', 'navigation', 'operate_drawer']"
-198.12, [DEBUG], r2, {"skill": "operate_drawer", "skill-life-cycle": "STARTED"}
+198.12, [DEBUG], r2, {"skill": "operate_drawer", "skill-life-cycle": "STARTED", "label": "open_drawer_for_nurse"}
 198.18, [DEBUG], r2, {"status": "task-update", "action": "open", "skill": "operate-drawer"}
 198.98, [DEBUG], r2, "available-skills=['send_message', 'wait_message', 'approach_person', 'approach_robot', 'authenticate_person', 'navigation', 'operate_drawer']"
-198.98, [DEBUG], r2, {"skill": "send_message", "skill-life-cycle": "STARTED"}
+198.98, [DEBUG], r2, {"skill": "send_message", "skill-life-cycle": "STARTED", "label": "notify_nurse_of_open_drawer_for_nurse_completed"}
 199.05, [INFO], r2, {"to": "nurse", "skill": "send-message"}
 199.77, [DEBUG], None, [info],nurse,sync,wait-message,(status=message-received)
 199.77, [DEBUG], None, [info],nurse,sync,wait-message,(status=message-received)
 202.05, [DEBUG], r2, "available-skills=['send_message', 'wait_message', 'approach_person', 'approach_robot', 'authenticate_person', 'navigation', 'operate_drawer']"
-202.05, [DEBUG], r2, {"skill": "wait_message", "skill-life-cycle": "STARTED"}
+202.05, [DEBUG], r2, {"skill": "wait_message", "skill-life-cycle": "STARTED", "label": "wait_nurse_to_complete_deposit"}
 202.68, [INFO], r2, {"battery-level": "5.92%"}
 202.68, [INFO], r2, {"battery-level": "5.92%"}
 203.82, [INFO], r2, {"status": "message-received", "skill": "wait-message"}
 203.88, [DEBUG], r2, "available-skills=['send_message', 'wait_message', 'approach_person', 'approach_robot', 'authenticate_person', 'navigation', 'operate_drawer']"
-203.88, [DEBUG], r2, {"skill": "operate_drawer", "skill-life-cycle": "STARTED"}
+203.88, [DEBUG], r2, {"skill": "operate_drawer", "skill-life-cycle": "STARTED", "label": "close_drawer_nurse"}
 203.98, [DEBUG], r2, {"status": "task-update", "action": "close", "skill": "operate-drawer"}
 204.78, [DEBUG], r2, "available-skills=['send_message', 'wait_message', 'approach_person', 'approach_robot', 'authenticate_person', 'navigation', 'operate_drawer']"
-204.78, [DEBUG], r2, {"skill": "navigation", "skill-life-cycle": "STARTED"}
+204.78, [DEBUG], r2, {"skill": "navigation", "skill-life-cycle": "STARTED", "label": "navto_lab" }
 209.77, [DEBUG], None, [info],nurse,sync,wait-message,(status=message-received)
 209.77, [DEBUG], None, [info],nurse,sync,wait-message,(status=message-received)
 217.35, [INFO], r1, {"y": "17.82", "x": "-11.46", "yaw": "-1.25"}
