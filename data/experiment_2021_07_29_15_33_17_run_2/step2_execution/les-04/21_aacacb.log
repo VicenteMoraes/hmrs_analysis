@@ -1,0 +1,935 @@
+0.00, [DEBUG], logger, ROBOTS_CONFIG=[{"avg_speed": 0.15, "battery_charge": 0.23995139509475963, "battery_discharge_rate": 0.00068, "id": 1, "local_plan": null, "location": "IC Room 4", "name": "r1", "position": [-39.44, 33.95, 0.0], "skills": ["approach_person", "approach_robot", "navigation", "operate_drawer"]}, {"avg_speed": 0.15, "battery_charge": 0.634952869577942, "battery_discharge_rate": 0.0006000000000000001, "id": 2, "local_plan": null, "location": "PC Room 5", "name": "r2", "position": [-21.0, 18.0, -1.57], "skills": ["approach_person", "approach_robot", "authenticate_person", "navigation", "operate_drawer"]}, {"avg_speed": 0.15, "battery_charge": 0.08039941318304296, "battery_discharge_rate": 0.0004, "id": 3, "local_plan": null, "location": "IC Room 2", "name": "r3", "position": [-38.0, 21.5, 0.0], "skills": ["approach_person", "approach_robot", "navigation", "operate_drawer"]}, {"avg_speed": 0.15, "battery_charge": 0.17496190705907763, "battery_discharge_rate": 0.00026000000000000003, "id": 4, "local_plan": null, "location": "PC Room 7", "name": "r4", "position": [-13.5, 18.0, -1.57], "skills": ["approach_person", "approach_robot", "authenticate_person", "navigation", "operate_drawer"]}, {"avg_speed": 0.15, "battery_charge": 0.7179616530181877, "battery_discharge_rate": 0.00042, "id": 5, "local_plan": [["navigation", ["PC Room 3", [[-33.9, 18.93, 3.14], [-37.0, 18.93], [-37.0, 16.0], [-28.5, 16.0], [-28.5, 18.0, -1.57]]], "navto_room"], ["approach_person", ["nurse"], "approach_nurse"], ["authenticate_person", ["nurse"], "authenticate_nurse"], ["operate_drawer", ["open"], "open_drawer_for_nurse"], ["send_message", ["nurse"], "notify_nurse_of_open_drawer_for_nurse_completed"], ["wait_message", ["nurse"], "wait_nurse_to_complete_deposit"], ["operate_drawer", ["close"], "close_drawer_nurse"], ["navigation", ["Laboratory", [[-28.5, 18.0, -1.57], [-28.5, 16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]], "navto_lab"], ["approach_robot", ["lab_arm"], "approach_arm"], ["operate_drawer", ["open"], "open_drawer_lab"], ["send_message", ["lab_arm"], "notify_lab_arm_of_open_drawer_lab_completed"], ["wait_message", ["lab_arm"], "wait_lab_arm_to_complete_pick_up_sample"], ["operate_drawer", ["close"], "close_drawer_lab"]], "location": "IC Room 6", "name": "r5", "position": [-33.9, 18.93, 3.14], "skills": ["approach_person", "authenticate_person", "navigation", "operate_drawer"]}, {"avg_speed": 0.15, "battery_charge": 0.5408465660492595, "battery_discharge_rate": 0.0005200000000000001, "id": 6, "local_plan": null, "location": "PC Room 4", "name": "r6", "position": [-27.23, 18.0, -1.57], "skills": ["approach_person", "approach_robot", "navigation", "operate_drawer"]}]
+0.00, [DEBUG], logger, NURSES_CONFIG=[{"location": "PC Room 3", "position": [-29.5, 19.0, -1.57]}]
+0.00, [DEBUG], logger, Simulation open
+0.02, [DEBUG], logger, subcribing to in the topic /log
+1.12, [DEBUG], None, [debug],turtlebot1,move-base-info,Move_base is up and ok....,
+1.30, [DEBUG], None, [debug],turtlebot3,move-base-info,Move_base is up and ok....,
+1.33, [DEBUG], None, [debug],turtlebot6,move-base-info,Move_base is up and ok....,
+1.42, [DEBUG], None, [debug],turtlebot2,move-base-info,Move_base is up and ok....,
+3.60, [DEBUG], None, [debug],turtlebot5,move-base-info,Move_base is up and ok....,
+3.87, [DEBUG], None, [debug],turtlebot4,move-base-info,Move_base is up and ok....,
+9.37, [DEBUG], turtlebot1, {"param_list": [], "skill": "init_robobt", "skill-life-cycle": "RUNNING", "label": "init_robobt"}
+9.43, [DEBUG], turtlebot2, {"param_list": [], "skill": "init_robobt", "skill-life-cycle": "RUNNING", "label": "init_robobt"}
+9.65, [DEBUG], turtlebot4, {"param_list": [], "skill": "init_robobt", "skill-life-cycle": "RUNNING", "label": "init_robobt"}
+9.80, [DEBUG], turtlebot5, {"param_list": [], "skill": "init_robobt", "skill-life-cycle": "RUNNING", "label": "init_robobt"}
+9.95, [DEBUG], turtlebot3, {"param_list": [], "skill": "init_robobt", "skill-life-cycle": "RUNNING", "label": "init_robobt"}
+10.00, [DEBUG], turtlebot6, {"param_list": [], "skill": "init_robobt", "skill-life-cycle": "SUCCESS", "label": "init_robobt"}
+11.47, [DEBUG], turtlebot1, {"param_list": [], "skill": "init_robobt", "skill-life-cycle": "SUCCESS", "label": "init_robobt"}
+11.87, [DEBUG], turtlebot2, {"param_list": [], "skill": "init_robobt", "skill-life-cycle": "SUCCESS", "label": "init_robobt"}
+12.43, [DEBUG], turtlebot5, {"param_list": [], "skill": "init_robobt", "skill-life-cycle": "SUCCESS", "label": "init_robobt"}
+12.43, [DEBUG], turtlebot5, "available-skills=['send_message', 'wait_message', 'approach_person', 'authenticate_person', 'navigation', 'operate_drawer']"
+12.43, [DEBUG], turtlebot5, {"param_list": ["PC Room 3", [[-37.0, 18.93, -1.5707963267948966, true], [-37.0, 16.0, 0.0, true], [-28.5, 16.0, 1.5707963267948966, true], [-28.5, 18.0, -1.57, false]]], "skill": "navigation", "skill-life-cycle": "STARTED", "label": "navto_room"}
+12.48, [DEBUG], turtlebot4, {"param_list": [], "skill": "init_robobt", "skill-life-cycle": "SUCCESS", "label": "init_robobt"}
+14.15, [DEBUG], turtlebot3, {"param_list": [], "skill": "init_robobt", "skill-life-cycle": "SUCCESS", "label": "init_robobt"}
+21.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.51", "yaw": "0.46"}
+21.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.51", "yaw": "0.46"}
+21.53, [INFO], turtlebot2, {"y": "18.00", "x": "-20.99", "yaw": "-1.54"}
+21.53, [INFO], turtlebot2, {"y": "18.00", "x": "-20.99", "yaw": "-1.54"}
+21.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+21.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+21.58, [INFO], turtlebot4, {"y": "18.00", "x": "-13.50", "yaw": "-1.50"}
+21.58, [INFO], turtlebot4, {"y": "18.00", "x": "-13.50", "yaw": "-1.50"}
+21.60, [INFO], turtlebot5, {"y": "18.55", "x": "-34.11", "yaw": "-2.08"}
+21.60, [INFO], turtlebot5, {"y": "18.55", "x": "-34.11", "yaw": "-2.08"}
+21.62, [INFO], turtlebot6, {"y": "18.02", "x": "-27.23", "yaw": "-1.59"}
+21.62, [INFO], turtlebot6, {"y": "18.02", "x": "-27.23", "yaw": "-1.59"}
+21.62, [INFO], turtlebot5, {"battery-level": "71.24%"}
+21.62, [INFO], turtlebot5, {"battery-level": "71.24%"}
+36.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.51", "yaw": "0.46"}
+36.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.51", "yaw": "0.46"}
+36.53, [INFO], turtlebot2, {"y": "18.00", "x": "-20.99", "yaw": "-1.54"}
+36.53, [INFO], turtlebot2, {"y": "18.00", "x": "-20.99", "yaw": "-1.54"}
+36.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+36.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+36.58, [INFO], turtlebot4, {"y": "18.00", "x": "-13.49", "yaw": "-1.49"}
+36.58, [INFO], turtlebot4, {"y": "18.00", "x": "-13.49", "yaw": "-1.49"}
+36.60, [INFO], turtlebot5, {"y": "17.82", "x": "-35.22", "yaw": "-3.13"}
+36.62, [INFO], turtlebot5, {"y": "17.82", "x": "-35.22", "yaw": "-3.13"}
+36.62, [INFO], turtlebot5, {"battery-level": "70.64%"}
+36.62, [INFO], turtlebot5, {"battery-level": "70.64%"}
+36.62, [INFO], turtlebot6, {"y": "18.02", "x": "-27.22", "yaw": "-1.59"}
+36.62, [INFO], turtlebot6, {"y": "18.02", "x": "-27.22", "yaw": "-1.59"}
+51.28, [DEBUG], turtlebot5, {"param_list": ["PC Room 3", [[-37.0, 18.93, -1.5707963267948966, true], [-37.0, 16.0, 0.0, true], [-28.5, 16.0, 1.5707963267948966, true], [-28.5, 18.0, -1.57, false]]], "skill": "navigation", "skill-life-cycle": "RUNNING", "label": "navto_room"}
+51.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.51", "yaw": "0.46"}
+51.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.51", "yaw": "0.46"}
+51.53, [INFO], turtlebot2, {"y": "18.00", "x": "-20.99", "yaw": "-1.54"}
+51.53, [INFO], turtlebot2, {"y": "18.00", "x": "-20.99", "yaw": "-1.54"}
+51.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+51.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+51.58, [INFO], turtlebot4, {"y": "18.00", "x": "-13.49", "yaw": "-1.48"}
+51.58, [INFO], turtlebot4, {"y": "18.00", "x": "-13.49", "yaw": "-1.48"}
+51.60, [INFO], turtlebot5, {"y": "18.48", "x": "-36.36", "yaw": "2.46"}
+51.60, [INFO], turtlebot5, {"y": "18.48", "x": "-36.36", "yaw": "2.46"}
+51.62, [INFO], turtlebot5, {"battery-level": "70.04%"}
+51.62, [INFO], turtlebot5, {"battery-level": "70.04%"}
+51.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.58"}
+51.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.58"}
+61.25, [DEBUG], None, [debug],turtlebot5,move-base-info,Hooray, the base moved arrived,(x=-37;y=18.93)
+61.32, [DEBUG], None, [debug],turtlebot5,move-base-info,Hooray, the base moved arrived,(x=-37;y=18.93)
+61.33, [DEBUG], turtlebot5, {"status": "way-point-reached", "skill": "navigation", "percentage": "25.00%", "goingto": "PC Room 3"}
+66.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.51", "yaw": "0.46"}
+66.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.51", "yaw": "0.46"}
+66.53, [INFO], turtlebot2, {"y": "18.00", "x": "-20.99", "yaw": "-1.54"}
+66.53, [INFO], turtlebot2, {"y": "18.00", "x": "-20.99", "yaw": "-1.54"}
+66.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+66.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+66.58, [INFO], turtlebot4, {"y": "18.00", "x": "-13.49", "yaw": "-1.47"}
+66.58, [INFO], turtlebot4, {"y": "18.00", "x": "-13.49", "yaw": "-1.47"}
+66.60, [INFO], turtlebot5, {"y": "18.57", "x": "-36.61", "yaw": "-1.63"}
+66.60, [INFO], turtlebot5, {"y": "18.57", "x": "-36.61", "yaw": "-1.63"}
+66.62, [INFO], turtlebot5, {"battery-level": "69.44%"}
+66.62, [INFO], turtlebot5, {"battery-level": "69.44%"}
+66.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.58"}
+66.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.58"}
+81.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.51", "yaw": "0.46"}
+81.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.51", "yaw": "0.46"}
+81.55, [INFO], turtlebot2, {"y": "18.00", "x": "-20.99", "yaw": "-1.54"}
+81.55, [INFO], turtlebot2, {"y": "18.00", "x": "-20.99", "yaw": "-1.54"}
+81.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+81.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+81.58, [INFO], turtlebot4, {"y": "18.00", "x": "-13.49", "yaw": "-1.45"}
+81.58, [INFO], turtlebot4, {"y": "18.00", "x": "-13.49", "yaw": "-1.45"}
+81.60, [INFO], turtlebot5, {"y": "16.45", "x": "-36.83", "yaw": "-1.52"}
+81.60, [INFO], turtlebot5, {"y": "16.45", "x": "-36.83", "yaw": "-1.52"}
+81.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.58"}
+81.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.58"}
+81.62, [INFO], turtlebot5, {"battery-level": "68.84%"}
+81.62, [INFO], turtlebot5, {"battery-level": "68.84%"}
+85.73, [DEBUG], None, [debug],turtlebot5,move-base-info,Hooray, the base moved arrived,(x=-37;y=16)
+85.73, [DEBUG], None, [debug],turtlebot5,move-base-info,Hooray, the base moved arrived,(x=-37;y=16)
+85.88, [DEBUG], turtlebot5, {"status": "way-point-reached", "skill": "navigation", "percentage": "50.00%", "goingto": "PC Room 3"}
+94.78, [DEBUG], turtlebot5, {"param_list": ["PC Room 3", [[-37.0, 18.93, -1.5707963267948966, true], [-37.0, 16.0, 0.0, true], [-28.5, 16.0, 1.5707963267948966, true], [-28.5, 18.0, -1.57, false]]], "skill": "navigation", "skill-life-cycle": "RUNNING", "label": "navto_room"}
+96.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.51", "yaw": "0.46"}
+96.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.51", "yaw": "0.46"}
+96.53, [INFO], turtlebot2, {"y": "18.00", "x": "-20.99", "yaw": "-1.54"}
+96.53, [INFO], turtlebot2, {"y": "18.00", "x": "-20.99", "yaw": "-1.54"}
+96.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+96.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+96.58, [INFO], turtlebot4, {"y": "17.99", "x": "-13.49", "yaw": "-1.44"}
+96.58, [INFO], turtlebot4, {"y": "17.99", "x": "-13.49", "yaw": "-1.44"}
+96.60, [INFO], turtlebot5, {"y": "15.55", "x": "-31.05", "yaw": "0.06"}
+96.60, [INFO], turtlebot5, {"y": "15.55", "x": "-31.05", "yaw": "0.06"}
+96.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.58"}
+96.62, [INFO], turtlebot5, {"battery-level": "68.24%"}
+96.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.58"}
+96.62, [INFO], turtlebot5, {"battery-level": "68.24%"}
+105.82, [DEBUG], None, [debug],turtlebot5,move-base-info,Hooray, the base moved arrived,(x=-28.5;y=16)
+105.82, [DEBUG], None, [debug],turtlebot5,move-base-info,Hooray, the base moved arrived,(x=-28.5;y=16)
+105.90, [DEBUG], turtlebot5, {"status": "way-point-reached", "skill": "navigation", "percentage": "75.00%", "goingto": "PC Room 3"}
+111.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.51", "yaw": "0.46"}
+111.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.51", "yaw": "0.46"}
+111.53, [INFO], turtlebot2, {"y": "18.00", "x": "-20.99", "yaw": "-1.54"}
+111.53, [INFO], turtlebot2, {"y": "18.00", "x": "-20.99", "yaw": "-1.54"}
+111.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+111.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+111.58, [INFO], turtlebot4, {"y": "17.99", "x": "-13.49", "yaw": "-1.42"}
+111.58, [INFO], turtlebot4, {"y": "17.99", "x": "-13.49", "yaw": "-1.42"}
+111.60, [INFO], turtlebot5, {"y": "16.17", "x": "-28.85", "yaw": "1.25"}
+111.60, [INFO], turtlebot5, {"y": "16.17", "x": "-28.85", "yaw": "1.25"}
+111.62, [INFO], turtlebot5, {"battery-level": "67.64%"}
+111.62, [INFO], turtlebot5, {"battery-level": "67.64%"}
+111.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.58"}
+111.63, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.58"}
+126.03, [DEBUG], None, [debug],turtlebot5,move-base-info,Hooray, the base moved arrived,(x=-28.5;y=18)
+126.03, [DEBUG], None, [debug],turtlebot5,move-base-info,Hooray, the base moved arrived,(x=-28.5;y=18)
+126.18, [DEBUG], turtlebot5, {"status": "way-point-reached", "skill": "navigation", "percentage": "100.00%", "goingto": "PC Room 3"}
+126.27, [DEBUG], turtlebot5, {"param_list": ["PC Room 3", [[-37.0, 18.93, -1.5707963267948966, true], [-37.0, 16.0, 0.0, true], [-28.5, 16.0, 1.5707963267948966, true], [-28.5, 18.0, -1.57, false]]], "skill": "navigation", "skill-life-cycle": "SUCCESS", "label": "navto_room"}
+126.27, [DEBUG], turtlebot5, "available-skills=['send_message', 'wait_message', 'approach_person', 'authenticate_person', 'navigation', 'operate_drawer']"
+126.27, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "approach_person", "skill-life-cycle": "STARTED", "label": "approach_nurse"}
+126.33, [DEBUG], turtlebot5, {"status": "localize-person", "skill": "approach-person", "who": "nurse"}
+126.40, [DEBUG], turtlebot5, {"status": "goto-person", "skill": "approach-person", "who": "nurse"}
+126.48, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "approach_person", "skill-life-cycle": "SUCCESS", "label": "approach_nurse"}
+126.48, [DEBUG], turtlebot5, "available-skills=['send_message', 'wait_message', 'approach_person', 'authenticate_person', 'navigation', 'operate_drawer']"
+126.48, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "authenticate_person", "skill-life-cycle": "STARTED", "label": "authenticate_nurse"}
+126.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.51", "yaw": "0.46"}
+126.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.51", "yaw": "0.46"}
+126.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.00", "yaw": "-1.54"}
+126.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.00", "yaw": "-1.54"}
+126.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+126.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+126.58, [INFO], turtlebot4, {"y": "17.99", "x": "-13.49", "yaw": "-1.40"}
+126.58, [INFO], turtlebot4, {"y": "17.99", "x": "-13.49", "yaw": "-1.40"}
+126.58, [INFO], nurse, {"status": "message-received", "skill": "athentication-request"}
+126.58, [DEBUG], turtlebot5, {"status": "request-authentication", "to": "nurse", "skill": "authenticate-person"}
+126.58, [INFO], nurse, {"status": "message-received", "skill": "athentication-request"}
+126.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+126.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+126.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.58"}
+126.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.58"}
+126.63, [INFO], turtlebot5, {"battery-level": "67.04%"}
+126.63, [INFO], turtlebot5, {"battery-level": "67.04%"}
+126.95, [DEBUG], turtlebot5, {"status": "received-authentication", "skill": "authenticate-person", "from": "nurse"}
+127.02, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "authenticate_person", "skill-life-cycle": "SUCCESS", "label": "authenticate_nurse"}
+127.02, [DEBUG], turtlebot5, "available-skills=['send_message', 'wait_message', 'approach_person', 'authenticate_person', 'navigation', 'operate_drawer']"
+127.02, [DEBUG], turtlebot5, {"param_list": ["open"], "skill": "operate_drawer", "skill-life-cycle": "STARTED", "label": "open_drawer_for_nurse"}
+127.08, [DEBUG], turtlebot5, {"status": "task-update", "action": "open", "skill": "operate-drawer"}
+127.90, [DEBUG], turtlebot5, {"param_list": ["open"], "skill": "operate_drawer", "skill-life-cycle": "SUCCESS", "label": "open_drawer_for_nurse"}
+127.90, [DEBUG], turtlebot5, "available-skills=['send_message', 'wait_message', 'approach_person', 'authenticate_person', 'navigation', 'operate_drawer']"
+127.90, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "send_message", "skill-life-cycle": "STARTED", "label": "notify_nurse_of_open_drawer_for_nurse_completed"}
+128.00, [INFO], turtlebot5, {"to": "nurse", "skill": "send-message"}
+131.07, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "send_message", "skill-life-cycle": "SUCCESS", "label": "notify_nurse_of_open_drawer_for_nurse_completed"}
+131.07, [DEBUG], turtlebot5, "available-skills=['send_message', 'wait_message', 'approach_person', 'authenticate_person', 'navigation', 'operate_drawer']"
+131.07, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "wait_message", "skill-life-cycle": "STARTED", "label": "wait_nurse_to_complete_deposit"}
+139.25, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "wait_message", "skill-life-cycle": "RUNNING", "label": "wait_nurse_to_complete_deposit"}
+141.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.51", "yaw": "0.46"}
+141.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.51", "yaw": "0.46"}
+141.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.00", "yaw": "-1.54"}
+141.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.00", "yaw": "-1.54"}
+141.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+141.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+141.58, [INFO], turtlebot4, {"y": "17.98", "x": "-13.49", "yaw": "-1.38"}
+141.58, [INFO], turtlebot4, {"y": "17.98", "x": "-13.49", "yaw": "-1.38"}
+141.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+141.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+141.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.58"}
+141.62, [INFO], turtlebot5, {"battery-level": "66.44%"}
+141.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.58"}
+141.62, [INFO], turtlebot5, {"battery-level": "66.44%"}
+146.58, [INFO], nurse, {"status": "waiting", "skill": "athentication-sent"}
+146.58, [INFO], nurse, {"status": "waiting", "skill": "athentication-sent"}
+156.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+156.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+156.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.00", "yaw": "-1.54"}
+156.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.00", "yaw": "-1.54"}
+156.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+156.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+156.58, [INFO], turtlebot4, {"y": "17.98", "x": "-13.48", "yaw": "-1.36"}
+156.58, [INFO], turtlebot4, {"y": "17.98", "x": "-13.48", "yaw": "-1.36"}
+156.62, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+156.62, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+156.62, [INFO], turtlebot5, {"battery-level": "65.84%"}
+156.62, [INFO], turtlebot5, {"battery-level": "65.84%"}
+156.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.57"}
+156.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.57"}
+171.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+171.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+171.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.00", "yaw": "-1.54"}
+171.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.00", "yaw": "-1.54"}
+171.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+171.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+171.58, [INFO], turtlebot4, {"y": "17.97", "x": "-13.48", "yaw": "-1.34"}
+171.58, [INFO], turtlebot4, {"y": "17.97", "x": "-13.48", "yaw": "-1.34"}
+171.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+171.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+171.62, [INFO], turtlebot5, {"battery-level": "65.24%"}
+171.62, [INFO], turtlebot5, {"battery-level": "65.24%"}
+171.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.57"}
+171.63, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.57"}
+184.10, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "wait_message", "skill-life-cycle": "RUNNING", "label": "wait_nurse_to_complete_deposit"}
+186.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+186.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+186.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.00", "yaw": "-1.54"}
+186.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.00", "yaw": "-1.54"}
+186.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+186.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.00", "yaw": "0.01"}
+186.58, [INFO], turtlebot4, {"y": "17.97", "x": "-13.48", "yaw": "-1.32"}
+186.58, [INFO], turtlebot4, {"y": "17.97", "x": "-13.48", "yaw": "-1.32"}
+186.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+186.62, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+186.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.57"}
+186.62, [INFO], turtlebot5, {"battery-level": "64.64%"}
+186.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.57"}
+186.62, [INFO], turtlebot5, {"battery-level": "64.64%"}
+201.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+201.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+201.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.01", "yaw": "-1.54"}
+201.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.01", "yaw": "-1.54"}
+201.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.01", "yaw": "0.03"}
+201.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.01", "yaw": "0.03"}
+201.58, [INFO], turtlebot4, {"y": "17.97", "x": "-13.48", "yaw": "-1.30"}
+201.58, [INFO], turtlebot4, {"y": "17.97", "x": "-13.48", "yaw": "-1.30"}
+201.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+201.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+201.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.57"}
+201.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.22", "yaw": "-1.57"}
+201.63, [INFO], turtlebot5, {"battery-level": "64.04%"}
+201.63, [INFO], turtlebot5, {"battery-level": "64.04%"}
+216.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+216.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+216.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.01", "yaw": "-1.54"}
+216.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.01", "yaw": "-1.54"}
+216.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.02", "yaw": "0.03"}
+216.57, [INFO], turtlebot3, {"y": "21.48", "x": "-38.02", "yaw": "0.03"}
+216.58, [INFO], turtlebot4, {"y": "17.96", "x": "-13.47", "yaw": "-1.28"}
+216.58, [INFO], turtlebot4, {"y": "17.96", "x": "-13.47", "yaw": "-1.28"}
+216.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+216.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+216.62, [INFO], turtlebot5, {"battery-level": "63.44%"}
+216.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.21", "yaw": "-1.57"}
+216.62, [INFO], turtlebot5, {"battery-level": "63.44%"}
+216.63, [INFO], turtlebot6, {"y": "18.03", "x": "-27.21", "yaw": "-1.57"}
+229.08, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "wait_message", "skill-life-cycle": "RUNNING", "label": "wait_nurse_to_complete_deposit"}
+231.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+231.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+231.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.01", "yaw": "-1.54"}
+231.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.01", "yaw": "-1.54"}
+231.57, [INFO], turtlebot3, {"y": "21.49", "x": "-38.03", "yaw": "0.03"}
+231.57, [INFO], turtlebot3, {"y": "21.49", "x": "-38.03", "yaw": "0.03"}
+231.58, [INFO], turtlebot4, {"y": "17.96", "x": "-13.47", "yaw": "-1.26"}
+231.58, [INFO], turtlebot4, {"y": "17.96", "x": "-13.47", "yaw": "-1.26"}
+231.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+231.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+231.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.21", "yaw": "-1.57"}
+231.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.21", "yaw": "-1.57"}
+231.63, [INFO], turtlebot5, {"battery-level": "62.84%"}
+231.63, [INFO], turtlebot5, {"battery-level": "62.84%"}
+246.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+246.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+246.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.02", "yaw": "-1.54"}
+246.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.02", "yaw": "-1.54"}
+246.57, [INFO], turtlebot3, {"y": "21.49", "x": "-38.04", "yaw": "0.03"}
+246.57, [INFO], turtlebot3, {"y": "21.49", "x": "-38.04", "yaw": "0.03"}
+246.58, [INFO], turtlebot4, {"y": "17.96", "x": "-13.47", "yaw": "-1.24"}
+246.58, [INFO], turtlebot4, {"y": "17.96", "x": "-13.47", "yaw": "-1.24"}
+246.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+246.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+246.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.21", "yaw": "-1.57"}
+246.62, [INFO], turtlebot5, {"battery-level": "62.24%"}
+246.63, [INFO], turtlebot6, {"y": "18.03", "x": "-27.21", "yaw": "-1.57"}
+246.63, [INFO], turtlebot5, {"battery-level": "62.24%"}
+261.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+261.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+261.55, [INFO], turtlebot2, {"y": "18.00", "x": "-21.02", "yaw": "-1.54"}
+261.55, [INFO], turtlebot2, {"y": "18.00", "x": "-21.02", "yaw": "-1.54"}
+261.57, [INFO], turtlebot3, {"y": "21.50", "x": "-38.05", "yaw": "0.03"}
+261.57, [INFO], turtlebot3, {"y": "21.50", "x": "-38.05", "yaw": "0.03"}
+261.58, [INFO], turtlebot4, {"y": "17.95", "x": "-13.46", "yaw": "-1.22"}
+261.58, [INFO], turtlebot4, {"y": "17.95", "x": "-13.46", "yaw": "-1.22"}
+261.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+261.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+261.62, [INFO], turtlebot5, {"battery-level": "61.64%"}
+261.63, [INFO], turtlebot5, {"battery-level": "61.64%"}
+261.63, [INFO], turtlebot6, {"y": "18.03", "x": "-27.21", "yaw": "-1.57"}
+261.63, [INFO], turtlebot6, {"y": "18.03", "x": "-27.21", "yaw": "-1.57"}
+274.17, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "wait_message", "skill-life-cycle": "RUNNING", "label": "wait_nurse_to_complete_deposit"}
+276.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+276.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+276.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+276.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+276.57, [INFO], turtlebot3, {"y": "21.50", "x": "-38.07", "yaw": "0.03"}
+276.57, [INFO], turtlebot3, {"y": "21.50", "x": "-38.07", "yaw": "0.03"}
+276.58, [INFO], turtlebot4, {"y": "17.95", "x": "-13.46", "yaw": "-1.20"}
+276.58, [INFO], turtlebot4, {"y": "17.95", "x": "-13.46", "yaw": "-1.20"}
+276.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+276.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+276.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.21", "yaw": "-1.57"}
+276.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.21", "yaw": "-1.57"}
+276.62, [INFO], turtlebot5, {"battery-level": "61.04%"}
+276.62, [INFO], turtlebot5, {"battery-level": "61.04%"}
+291.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+291.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+291.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+291.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+291.58, [INFO], turtlebot3, {"y": "21.50", "x": "-38.10", "yaw": "0.03"}
+291.58, [INFO], turtlebot3, {"y": "21.50", "x": "-38.10", "yaw": "0.03"}
+291.58, [INFO], turtlebot4, {"y": "17.95", "x": "-13.46", "yaw": "-1.18"}
+291.58, [INFO], turtlebot4, {"y": "17.95", "x": "-13.46", "yaw": "-1.18"}
+291.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+291.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+291.62, [INFO], turtlebot5, {"battery-level": "60.44%"}
+291.62, [INFO], turtlebot5, {"battery-level": "60.44%"}
+291.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.21", "yaw": "-1.57"}
+291.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.21", "yaw": "-1.57"}
+306.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+306.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+306.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+306.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+306.57, [INFO], turtlebot3, {"y": "21.50", "x": "-38.13", "yaw": "0.03"}
+306.57, [INFO], turtlebot3, {"y": "21.50", "x": "-38.13", "yaw": "0.03"}
+306.58, [INFO], turtlebot4, {"y": "17.94", "x": "-13.45", "yaw": "-1.16"}
+306.58, [INFO], turtlebot4, {"y": "17.94", "x": "-13.45", "yaw": "-1.16"}
+306.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+306.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+306.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.21", "yaw": "-1.57"}
+306.62, [INFO], turtlebot5, {"battery-level": "59.84%"}
+306.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.21", "yaw": "-1.57"}
+306.62, [INFO], turtlebot5, {"battery-level": "59.84%"}
+319.00, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "wait_message", "skill-life-cycle": "RUNNING", "label": "wait_nurse_to_complete_deposit"}
+321.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+321.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+321.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+321.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+321.57, [INFO], turtlebot3, {"y": "21.50", "x": "-38.14", "yaw": "0.03"}
+321.57, [INFO], turtlebot3, {"y": "21.50", "x": "-38.14", "yaw": "0.03"}
+321.58, [INFO], turtlebot4, {"y": "17.94", "x": "-13.45", "yaw": "-1.14"}
+321.58, [INFO], turtlebot4, {"y": "17.94", "x": "-13.45", "yaw": "-1.14"}
+321.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+321.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+321.62, [INFO], turtlebot5, {"battery-level": "59.24%"}
+321.62, [INFO], turtlebot5, {"battery-level": "59.24%"}
+321.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.21", "yaw": "-1.56"}
+321.62, [INFO], turtlebot6, {"y": "18.03", "x": "-27.21", "yaw": "-1.56"}
+336.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+336.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+336.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+336.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+336.57, [INFO], turtlebot3, {"y": "21.51", "x": "-38.15", "yaw": "0.04"}
+336.57, [INFO], turtlebot3, {"y": "21.51", "x": "-38.15", "yaw": "0.04"}
+336.58, [INFO], turtlebot4, {"y": "17.94", "x": "-13.44", "yaw": "-1.14"}
+336.58, [INFO], turtlebot4, {"y": "17.94", "x": "-13.44", "yaw": "-1.14"}
+336.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+336.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+336.62, [INFO], turtlebot6, {"y": "18.02", "x": "-27.21", "yaw": "-1.55"}
+336.62, [INFO], turtlebot5, {"battery-level": "58.64%"}
+336.62, [INFO], turtlebot6, {"y": "18.02", "x": "-27.21", "yaw": "-1.55"}
+336.63, [INFO], turtlebot5, {"battery-level": "58.64%"}
+351.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+351.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+351.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+351.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+351.57, [INFO], turtlebot3, {"y": "21.51", "x": "-38.15", "yaw": "0.05"}
+351.57, [INFO], turtlebot3, {"y": "21.51", "x": "-38.15", "yaw": "0.05"}
+351.58, [INFO], turtlebot4, {"y": "17.94", "x": "-13.44", "yaw": "-1.13"}
+351.58, [INFO], turtlebot4, {"y": "17.94", "x": "-13.44", "yaw": "-1.13"}
+351.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+351.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+351.62, [INFO], turtlebot5, {"battery-level": "58.04%"}
+351.62, [INFO], turtlebot5, {"battery-level": "58.04%"}
+351.62, [INFO], turtlebot6, {"y": "18.01", "x": "-27.21", "yaw": "-1.54"}
+351.62, [INFO], turtlebot6, {"y": "18.01", "x": "-27.21", "yaw": "-1.54"}
+363.90, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "wait_message", "skill-life-cycle": "RUNNING", "label": "wait_nurse_to_complete_deposit"}
+366.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+366.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+366.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+366.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+366.57, [INFO], turtlebot3, {"y": "21.51", "x": "-38.15", "yaw": "0.07"}
+366.57, [INFO], turtlebot3, {"y": "21.51", "x": "-38.15", "yaw": "0.07"}
+366.58, [INFO], turtlebot4, {"y": "17.94", "x": "-13.44", "yaw": "-1.12"}
+366.58, [INFO], turtlebot4, {"y": "17.94", "x": "-13.44", "yaw": "-1.12"}
+366.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+366.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+366.62, [INFO], turtlebot5, {"battery-level": "57.44%"}
+366.62, [INFO], turtlebot6, {"y": "18.00", "x": "-27.21", "yaw": "-1.54"}
+366.63, [INFO], turtlebot5, {"battery-level": "57.44%"}
+366.63, [INFO], turtlebot6, {"y": "18.00", "x": "-27.21", "yaw": "-1.54"}
+381.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+381.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+381.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+381.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+381.57, [INFO], turtlebot3, {"y": "21.51", "x": "-38.15", "yaw": "0.10"}
+381.57, [INFO], turtlebot3, {"y": "21.51", "x": "-38.15", "yaw": "0.10"}
+381.58, [INFO], turtlebot4, {"y": "17.93", "x": "-13.44", "yaw": "-1.11"}
+381.58, [INFO], turtlebot4, {"y": "17.93", "x": "-13.44", "yaw": "-1.11"}
+381.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+381.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+381.62, [INFO], turtlebot5, {"battery-level": "56.84%"}
+381.62, [INFO], turtlebot5, {"battery-level": "56.84%"}
+381.62, [INFO], turtlebot6, {"y": "17.98", "x": "-27.21", "yaw": "-1.54"}
+381.63, [INFO], turtlebot6, {"y": "17.98", "x": "-27.21", "yaw": "-1.54"}
+396.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+396.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+396.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+396.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+396.57, [INFO], turtlebot3, {"y": "21.52", "x": "-38.15", "yaw": "0.13"}
+396.57, [INFO], turtlebot3, {"y": "21.52", "x": "-38.15", "yaw": "0.13"}
+396.58, [INFO], turtlebot4, {"y": "17.93", "x": "-13.43", "yaw": "-1.10"}
+396.58, [INFO], turtlebot4, {"y": "17.93", "x": "-13.43", "yaw": "-1.10"}
+396.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+396.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+396.62, [INFO], turtlebot6, {"y": "17.97", "x": "-27.21", "yaw": "-1.54"}
+396.62, [INFO], turtlebot6, {"y": "17.97", "x": "-27.21", "yaw": "-1.54"}
+396.62, [INFO], turtlebot5, {"battery-level": "56.24%"}
+396.62, [INFO], turtlebot5, {"battery-level": "56.24%"}
+408.83, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "wait_message", "skill-life-cycle": "RUNNING", "label": "wait_nurse_to_complete_deposit"}
+411.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+411.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+411.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+411.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+411.57, [INFO], turtlebot3, {"y": "21.52", "x": "-38.16", "yaw": "0.16"}
+411.57, [INFO], turtlebot3, {"y": "21.52", "x": "-38.16", "yaw": "0.16"}
+411.58, [INFO], turtlebot4, {"y": "17.93", "x": "-13.43", "yaw": "-1.10"}
+411.58, [INFO], turtlebot4, {"y": "17.93", "x": "-13.43", "yaw": "-1.10"}
+411.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+411.62, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+411.62, [INFO], turtlebot5, {"battery-level": "55.64%"}
+411.62, [INFO], turtlebot5, {"battery-level": "55.64%"}
+411.62, [INFO], turtlebot6, {"y": "17.95", "x": "-27.21", "yaw": "-1.54"}
+411.62, [INFO], turtlebot6, {"y": "17.95", "x": "-27.21", "yaw": "-1.54"}
+426.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+426.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+426.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+426.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+426.57, [INFO], turtlebot3, {"y": "21.53", "x": "-38.16", "yaw": "0.18"}
+426.57, [INFO], turtlebot3, {"y": "21.53", "x": "-38.16", "yaw": "0.18"}
+426.58, [INFO], turtlebot4, {"y": "17.93", "x": "-13.43", "yaw": "-1.10"}
+426.58, [INFO], turtlebot4, {"y": "17.93", "x": "-13.43", "yaw": "-1.10"}
+426.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+426.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+426.62, [INFO], turtlebot6, {"y": "17.94", "x": "-27.20", "yaw": "-1.54"}
+426.62, [INFO], turtlebot6, {"y": "17.94", "x": "-27.20", "yaw": "-1.54"}
+426.62, [INFO], turtlebot5, {"battery-level": "55.04%"}
+426.63, [INFO], turtlebot5, {"battery-level": "55.04%"}
+441.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+441.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+441.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+441.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+441.57, [INFO], turtlebot3, {"y": "21.53", "x": "-38.16", "yaw": "0.19"}
+441.57, [INFO], turtlebot3, {"y": "21.53", "x": "-38.16", "yaw": "0.19"}
+441.58, [INFO], turtlebot4, {"y": "17.93", "x": "-13.42", "yaw": "-1.09"}
+441.58, [INFO], turtlebot4, {"y": "17.93", "x": "-13.42", "yaw": "-1.09"}
+441.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+441.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+441.62, [INFO], turtlebot5, {"battery-level": "54.44%"}
+441.62, [INFO], turtlebot5, {"battery-level": "54.44%"}
+441.62, [INFO], turtlebot6, {"y": "17.92", "x": "-27.20", "yaw": "-1.54"}
+441.62, [INFO], turtlebot6, {"y": "17.92", "x": "-27.20", "yaw": "-1.54"}
+453.78, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "wait_message", "skill-life-cycle": "RUNNING", "label": "wait_nurse_to_complete_deposit"}
+456.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+456.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+456.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+456.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+456.57, [INFO], turtlebot3, {"y": "21.53", "x": "-38.16", "yaw": "0.20"}
+456.57, [INFO], turtlebot3, {"y": "21.53", "x": "-38.16", "yaw": "0.20"}
+456.58, [INFO], turtlebot4, {"y": "17.92", "x": "-13.42", "yaw": "-1.07"}
+456.58, [INFO], turtlebot4, {"y": "17.92", "x": "-13.42", "yaw": "-1.07"}
+456.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+456.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+456.62, [INFO], turtlebot6, {"y": "17.91", "x": "-27.20", "yaw": "-1.54"}
+456.62, [INFO], turtlebot6, {"y": "17.91", "x": "-27.20", "yaw": "-1.54"}
+456.62, [INFO], turtlebot5, {"battery-level": "53.84%"}
+456.62, [INFO], turtlebot5, {"battery-level": "53.84%"}
+471.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+471.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+471.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+471.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+471.57, [INFO], turtlebot3, {"y": "21.53", "x": "-38.16", "yaw": "0.21"}
+471.57, [INFO], turtlebot3, {"y": "21.53", "x": "-38.16", "yaw": "0.21"}
+471.58, [INFO], turtlebot4, {"y": "17.92", "x": "-13.42", "yaw": "-1.06"}
+471.58, [INFO], turtlebot4, {"y": "17.92", "x": "-13.42", "yaw": "-1.06"}
+471.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+471.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+471.62, [INFO], turtlebot6, {"y": "17.90", "x": "-27.20", "yaw": "-1.54"}
+471.62, [INFO], turtlebot6, {"y": "17.90", "x": "-27.20", "yaw": "-1.54"}
+471.62, [INFO], turtlebot5, {"battery-level": "53.24%"}
+471.62, [INFO], turtlebot5, {"battery-level": "53.24%"}
+486.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+486.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+486.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+486.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+486.57, [INFO], turtlebot3, {"y": "21.53", "x": "-38.16", "yaw": "0.22"}
+486.57, [INFO], turtlebot3, {"y": "21.53", "x": "-38.16", "yaw": "0.22"}
+486.58, [INFO], turtlebot4, {"y": "17.92", "x": "-13.42", "yaw": "-1.05"}
+486.58, [INFO], turtlebot4, {"y": "17.92", "x": "-13.42", "yaw": "-1.05"}
+486.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+486.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+486.62, [INFO], turtlebot5, {"battery-level": "52.64%"}
+486.62, [INFO], turtlebot5, {"battery-level": "52.64%"}
+486.62, [INFO], turtlebot6, {"y": "17.88", "x": "-27.20", "yaw": "-1.54"}
+486.62, [INFO], turtlebot6, {"y": "17.88", "x": "-27.20", "yaw": "-1.54"}
+498.98, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "wait_message", "skill-life-cycle": "RUNNING", "label": "wait_nurse_to_complete_deposit"}
+501.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+501.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+501.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+501.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+501.57, [INFO], turtlebot3, {"y": "21.54", "x": "-38.16", "yaw": "0.23"}
+501.57, [INFO], turtlebot3, {"y": "21.54", "x": "-38.16", "yaw": "0.23"}
+501.58, [INFO], turtlebot4, {"y": "17.92", "x": "-13.42", "yaw": "-1.04"}
+501.58, [INFO], turtlebot4, {"y": "17.92", "x": "-13.42", "yaw": "-1.04"}
+501.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+501.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+501.62, [INFO], turtlebot5, {"battery-level": "52.04%"}
+501.62, [INFO], turtlebot5, {"battery-level": "52.04%"}
+501.62, [INFO], turtlebot6, {"y": "17.87", "x": "-27.19", "yaw": "-1.54"}
+501.63, [INFO], turtlebot6, {"y": "17.87", "x": "-27.19", "yaw": "-1.54"}
+516.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+516.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+516.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+516.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+516.57, [INFO], turtlebot3, {"y": "21.54", "x": "-38.16", "yaw": "0.24"}
+516.57, [INFO], turtlebot3, {"y": "21.54", "x": "-38.16", "yaw": "0.24"}
+516.58, [INFO], turtlebot4, {"y": "17.92", "x": "-13.42", "yaw": "-1.04"}
+516.58, [INFO], turtlebot4, {"y": "17.92", "x": "-13.42", "yaw": "-1.04"}
+516.62, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+516.62, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+516.63, [INFO], turtlebot6, {"y": "17.85", "x": "-27.19", "yaw": "-1.54"}
+516.63, [INFO], turtlebot6, {"y": "17.85", "x": "-27.19", "yaw": "-1.54"}
+516.63, [INFO], turtlebot5, {"battery-level": "51.44%"}
+516.63, [INFO], turtlebot5, {"battery-level": "51.44%"}
+531.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+531.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+531.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+531.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+531.57, [INFO], turtlebot3, {"y": "21.54", "x": "-38.16", "yaw": "0.26"}
+531.57, [INFO], turtlebot3, {"y": "21.54", "x": "-38.16", "yaw": "0.26"}
+531.58, [INFO], turtlebot4, {"y": "17.91", "x": "-13.41", "yaw": "-1.03"}
+531.58, [INFO], turtlebot4, {"y": "17.91", "x": "-13.41", "yaw": "-1.03"}
+531.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+531.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+531.62, [INFO], turtlebot6, {"y": "17.84", "x": "-27.19", "yaw": "-1.54"}
+531.62, [INFO], turtlebot5, {"battery-level": "50.84%"}
+531.62, [INFO], turtlebot6, {"y": "17.84", "x": "-27.19", "yaw": "-1.54"}
+531.62, [INFO], turtlebot5, {"battery-level": "50.84%"}
+543.85, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "wait_message", "skill-life-cycle": "RUNNING", "label": "wait_nurse_to_complete_deposit"}
+546.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+546.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+546.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+546.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+546.57, [INFO], turtlebot3, {"y": "21.54", "x": "-38.16", "yaw": "0.27"}
+546.57, [INFO], turtlebot3, {"y": "21.54", "x": "-38.16", "yaw": "0.27"}
+546.58, [INFO], turtlebot4, {"y": "17.91", "x": "-13.41", "yaw": "-1.02"}
+546.58, [INFO], turtlebot4, {"y": "17.91", "x": "-13.41", "yaw": "-1.02"}
+546.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+546.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+546.62, [INFO], turtlebot5, {"battery-level": "50.24%"}
+546.62, [INFO], turtlebot5, {"battery-level": "50.24%"}
+546.62, [INFO], turtlebot6, {"y": "17.82", "x": "-27.19", "yaw": "-1.54"}
+546.62, [INFO], turtlebot6, {"y": "17.82", "x": "-27.19", "yaw": "-1.54"}
+561.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+561.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+561.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+561.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+561.57, [INFO], turtlebot3, {"y": "21.54", "x": "-38.16", "yaw": "0.28"}
+561.57, [INFO], turtlebot3, {"y": "21.54", "x": "-38.16", "yaw": "0.28"}
+561.58, [INFO], turtlebot4, {"y": "17.91", "x": "-13.41", "yaw": "-1.00"}
+561.58, [INFO], turtlebot4, {"y": "17.91", "x": "-13.41", "yaw": "-1.00"}
+561.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+561.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+561.62, [INFO], turtlebot6, {"y": "17.81", "x": "-27.19", "yaw": "-1.54"}
+561.62, [INFO], turtlebot6, {"y": "17.81", "x": "-27.19", "yaw": "-1.54"}
+561.62, [INFO], turtlebot5, {"battery-level": "49.64%"}
+561.62, [INFO], turtlebot5, {"battery-level": "49.64%"}
+576.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+576.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+576.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+576.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+576.57, [INFO], turtlebot3, {"y": "21.55", "x": "-38.16", "yaw": "0.28"}
+576.57, [INFO], turtlebot3, {"y": "21.55", "x": "-38.16", "yaw": "0.28"}
+576.58, [INFO], turtlebot4, {"y": "17.90", "x": "-13.41", "yaw": "-0.99"}
+576.58, [INFO], turtlebot4, {"y": "17.90", "x": "-13.41", "yaw": "-0.99"}
+576.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+576.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+576.62, [INFO], turtlebot5, {"battery-level": "49.04%"}
+576.62, [INFO], turtlebot5, {"battery-level": "49.04%"}
+576.62, [INFO], turtlebot6, {"y": "17.79", "x": "-27.18", "yaw": "-1.54"}
+576.62, [INFO], turtlebot6, {"y": "17.79", "x": "-27.18", "yaw": "-1.54"}
+588.83, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "wait_message", "skill-life-cycle": "RUNNING", "label": "wait_nurse_to_complete_deposit"}
+591.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+591.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+591.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+591.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+591.57, [INFO], turtlebot3, {"y": "21.55", "x": "-38.16", "yaw": "0.29"}
+591.57, [INFO], turtlebot3, {"y": "21.55", "x": "-38.16", "yaw": "0.29"}
+591.58, [INFO], turtlebot4, {"y": "17.90", "x": "-13.41", "yaw": "-0.99"}
+591.58, [INFO], turtlebot4, {"y": "17.90", "x": "-13.41", "yaw": "-0.99"}
+591.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+591.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+591.62, [INFO], turtlebot5, {"battery-level": "48.44%"}
+591.62, [INFO], turtlebot5, {"battery-level": "48.44%"}
+591.62, [INFO], turtlebot6, {"y": "17.77", "x": "-27.18", "yaw": "-1.54"}
+591.62, [INFO], turtlebot6, {"y": "17.77", "x": "-27.18", "yaw": "-1.54"}
+606.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+606.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+606.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+606.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+606.57, [INFO], turtlebot3, {"y": "21.55", "x": "-38.16", "yaw": "0.30"}
+606.57, [INFO], turtlebot3, {"y": "21.55", "x": "-38.16", "yaw": "0.30"}
+606.58, [INFO], turtlebot4, {"y": "17.90", "x": "-13.41", "yaw": "-0.98"}
+606.58, [INFO], turtlebot4, {"y": "17.90", "x": "-13.41", "yaw": "-0.98"}
+606.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+606.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+606.62, [INFO], turtlebot6, {"y": "17.76", "x": "-27.18", "yaw": "-1.54"}
+606.62, [INFO], turtlebot6, {"y": "17.76", "x": "-27.18", "yaw": "-1.54"}
+606.63, [INFO], turtlebot5, {"battery-level": "47.84%"}
+606.63, [INFO], turtlebot5, {"battery-level": "47.84%"}
+621.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+621.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+621.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+621.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+621.57, [INFO], turtlebot3, {"y": "21.55", "x": "-38.16", "yaw": "0.30"}
+621.57, [INFO], turtlebot3, {"y": "21.55", "x": "-38.16", "yaw": "0.30"}
+621.58, [INFO], turtlebot4, {"y": "17.90", "x": "-13.42", "yaw": "-0.98"}
+621.58, [INFO], turtlebot4, {"y": "17.90", "x": "-13.42", "yaw": "-0.98"}
+621.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+621.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+621.62, [INFO], turtlebot5, {"battery-level": "47.24%"}
+621.62, [INFO], turtlebot6, {"y": "17.74", "x": "-27.18", "yaw": "-1.54"}
+621.62, [INFO], turtlebot5, {"battery-level": "47.24%"}
+621.62, [INFO], turtlebot6, {"y": "17.74", "x": "-27.18", "yaw": "-1.54"}
+633.78, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "wait_message", "skill-life-cycle": "RUNNING", "label": "wait_nurse_to_complete_deposit"}
+636.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+636.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+636.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+636.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+636.57, [INFO], turtlebot3, {"y": "21.55", "x": "-38.16", "yaw": "0.30"}
+636.57, [INFO], turtlebot3, {"y": "21.55", "x": "-38.16", "yaw": "0.30"}
+636.58, [INFO], turtlebot4, {"y": "17.90", "x": "-13.42", "yaw": "-0.98"}
+636.58, [INFO], turtlebot4, {"y": "17.90", "x": "-13.42", "yaw": "-0.98"}
+636.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+636.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+636.62, [INFO], turtlebot5, {"battery-level": "46.64%"}
+636.62, [INFO], turtlebot5, {"battery-level": "46.64%"}
+636.62, [INFO], turtlebot6, {"y": "17.73", "x": "-27.18", "yaw": "-1.54"}
+636.62, [INFO], turtlebot6, {"y": "17.73", "x": "-27.18", "yaw": "-1.54"}
+651.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+651.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+651.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+651.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+651.57, [INFO], turtlebot3, {"y": "21.55", "x": "-38.16", "yaw": "0.31"}
+651.57, [INFO], turtlebot3, {"y": "21.55", "x": "-38.16", "yaw": "0.31"}
+651.58, [INFO], turtlebot4, {"y": "17.90", "x": "-13.42", "yaw": "-0.97"}
+651.58, [INFO], turtlebot4, {"y": "17.90", "x": "-13.42", "yaw": "-0.97"}
+651.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+651.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+651.62, [INFO], turtlebot5, {"battery-level": "46.04%"}
+651.62, [INFO], turtlebot5, {"battery-level": "46.04%"}
+651.62, [INFO], turtlebot6, {"y": "17.71", "x": "-27.17", "yaw": "-1.54"}
+651.62, [INFO], turtlebot6, {"y": "17.71", "x": "-27.17", "yaw": "-1.54"}
+666.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+666.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.50", "yaw": "0.46"}
+666.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+666.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+666.57, [INFO], turtlebot3, {"y": "21.55", "x": "-38.16", "yaw": "0.31"}
+666.57, [INFO], turtlebot3, {"y": "21.55", "x": "-38.16", "yaw": "0.31"}
+666.58, [INFO], turtlebot4, {"y": "17.90", "x": "-13.42", "yaw": "-0.96"}
+666.58, [INFO], turtlebot4, {"y": "17.90", "x": "-13.42", "yaw": "-0.96"}
+666.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+666.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+666.62, [INFO], turtlebot6, {"y": "17.70", "x": "-27.17", "yaw": "-1.54"}
+666.62, [INFO], turtlebot6, {"y": "17.70", "x": "-27.17", "yaw": "-1.54"}
+666.63, [INFO], turtlebot5, {"battery-level": "45.44%"}
+666.63, [INFO], turtlebot5, {"battery-level": "45.44%"}
+678.67, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "wait_message", "skill-life-cycle": "RUNNING", "label": "wait_nurse_to_complete_deposit"}
+681.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+681.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+681.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+681.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+681.57, [INFO], turtlebot3, {"y": "21.55", "x": "-38.16", "yaw": "0.32"}
+681.57, [INFO], turtlebot3, {"y": "21.55", "x": "-38.16", "yaw": "0.32"}
+681.58, [INFO], turtlebot4, {"y": "17.90", "x": "-13.41", "yaw": "-0.95"}
+681.58, [INFO], turtlebot4, {"y": "17.90", "x": "-13.41", "yaw": "-0.95"}
+681.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+681.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+681.62, [INFO], turtlebot6, {"y": "17.68", "x": "-27.17", "yaw": "-1.54"}
+681.62, [INFO], turtlebot5, {"battery-level": "44.84%"}
+681.62, [INFO], turtlebot6, {"y": "17.68", "x": "-27.17", "yaw": "-1.54"}
+681.63, [INFO], turtlebot5, {"battery-level": "44.84%"}
+696.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+696.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+696.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+696.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+696.57, [INFO], turtlebot3, {"y": "21.55", "x": "-38.16", "yaw": "0.32"}
+696.57, [INFO], turtlebot3, {"y": "21.55", "x": "-38.16", "yaw": "0.32"}
+696.58, [INFO], turtlebot4, {"y": "17.89", "x": "-13.41", "yaw": "-0.93"}
+696.58, [INFO], turtlebot4, {"y": "17.89", "x": "-13.41", "yaw": "-0.93"}
+696.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+696.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+696.62, [INFO], turtlebot5, {"battery-level": "44.24%"}
+696.62, [INFO], turtlebot5, {"battery-level": "44.24%"}
+696.62, [INFO], turtlebot6, {"y": "17.67", "x": "-27.17", "yaw": "-1.54"}
+696.62, [INFO], turtlebot6, {"y": "17.67", "x": "-27.17", "yaw": "-1.54"}
+711.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+711.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+711.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+711.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+711.57, [INFO], turtlebot3, {"y": "21.55", "x": "-38.15", "yaw": "0.33"}
+711.57, [INFO], turtlebot3, {"y": "21.55", "x": "-38.15", "yaw": "0.33"}
+711.58, [INFO], turtlebot4, {"y": "17.89", "x": "-13.41", "yaw": "-0.91"}
+711.58, [INFO], turtlebot4, {"y": "17.89", "x": "-13.41", "yaw": "-0.91"}
+711.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+711.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+711.62, [INFO], turtlebot6, {"y": "17.65", "x": "-27.17", "yaw": "-1.54"}
+711.62, [INFO], turtlebot6, {"y": "17.65", "x": "-27.17", "yaw": "-1.54"}
+711.62, [INFO], turtlebot5, {"battery-level": "43.64%"}
+711.62, [INFO], turtlebot5, {"battery-level": "43.64%"}
+723.40, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "wait_message", "skill-life-cycle": "RUNNING", "label": "wait_nurse_to_complete_deposit"}
+726.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+726.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+726.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+726.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+726.57, [INFO], turtlebot3, {"y": "21.56", "x": "-38.15", "yaw": "0.34"}
+726.57, [INFO], turtlebot3, {"y": "21.56", "x": "-38.15", "yaw": "0.34"}
+726.58, [INFO], turtlebot4, {"y": "17.88", "x": "-13.41", "yaw": "-0.89"}
+726.58, [INFO], turtlebot4, {"y": "17.88", "x": "-13.41", "yaw": "-0.89"}
+726.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+726.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+726.62, [INFO], turtlebot5, {"battery-level": "43.04%"}
+726.62, [INFO], turtlebot5, {"battery-level": "43.04%"}
+726.62, [INFO], turtlebot6, {"y": "17.63", "x": "-27.16", "yaw": "-1.54"}
+726.62, [INFO], turtlebot6, {"y": "17.63", "x": "-27.16", "yaw": "-1.54"}
+741.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+741.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+741.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+741.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+741.57, [INFO], turtlebot3, {"y": "21.56", "x": "-38.15", "yaw": "0.34"}
+741.57, [INFO], turtlebot3, {"y": "21.56", "x": "-38.15", "yaw": "0.34"}
+741.58, [INFO], turtlebot4, {"y": "17.88", "x": "-13.40", "yaw": "-0.88"}
+741.58, [INFO], turtlebot4, {"y": "17.88", "x": "-13.40", "yaw": "-0.88"}
+741.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+741.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+741.62, [INFO], turtlebot6, {"y": "17.62", "x": "-27.16", "yaw": "-1.54"}
+741.62, [INFO], turtlebot6, {"y": "17.62", "x": "-27.16", "yaw": "-1.54"}
+741.63, [INFO], turtlebot5, {"battery-level": "42.44%"}
+741.63, [INFO], turtlebot5, {"battery-level": "42.44%"}
+756.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+756.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+756.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+756.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+756.57, [INFO], turtlebot3, {"y": "21.56", "x": "-38.15", "yaw": "0.35"}
+756.57, [INFO], turtlebot3, {"y": "21.56", "x": "-38.15", "yaw": "0.35"}
+756.58, [INFO], turtlebot4, {"y": "17.88", "x": "-13.40", "yaw": "-0.86"}
+756.58, [INFO], turtlebot4, {"y": "17.88", "x": "-13.40", "yaw": "-0.86"}
+756.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+756.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.59", "yaw": "-1.52"}
+756.62, [INFO], turtlebot6, {"y": "17.60", "x": "-27.16", "yaw": "-1.54"}
+756.62, [INFO], turtlebot6, {"y": "17.60", "x": "-27.16", "yaw": "-1.54"}
+756.62, [INFO], turtlebot5, {"battery-level": "41.84%"}
+756.63, [INFO], turtlebot5, {"battery-level": "41.84%"}
+768.28, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "wait_message", "skill-life-cycle": "RUNNING", "label": "wait_nurse_to_complete_deposit"}
+771.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+771.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+771.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+771.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+771.57, [INFO], turtlebot3, {"y": "21.56", "x": "-38.15", "yaw": "0.35"}
+771.57, [INFO], turtlebot3, {"y": "21.56", "x": "-38.15", "yaw": "0.35"}
+771.58, [INFO], turtlebot4, {"y": "17.87", "x": "-13.40", "yaw": "-0.84"}
+771.58, [INFO], turtlebot4, {"y": "17.87", "x": "-13.40", "yaw": "-0.84"}
+771.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+771.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+771.62, [INFO], turtlebot6, {"y": "17.58", "x": "-27.16", "yaw": "-1.54"}
+771.62, [INFO], turtlebot6, {"y": "17.58", "x": "-27.16", "yaw": "-1.54"}
+771.62, [INFO], turtlebot5, {"battery-level": "41.24%"}
+771.62, [INFO], turtlebot5, {"battery-level": "41.24%"}
+786.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+786.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+786.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+786.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+786.57, [INFO], turtlebot3, {"y": "21.56", "x": "-38.15", "yaw": "0.34"}
+786.57, [INFO], turtlebot3, {"y": "21.56", "x": "-38.15", "yaw": "0.34"}
+786.58, [INFO], turtlebot4, {"y": "17.87", "x": "-13.39", "yaw": "-0.83"}
+786.58, [INFO], turtlebot4, {"y": "17.87", "x": "-13.39", "yaw": "-0.83"}
+786.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+786.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+786.62, [INFO], turtlebot5, {"battery-level": "40.64%"}
+786.62, [INFO], turtlebot5, {"battery-level": "40.64%"}
+786.62, [INFO], turtlebot6, {"y": "17.57", "x": "-27.15", "yaw": "-1.54"}
+786.62, [INFO], turtlebot6, {"y": "17.57", "x": "-27.15", "yaw": "-1.54"}
+801.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+801.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+801.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+801.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+801.57, [INFO], turtlebot3, {"y": "21.56", "x": "-38.15", "yaw": "0.34"}
+801.57, [INFO], turtlebot3, {"y": "21.56", "x": "-38.15", "yaw": "0.34"}
+801.58, [INFO], turtlebot4, {"y": "17.87", "x": "-13.39", "yaw": "-0.83"}
+801.58, [INFO], turtlebot4, {"y": "17.87", "x": "-13.39", "yaw": "-0.83"}
+801.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+801.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+801.62, [INFO], turtlebot5, {"battery-level": "40.04%"}
+801.62, [INFO], turtlebot5, {"battery-level": "40.04%"}
+801.62, [INFO], turtlebot6, {"y": "17.55", "x": "-27.15", "yaw": "-1.54"}
+801.62, [INFO], turtlebot6, {"y": "17.55", "x": "-27.15", "yaw": "-1.54"}
+811.47, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "wait_message", "skill-life-cycle": "RUNNING", "label": "wait_nurse_to_complete_deposit"}
+816.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+816.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+816.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+816.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+816.57, [INFO], turtlebot3, {"y": "21.57", "x": "-38.15", "yaw": "0.34"}
+816.57, [INFO], turtlebot3, {"y": "21.57", "x": "-38.15", "yaw": "0.34"}
+816.58, [INFO], turtlebot4, {"y": "17.87", "x": "-13.39", "yaw": "-0.82"}
+816.58, [INFO], turtlebot4, {"y": "17.87", "x": "-13.39", "yaw": "-0.82"}
+816.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+816.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+816.62, [INFO], turtlebot5, {"battery-level": "39.44%"}
+816.62, [INFO], turtlebot5, {"battery-level": "39.44%"}
+816.62, [INFO], turtlebot6, {"y": "17.54", "x": "-27.15", "yaw": "-1.54"}
+816.63, [INFO], turtlebot6, {"y": "17.54", "x": "-27.15", "yaw": "-1.54"}
+831.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+831.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+831.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+831.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+831.57, [INFO], turtlebot3, {"y": "21.57", "x": "-38.15", "yaw": "0.34"}
+831.57, [INFO], turtlebot3, {"y": "21.57", "x": "-38.15", "yaw": "0.34"}
+831.58, [INFO], turtlebot4, {"y": "17.87", "x": "-13.38", "yaw": "-0.80"}
+831.58, [INFO], turtlebot4, {"y": "17.87", "x": "-13.38", "yaw": "-0.80"}
+831.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+831.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+831.62, [INFO], turtlebot5, {"battery-level": "38.84%"}
+831.62, [INFO], turtlebot5, {"battery-level": "38.84%"}
+831.62, [INFO], turtlebot6, {"y": "17.52", "x": "-27.15", "yaw": "-1.54"}
+831.62, [INFO], turtlebot6, {"y": "17.52", "x": "-27.15", "yaw": "-1.54"}
+846.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+846.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+846.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+846.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+846.57, [INFO], turtlebot3, {"y": "21.57", "x": "-38.15", "yaw": "0.34"}
+846.57, [INFO], turtlebot3, {"y": "21.57", "x": "-38.15", "yaw": "0.34"}
+846.58, [INFO], turtlebot4, {"y": "17.86", "x": "-13.38", "yaw": "-0.79"}
+846.58, [INFO], turtlebot4, {"y": "17.86", "x": "-13.38", "yaw": "-0.79"}
+846.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+846.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+846.62, [INFO], turtlebot6, {"y": "17.50", "x": "-27.15", "yaw": "-1.54"}
+846.62, [INFO], turtlebot6, {"y": "17.50", "x": "-27.15", "yaw": "-1.54"}
+846.62, [INFO], turtlebot5, {"battery-level": "38.24%"}
+846.62, [INFO], turtlebot5, {"battery-level": "38.24%"}
+854.77, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "wait_message", "skill-life-cycle": "RUNNING", "label": "wait_nurse_to_complete_deposit"}
+861.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+861.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+861.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+861.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+861.57, [INFO], turtlebot3, {"y": "21.57", "x": "-38.15", "yaw": "0.34"}
+861.57, [INFO], turtlebot3, {"y": "21.57", "x": "-38.15", "yaw": "0.34"}
+861.58, [INFO], turtlebot4, {"y": "17.86", "x": "-13.38", "yaw": "-0.78"}
+861.58, [INFO], turtlebot4, {"y": "17.86", "x": "-13.38", "yaw": "-0.78"}
+861.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+861.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+861.62, [INFO], turtlebot6, {"y": "17.49", "x": "-27.14", "yaw": "-1.55"}
+861.62, [INFO], turtlebot6, {"y": "17.49", "x": "-27.14", "yaw": "-1.55"}
+861.62, [INFO], turtlebot5, {"battery-level": "37.64%"}
+861.62, [INFO], turtlebot5, {"battery-level": "37.64%"}
+876.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+876.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+876.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+876.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+876.55, [INFO], turtlebot3, {"y": "21.57", "x": "-38.15", "yaw": "0.34"}
+876.57, [INFO], turtlebot3, {"y": "21.57", "x": "-38.15", "yaw": "0.34"}
+876.58, [INFO], turtlebot4, {"y": "17.86", "x": "-13.38", "yaw": "-0.76"}
+876.58, [INFO], turtlebot4, {"y": "17.86", "x": "-13.38", "yaw": "-0.76"}
+876.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+876.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+876.62, [INFO], turtlebot6, {"y": "17.47", "x": "-27.14", "yaw": "-1.55"}
+876.62, [INFO], turtlebot6, {"y": "17.47", "x": "-27.14", "yaw": "-1.55"}
+876.62, [INFO], turtlebot5, {"battery-level": "37.04%"}
+876.63, [INFO], turtlebot5, {"battery-level": "37.04%"}
+891.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+891.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+891.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+891.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+891.57, [INFO], turtlebot3, {"y": "21.57", "x": "-38.15", "yaw": "0.34"}
+891.57, [INFO], turtlebot3, {"y": "21.57", "x": "-38.15", "yaw": "0.34"}
+891.58, [INFO], turtlebot4, {"y": "17.86", "x": "-13.37", "yaw": "-0.75"}
+891.58, [INFO], turtlebot4, {"y": "17.86", "x": "-13.37", "yaw": "-0.75"}
+891.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+891.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+891.62, [INFO], turtlebot6, {"y": "17.45", "x": "-27.14", "yaw": "-1.55"}
+891.62, [INFO], turtlebot5, {"battery-level": "36.44%"}
+891.62, [INFO], turtlebot6, {"y": "17.45", "x": "-27.14", "yaw": "-1.55"}
+891.62, [INFO], turtlebot5, {"battery-level": "36.44%"}
+898.02, [DEBUG], turtlebot5, {"param_list": ["nurse"], "skill": "wait_message", "skill-life-cycle": "RUNNING", "label": "wait_nurse_to_complete_deposit"}
+906.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+906.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+906.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+906.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+906.57, [INFO], turtlebot3, {"y": "21.57", "x": "-38.15", "yaw": "0.34"}
+906.57, [INFO], turtlebot3, {"y": "21.57", "x": "-38.15", "yaw": "0.34"}
+906.58, [INFO], turtlebot4, {"y": "17.85", "x": "-13.37", "yaw": "-0.73"}
+906.58, [INFO], turtlebot4, {"y": "17.85", "x": "-13.37", "yaw": "-0.73"}
+906.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+906.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+906.62, [INFO], turtlebot6, {"y": "17.44", "x": "-27.14", "yaw": "-1.55"}
+906.62, [INFO], turtlebot6, {"y": "17.44", "x": "-27.14", "yaw": "-1.55"}
+906.62, [INFO], turtlebot5, {"battery-level": "35.84%"}
+906.62, [INFO], turtlebot5, {"battery-level": "35.84%"}
+921.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+921.52, [INFO], turtlebot1, {"y": "33.84", "x": "-39.49", "yaw": "0.46"}
+921.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+921.53, [INFO], turtlebot2, {"y": "18.00", "x": "-21.03", "yaw": "-1.54"}
+921.57, [INFO], turtlebot3, {"y": "21.58", "x": "-38.15", "yaw": "0.34"}
+921.57, [INFO], turtlebot3, {"y": "21.58", "x": "-38.15", "yaw": "0.34"}
+921.58, [INFO], turtlebot4, {"y": "17.85", "x": "-13.37", "yaw": "-0.71"}
+921.58, [INFO], turtlebot4, {"y": "17.85", "x": "-13.37", "yaw": "-0.71"}
+921.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+921.60, [INFO], turtlebot5, {"y": "17.61", "x": "-28.60", "yaw": "-1.52"}
+921.62, [INFO], turtlebot5, {"battery-level": "35.24%"}
+921.62, [INFO], turtlebot5, {"battery-level": "35.24%"}
+921.62, [INFO], turtlebot6, {"y": "17.42", "x": "-27.14", "yaw": "-1.55"}
+921.62, [INFO], turtlebot6, {"y": "17.42", "x": "-27.14", "yaw": "-1.55"}
+930.58, [DEBUG], None, end!
