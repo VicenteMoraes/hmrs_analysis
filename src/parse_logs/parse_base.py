@@ -262,6 +262,7 @@ def parse_line_and_call_handle(line, parse_handle_pairs):
         except Exception as e:
             print(f'failure on parsing the line "{line}"')
             print(e)
+    return content.get('time', None)
 
 class Extractor():
     def __init__(self):
@@ -270,15 +271,17 @@ class Extractor():
     def init_trial(self, exec_code, exec_group, scenario_id, trial_run_code) -> List[Tuple]:
         pass
 
-    def end_trial(self):
+    def end_trial(self, end_time):
         pass
 
     def result(self):
         pass
 
 def parse_trial_run_logs(iter_lines, handle_pairs):
+    last_time = None
     for line in iter_lines:
-        parse_line_and_call_handle(line, handle_pairs)
+        last_time = parse_line_and_call_handle(line, handle_pairs) or last_time
+    return last_time
 
 class ExperimentParser():
     def __init__(self, *extractors):
@@ -297,9 +300,9 @@ class ExperimentParser():
                 # init trial parse
                 handle_tuples = [ extractor.init_trial(exec_code, exec_group, scenario_id, trial_run_code) for extractor in self.extractors]
                 # parse each line
-                parse_trial_run_logs(iter_lines, flatten(handle_tuples))
+                last_time = parse_trial_run_logs(iter_lines, flatten(handle_tuples))
                 # end the trials
-                [ extractor.end_trial() for extractor in self.extractors]
+                [ extractor.end_trial(last_time) for extractor in self.extractors]
                 
                 yield reduce(merge, ([{e.name: e.result()} for e in self.extractors ]), {}), \
                       (exec_group, int(scenario_id), trial_run_code)

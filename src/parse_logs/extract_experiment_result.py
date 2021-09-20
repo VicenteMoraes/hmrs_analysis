@@ -31,8 +31,10 @@ class TrialRun():
         self.end_state = None
         self.last_battery_levels = None
         self.has_failure = False
+        self.result = None
         # metadata
         self.total_time_wall_clock = None
+
 
     def to_dict(self):
         end_battery_level = None
@@ -53,6 +55,7 @@ class TrialRun():
             'total_time_wall_clock': self.total_time_wall_clock,
             'last_battery_levels': self.last_battery_levels,
             'has_failure': self.has_failure,
+            'result': self.result,
             #'factors': self.factors,
         }
         return _dic ## flat nested dicts, such as factors

@@ -26,6 +26,10 @@ class TaskResult:
         self.end_time = None
         self.end_state: TaskEndState = None
     
+    @property
+    def expent_time(self):
+        return self.end_time - self.start_time if self.end_time and self.start_time else None
+
     def to_dict(self):
         _dic = {
             'exec_code': self.exec_code,
@@ -83,7 +87,7 @@ def init_task_state_interpreter(exec_code, exec_group, scenario_id, trial_run_co
                 return
             # else end the last task
             print(f'{robot} started {skill} without logging end of {running_tasks[robot].skill}')
-            end_task(time, entity=robot, parameters={ 'skill-life-cycle':'UNKNOWN' })
+            end_task(time, entity=robot, parameters={ 'skill-life-cycle': 'UNKNOWN'})
             
         task = TaskResult(
             exec_code=exec_code, code=trial_run_code, scenario_id=scenario_id, exec_group=exec_group,
@@ -107,7 +111,12 @@ def init_task_state_interpreter(exec_code, exec_group, scenario_id, trial_run_co
         curr_task.end_state = status
         running_tasks[robot] = None
 
-    def end_trial(tasks_result_to_extend):
+    def end_trial(tasks_result_to_extend, end_time=None):
+        for robot, task_result in running_tasks.items():
+            if not task_result:
+                continue
+            # FIX for mission that is finallysed 
+            end_task(end_time, entity=robot, parameters={ 'skill-life-cycle': 'UNKNOWN', 'label':task_result.label })
         # TODO handle not detected end of tasks
         tasks_result_to_extend.extend(tasks_results)
 
@@ -142,9 +151,11 @@ class TaskStateExtractor(Extractor):
                 (parse_task_ended, self.handle_task_end, True)]
                 #(parse_mission_end, self.handle_task_on_mission_end)]
 
-    def end_trial(self):
-        self.ctx_end_trial(self.tasks_results)
+    def end_trial(self, end_time):
+        self.ctx_end_trial(self.tasks_results, end_time)
         self.handle_task_start, self.handle_task_end, self.ctx_end_trial = None, None, None
+
+    
 
     def result(self):
         filtered_results = []
